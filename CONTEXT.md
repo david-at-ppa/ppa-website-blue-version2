@@ -32,10 +32,10 @@ Built as a custom step in Next.js — income answer controls which GHL calendar 
 A sales team member who conducts discovery/sales calls with qualified leads. Current closers: Joseph Alexander, Lance Armour, Ahmed R. Joseph, Lance, and Ahmed handle $1M–$2M leads; Lance and Ahmed handle $2M+ leads.
 
 ### Authority Site
-The website's architecture: a marketing site with a dominant primary CTA ("Book a Call") plus a blog/articles section for SEO-driven traffic. All pages funnel toward the Booking action. The blog exists to attract organic traffic, not to compete with the primary CTA.
+The website's architecture: a marketing site with a dominant primary CTA ("Book a Call"). All pages funnel toward the Booking action. A blog/articles section for SEO is planned for a future phase but is not in the initial build.
 
 ### Blog / Articles
-A content section on the site publishing tax strategy and advisory articles. Purpose: SEO — to surface the site in organic search for the target audience. Secondary purpose: build authority and trust with leads who are researching before booking.
+Deferred to a future phase. Not in the initial build. Purpose when added: SEO-driven organic traffic targeting the $1M+ audience, and building authority/trust with leads who research before booking.
 
 ### Logo
 SVG mark of two opposing arrows (one dark/cream, one green) with "Prime Path / ADVISORY" wordmark. Defined inline in the mockup (`claude-design-export/index.html`). Used as the starting logo — can be swapped for a commissioned logo later without changing the codebase.
@@ -51,8 +51,8 @@ All three use placeholder script snippets during the build. Real IDs/snippets ar
 ### Video Hosting
 Videos are hosted on Vimeo and embedded on the site via Vimeo embed links. No video files are stored in the codebase. Placeholder embeds used during build — real Vimeo links swapped in before launch. Videos appear on: Home (founder hero video), About (why choose PPA), Services (service explanations), and /booking-confirmed (what to expect / how to prepare for the call).
 
-### CMS (Content Management System)
-The tool used by non-developer team members to write and publish blog/article content. Chosen solution: **Sanity**. Accessed via a web-based Studio UI (e.g. `yourdomain.com/studio`). No code required to publish posts. Integrated with the Next.js frontend.
+### Blog / CMS
+Deferred. No blog and no CMS in the initial build. The site launches as a pure marketing/booking site. Blog can be added in a future phase if SEO content becomes a priority.
 
 ### GoHighLevel (GHL)
 The existing CRM and calendar platform. Retained as the booking backend. The GHL calendar widget is embedded in the new website. GHL handles scheduling, reminders, and the sales pipeline downstream of booking.
