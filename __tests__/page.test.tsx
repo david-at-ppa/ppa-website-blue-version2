@@ -1,21 +1,19 @@
 import { render, screen } from '@testing-library/react'
-import Home from '@/app/page'
+import Home from '@/app/(main)/page'
 
-describe('Root route', () => {
+describe('Home page', () => {
   it('renders without error', () => {
     render(<Home />)
     expect(document.body).toBeTruthy()
   })
 
-  it('renders the PPA logo mark and wordmark', () => {
+  it('renders the hero heading', () => {
     render(<Home />)
-    expect(screen.getByRole('img', { name: /prime path advisory logo/i })).toBeInTheDocument()
-    expect(screen.getByText('Prime Path')).toBeInTheDocument()
-    expect(screen.getByText('ADVISORY')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /keep more of what you earn/i })).toBeInTheDocument()
   })
 
-  it('renders a shadcn/ui Button', () => {
+  it('renders a Book a Call CTA', () => {
     render(<Home />)
-    expect(screen.getByRole('button', { name: /book a call/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /book a call/i })).toBeInTheDocument()
   })
 })

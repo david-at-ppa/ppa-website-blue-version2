@@ -1,0 +1,114 @@
+'use client'
+
+import { useState } from 'react'
+import Link from 'next/link'
+import { Dialog } from '@base-ui/react/dialog'
+import { Menu, X } from 'lucide-react'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+const NAV_LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/reviews', label: 'Reviews' },
+]
+
+function Logo() {
+  return (
+    <Link
+      href="/"
+      aria-label="Prime Path Advisory home"
+      className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+    >
+      <svg
+        className="h-6 w-auto"
+        viewBox="0 0 64 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M2 12 L34 12" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" />
+        <path d="M26 5 L34 12 L26 19" stroke="currentColor" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
+        <path d="M62 12 L30 12" stroke="#0d7c54" strokeWidth="2.4" strokeLinecap="square" />
+        <path d="M38 5 L30 12 L38 19" stroke="#0d7c54" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
+      </svg>
+      <div className="flex flex-col leading-none">
+        <span className="font-semibold tracking-tight">Prime Path</span>
+        <span className="text-xs tracking-widest uppercase font-mono">ADVISORY</span>
+      </div>
+    </Link>
+  )
+}
+
+export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  return (
+    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <Logo />
+
+        {/* Desktop nav */}
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {label}
+            </Link>
+          ))}
+          <Link href="/book" className={cn(buttonVariants({ size: 'sm' }))}>
+            Book a Call
+          </Link>
+        </nav>
+
+        {/* Mobile nav — Base UI Dialog as slide-in drawer */}
+        <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
+          <Dialog.Trigger
+            aria-label="Open menu"
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Menu className="size-5" aria-hidden="true" />
+          </Dialog.Trigger>
+
+          <Dialog.Portal>
+            <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/60 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 transition-opacity duration-200" />
+            <Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex h-full w-3/4 max-w-sm flex-col bg-background shadow-xl data-[ending-style]:translate-x-full data-[starting-style]:translate-x-full transition-transform duration-200 ease-in-out">
+              <div className="flex items-center justify-between border-b border-border px-6 py-4">
+                <Logo />
+                <Dialog.Close
+                  aria-label="Close menu"
+                  className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <X className="size-5" aria-hidden="true" />
+                </Dialog.Close>
+              </div>
+
+              <nav aria-label="Mobile navigation" className="flex flex-col gap-1 p-6">
+                {NAV_LINKS.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setMobileOpen(false)}
+                    className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+                <Link
+                  href="/book"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-4 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/80 transition-colors"
+                >
+                  Book a Call
+                </Link>
+              </nav>
+            </Dialog.Popup>
+          </Dialog.Portal>
+        </Dialog.Root>
+      </div>
+    </header>
+  )
+}
