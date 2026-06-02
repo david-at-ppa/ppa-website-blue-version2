@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter_Tight, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google'
+import { TrackingScripts } from '@/components/tracking-scripts'
 import './globals.css'
 
 const interTight = Inter_Tight({
@@ -33,7 +34,10 @@ export default function RootLayout({
       lang="en"
       className={`${interTight.variable} ${cormorantGaramond.variable} ${jetbrainsMono.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TrackingScripts />
+        {children}
+      </body>
     </html>
   )
 }
