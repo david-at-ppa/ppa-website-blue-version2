@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Path Advisory — Proactive Tax Strategy for High Earners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0a1929;
+    --ink-2:      #102a43;
+    --ink-3:      #1a3a5c;
+    --ink-4:      #243b5e;
+    --bone:       #ffffff;
+    --bone-2:     #f6f8fb;
+    --bone-3:     #eef2f7;
+    --cream:      #e8eef5;
+    --cream-dim:  #a6b5c7;
+    --charcoal:   #0a1929;
+    --slate:      #2a3f5a;
+    --muted-dk:   #6b7d92;
+    --muted-lt:   #5a6c7d;
+    --gold:       #c9a961;
+    --gold-soft:  #e0c98a;
+    --teal:       #2a8294;
+    --teal-soft:  #4ab0c2;
+    --teal-bright:#11a3b8;
+    --green:      #10b981;
+    --rule-dk:    rgba(232, 238, 245, 0.12);
+    --rule-lt:    rgba(10, 25, 41, 0.08);
+    --rule-mid:   rgba(10, 25, 41, 0.16);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  /* ============= PRINT STYLES ============= */
+  @page { size: Letter; margin: 0.5in; }
+  @media print {
+    html, body {
+      background: #ffffff !important;
+      color: #0a1929 !important;
+      font-size: 10.5pt !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+    /* Hide chrome that doesn't belong in PDF */
+    .topbar, nav.main { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    * { animation: none !important; transition: none !important; }
+    a { text-decoration: none; color: inherit; }
+    /* Section padding shrinks for print */
+    section { padding: 1.6rem 0 !important; }
+    .container { max-width: 100% !important; padding: 0 0.25in !important; }
+
+    /* Page breaks: each major section starts a new page */
+    .hero, .approach, .metrics, .process, .founder, .team, .services, .case, .faq, .cta-final {
+      break-before: page;
+      page-break-before: always;
+    }
+    .hero { break-before: avoid; page-break-before: avoid; }
+    /* Avoid splitting key blocks */
+    .approach-card, .step, .person, .service, .metric, .case-stats, details,
+    .founder-photo, .data-panel, .video-panel, .case-quote {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    /* Dark-section backgrounds: keep but force color print */
+    .hero, .metrics, .founder, .case, .cta-final, footer {
+      background: #0a1929 !important;
+      color: #e8eef5 !important;
+    }
+    .hero h1, .founder h2, .case-quote, .cta-final h2,
+    .metric-num, .panel-big, .panel-stat-value,
+    .case-byline .info .name, .case-stat-row .v {
+      color: #e8eef5 !important;
+    }
+    .hero-sub, .panel-sub, .panel-stat-label, .metric-label,
+    .founder p, .case-byline .info .title, .case-stats-head .label,
+    .cta-final p, .foot-tag, .case-stat-row .k {
+      color: #a6b5c7 !important;
+    }
+    /* Light sections */
+    .approach, .process, .team, .services, .faq {
+      background: #ffffff !important;
+      color: #0a1929 !important;
+    }
+    .approach-card, .step, .person, .service {
+      background: #f6f8fb !important;
+      border: 1px solid rgba(10,25,41,0.12) !important;
+      box-shadow: none !important;
+    }
+    /* Hero/grid: stack columns vertically for print */
+    .hero-grid, .founder-grid, .case-grid, .faq-grid, .section-head, .foot-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+    .hero h1 { font-size: 28pt !important; }
+    h2 { font-size: 20pt !important; }
+    h3 { font-size: 13pt !important; }
+    .approach-body, .services-grid, .team-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1rem !important;
+    }
+    .process-list, .metrics-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1rem !important;
+    }
+    .metric { border: 1px solid rgba(232,238,245,0.12) !important; padding: 1rem !important; }
+    /* Video placeholder: don't show interactive cursor */
+    .video-frame { cursor: default !important; }
+    .video-frame:hover { transform: none !important; border-color: rgba(232,238,245,0.12) !important; }
+    /* Open all FAQs */
+    details { break-inside: avoid; }
+    details > summary { list-style: none; }
+    details > summary::after { display: none !important; }
+    /* Footer */
+    footer { padding: 1.5rem 0 !important; break-before: page; page-break-before: always; }
+    .foot-bottom { padding-top: 1rem !important; }
+  }
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bone);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    letter-spacing: -0.005em;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+  @media (max-width: 720px) { .container { padding: 0 1.25rem; } }
+
+  h1, h2, h3, h4 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+  h1 { font-weight: 600; letter-spacing: -0.035em; }
+  .mono { font-family: 'Geist Mono', monospace; font-feature-settings: "tnum"; }
+
+  .eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .eyebrow .dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .eyebrow.on-dark { color: var(--teal-soft); }
+  .eyebrow.on-dark .dot { background: var(--teal-soft); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.4rem;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+  .btn-ghost-dark {
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(255,255,255,0.18);
+  }
+  .btn-ghost-dark:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
+  .btn-ghost-light {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--rule-mid);
+  }
+  .btn-ghost-light:hover { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+  .btn-arrow::after { content: '→'; transition: transform 0.2s; }
+  .btn-arrow:hover::after { transform: translateX(3px); }
+  .btn-lg { padding: 1rem 1.6rem; font-size: 0.95rem; }
+
+  .topbar {
+    background: var(--ink);
+    color: var(--cream-dim);
+    font-size: 0.78rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule-dk);
+  }
+  .topbar .container { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .topbar a { color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+  .topbar a:hover { color: var(--gold-soft); }
+  .topbar .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.15rem 0.6rem;
+    background: rgba(74, 176, 194, 0.12);
+    border: 1px solid rgba(74, 176, 194, 0.25);
+    border-radius: 99px;
+    font-size: 0.72rem;
+    color: var(--teal-soft);
+    letter-spacing: 0;
+  }
+  .topbar .pill .live {
+    width: 6px; height: 6px;
+    background: var(--teal-bright);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(17, 163, 184, 0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(17, 163, 184, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(17, 163, 184, 0); }
+  }
+  @media (max-width: 720px) { .topbar .left { display: none; } }
+
+  nav.main {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10, 25, 41, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--rule-dk);
+    padding: 1rem 0;
+  }
+  nav.main .container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .brand {
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    color: var(--cream);
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .brand-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 700;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: 'Geist Mono', monospace;
+  }
+  nav ul { display: flex; gap: 2rem; list-style: none; }
+  nav ul a {
+    color: var(--cream-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--cream); }
+  nav.main ul a.active { color: var(--cream); }
+  nav.main ul a.active::after { content: ''; display: block; width: 100%; height: 1px; background: var(--gold); margin-top: 4px; }
+  @media (max-width: 880px) { nav ul { display: none; } }
+
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 6rem 0 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(232, 238, 245, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+  }
+  @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    margin: 1.4rem 0 1.5rem;
+    color: var(--cream);
+  }
+  .hero h1 .accent { color: var(--gold); font-weight: 600; }
+  .hero-sub {
+    font-size: 1.08rem;
+    color: var(--cream-dim);
+    max-width: 38rem;
+    line-height: 1.55;
+    margin-bottom: 2.25rem;
+  }
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+
+  .data-panel {
+    background: var(--ink-2);
+    border: 1px solid var(--rule-dk);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .video-panel {
+    background: var(--ink-2);
+    border: 1px solid var(--rule-dk);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .video-frame {
+    appearance: none;
+    border: 1px solid var(--rule-dk);
+    background: linear-gradient(135deg, #14324f 0%, #0a1929 100%);
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 16/10;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0;
+    color: var(--cream);
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .video-frame:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .video-stripes {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse at 30% 30%, rgba(74, 176, 194, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(201, 169, 97, 0.12) 0%, transparent 55%),
+      repeating-linear-gradient(135deg, rgba(232,238,245,0.04) 0 1px, transparent 1px 14px);
+    pointer-events: none;
+  }
+  .video-meta-tl, .video-meta-br {
+    position: absolute;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+  }
+  .video-meta-tl { top: 1rem; left: 1rem; color: var(--gold); }
+  .video-meta-br { bottom: 1rem; right: 1rem; }
+  .video-caption {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--cream-dim);
+  }
+  .video-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 30px -10px rgba(201, 169, 97, 0.6);
+    transition: transform 0.25s;
+  }
+  .video-play svg { margin-left: 3px; }
+  .video-frame:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
+  .video-play-ring {
+    position: absolute; inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 169, 97, 0.45);
+    animation: pulse 2s infinite;
+  }
+  .video-foot {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule-dk);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .video-foot-row {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--rule-dk);
+    border-radius: 6px;
+    padding: 0.65rem 0.85rem;
+  }
+  .video-foot-label {
+    display: block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 0.25rem;
+  }
+  .video-foot-val {
+    color: var(--cream);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
+  .panel-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule-dk);
+    margin-bottom: 1.25rem;
+  }
+  .panel-title {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    font-weight: 500;
+  }
+  .panel-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal-soft);
+  }
+  .panel-tag .live {
+    width: 6px; height: 6px;
+    background: var(--teal-bright);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .panel-big {
+    font-family: 'Geist', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .panel-big .delta {
+    color: var(--green);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    font-family: 'Geist Mono', monospace;
+    letter-spacing: 0;
+  }
+  .panel-sub { color: var(--cream-dim); font-size: 0.86rem; margin-bottom: 1.5rem; }
+  .panel-chart { width: 100%; height: 110px; margin-bottom: 1.25rem; }
+  .panel-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule-dk);
+  }
+  .panel-stat {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--rule-dk);
+    border-radius: 6px;
+    padding: 0.75rem 0.85rem;
+  }
+  .panel-stat-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 0.3rem;
+  }
+  .panel-stat-value {
+    font-family: 'Geist', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+  }
+
+  .trust {
+    background: var(--ink);
+    color: var(--cream-dim);
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule-dk);
+  }
+  .trust-label {
+    text-align: center;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 2rem;
+  }
+  .trust-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem 2.5rem;
+    opacity: 0.55;
+  }
+  .trust-logos span {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+
+  .approach {
+    background: var(--bone);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-lt);
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: end;
+  }
+  @media (max-width: 880px) { .section-head { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; } }
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--charcoal);
+    max-width: 22ch;
+  }
+  .section-head h2.on-dark { color: var(--cream); }
+  .section-head .lede {
+    font-size: 1.05rem;
+    color: var(--muted-lt);
+    line-height: 1.6;
+    max-width: 36rem;
+  }
+  .section-head .lede.on-dark { color: var(--cream-dim); }
+  .approach h2 .accent { color: var(--teal); }
+
+  .approach-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 880px) { .approach-body { grid-template-columns: 1fr; } }
+  .approach-card {
+    background: var(--bone-2);
+    border: 1px solid var(--rule-lt);
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .approach-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--charcoal); }
+  .approach-card p { color: var(--muted-lt); font-size: 0.95rem; line-height: 1.6; }
+  .approach-card .icon-wrap {
+    width: 40px; height: 40px;
+    background: var(--ink);
+    border-radius: 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .metrics {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 5rem 0;
+    border-top: 1px solid var(--rule-dk);
+    border-bottom: 1px solid var(--rule-dk);
+  }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 880px) { .metrics-grid { grid-template-columns: 1fr 1fr; } }
+  .metric { padding: 0 2rem; border-right: 1px solid var(--rule-dk); }
+  .metric:last-child { border-right: none; }
+  .metric:first-child { padding-left: 0; }
+  @media (max-width: 880px) {
+    .metric { padding: 1.5rem 1.5rem; border-right: 1px solid var(--rule-dk); border-bottom: 1px solid var(--rule-dk); }
+    .metric:nth-child(2n) { border-right: none; }
+    .metric:nth-last-child(-n+2) { border-bottom: none; }
+    .metric:first-child { padding-left: 1.5rem; }
+  }
+  .metric-num {
+    font-family: 'Geist', sans-serif;
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 0.65rem;
+  }
+  .metric-num .unit { color: var(--gold); font-size: 0.75em; margin-left: 0.05em; }
+  .metric-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    font-weight: 500;
+  }
+
+  .process {
+    background: var(--bone);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-lt);
+  }
+  .process-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 980px) { .process-list { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .process-list { grid-template-columns: 1fr; } }
+  .step {
+    background: var(--bone-2);
+    border: 1px solid var(--rule-lt);
+    border-radius: 10px;
+    padding: 1.75rem;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .step:hover {
+    border-color: var(--teal);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -12px rgba(42, 130, 148, 0.25);
+  }
+  .step-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .step-tag .num {
+    color: var(--ink);
+    background: var(--bone);
+    border: 1px solid var(--rule-mid);
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.68rem;
+  }
+  .step h3 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--charcoal); }
+  .step p { color: var(--muted-lt); font-size: 0.92rem; line-height: 1.55; }
+
+  .founder {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-dk);
+  }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 880px) { .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .founder-photo {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--ink-3) 0%, var(--ink-2) 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--rule-dk);
+  }
+  .founder-photo::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 30%, rgba(74, 176, 194, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(201, 169, 97, 0.12) 0%, transparent 55%);
+  }
+  .founder-photo .photo-tag {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cream);
+    letter-spacing: 0.06em;
+  }
+  .founder-photo .photo-tag .role { color: var(--gold); }
+  .founder-photo .photo-tag .name { font-weight: 500; }
+  .founder-photo .placeholder-letter {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Geist Mono', monospace;
+    font-size: 5rem;
+    font-weight: 500;
+    color: rgba(232, 238, 245, 0.18);
+    letter-spacing: -0.05em;
+  }
+
+  .founder h2 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    color: var(--cream);
+    margin: 1rem 0 1.5rem;
+  }
+  .founder h2 .accent { color: var(--gold); }
+  .founder p {
+    color: var(--cream-dim);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+    max-width: 36rem;
+  }
+  .founder-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule-dk);
+  }
+  .founder-meta div .label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 0.25rem;
+  }
+  .founder-meta div .value { color: var(--cream); font-weight: 500; font-size: 0.95rem; }
+
+  .team {
+    background: var(--bone);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-lt);
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 880px) { .team-grid { grid-template-columns: 1fr; } }
+  .person {
+    background: var(--bone-2);
+    border: 1px solid var(--rule-lt);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.25s;
+  }
+  .person:hover {
+    border-color: var(--ink-3);
+    box-shadow: 0 14px 30px -16px rgba(10, 25, 41, 0.18);
+  }
+  .person-head {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .person-avatar {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ink-3), var(--ink));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    border: 1px solid var(--rule-mid);
+  }
+  .person-name h3 { font-size: 1.25rem; margin-bottom: 0.2rem; }
+  .person-name .role {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .person p {
+    color: var(--muted-lt);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.85rem;
+  }
+  .person .creds {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule-lt);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .person .creds span {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+    background: var(--bone);
+    border: 1px solid var(--rule-mid);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .services {
+    background: var(--bone-3);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-lt);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 880px) { .services-grid { grid-template-columns: 1fr; } }
+  .service {
+    background: var(--bone);
+    border: 1px solid var(--rule-lt);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.25s;
+    position: relative;
+    cursor: pointer;
+  }
+  .service:hover {
+    border-color: var(--ink);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -18px rgba(10, 25, 41, 0.2);
+  }
+  .service-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .service-num .arrow { color: var(--ink); transition: transform 0.2s; }
+  .service:hover .arrow { transform: translateX(4px); }
+  .service h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.85rem;
+    color: var(--charcoal);
+    max-width: 90%;
+  }
+  .service > p {
+    color: var(--muted-lt);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .service ul {
+    list-style: none;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule-lt);
+  }
+  .service li {
+    font-size: 0.88rem;
+    color: var(--slate);
+    padding: 0.35rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .service li::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .case {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-dk);
+  }
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 980px) { .case-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .case-quote {
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--cream);
+    margin: 1.25rem 0 2rem;
+    letter-spacing: -0.015em;
+  }
+  .case-quote .accent { color: var(--gold); font-weight: 500; }
+  .case-byline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule-dk);
+  }
+  .case-byline .avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ink-3), var(--ink-2));
+    border: 1px solid var(--rule-dk);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cream-dim);
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.9rem;
+  }
+  .case-byline .info { font-size: 0.88rem; }
+  .case-byline .info .name { color: var(--cream); font-weight: 500; margin-bottom: 0.1rem; }
+  .case-byline .info .title {
+    color: var(--cream-dim);
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .case-stats {
+    background: var(--ink-2);
+    border: 1px solid var(--rule-dk);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+  .case-stats-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule-dk);
+  }
+  .case-stats-head .label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+  .case-stats-head .industry {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--teal-soft);
+    letter-spacing: 0.06em;
+  }
+  .case-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed var(--rule-dk);
+  }
+  .case-stat-row:last-child { border-bottom: none; }
+  .case-stat-row .k { color: var(--cream-dim); font-size: 0.92rem; }
+  .case-stat-row .v {
+    color: var(--cream);
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .case-stat-row .v .pos { color: var(--green); margin-left: 0.4rem; font-size: 0.85rem; }
+
+  .faq {
+    background: var(--bone);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-lt);
+  }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+  @media (max-width: 880px) { .faq-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .faq-head h2 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    margin: 1rem 0 1rem;
+  }
+  .faq-head p {
+    color: var(--muted-lt);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 28rem;
+  }
+  .faq-list { border-top: 1px solid var(--rule-lt); }
+  details {
+    border-bottom: 1px solid var(--rule-lt);
+    padding: 1.5rem 0;
+  }
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    padding-right: 1rem;
+    transition: color 0.2s;
+    line-height: 1.4;
+  }
+  summary:hover { color: var(--teal); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--teal);
+    transition: transform 0.3s;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p {
+    margin-top: 1rem;
+    color: var(--muted-lt);
+    line-height: 1.65;
+    font-size: 0.95rem;
+    max-width: 42rem;
+  }
+
+  .cta-final {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule-dk);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 169, 97, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(74, 176, 194, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-final-inner {
+    position: relative;
+    text-align: center;
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+  .cta-final h2 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    margin: 1rem 0 1.25rem;
+    color: var(--cream);
+  }
+  .cta-final h2 .accent { color: var(--gold); }
+  .cta-final p {
+    color: var(--cream-dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+  .cta-fineprint {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2.25rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--muted-dk);
+    flex-wrap: wrap;
+  }
+  .cta-fineprint span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .cta-fineprint span::before { content: '✓'; color: var(--green); }
+
+  footer {
+    background: var(--ink);
+    color: var(--cream-dim);
+    padding: 4rem 0 2rem;
+    border-top: 1px solid var(--rule-dk);
+    font-size: 0.92rem;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 880px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  .foot-tag { color: var(--cream-dim); font-size: 0.92rem; line-height: 1.55; max-width: 22rem; margin-top: 1rem; }
+  footer h5 {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-soft);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 0.55rem; }
+  footer a { color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--cream); }
+  .foot-bottom {
+    border-top: 1px solid var(--rule-dk);
+    padding-top: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: var(--muted-dk);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal.delay-1 { transition-delay: 0.08s; }
+  .reveal.delay-2 { transition-delay: 0.16s; }
+  .reveal.delay-3 { transition-delay: 0.24s; }
+</style>
+<script>
+  // Open all FAQs for print
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('details').forEach(d => d.setAttribute('open', ''));
+  });
+  // Auto-print once fonts + layout settle
+  window.addEventListener('load', async () => {
+    try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) {}
+    setTimeout(() => window.print(), 600);
+  });
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="left">Los Angeles · Established 2024 · Tax &amp; wealth advisory</span>
+    <span><span class="pill"><span class="live"></span> Now accepting Q1 2026 engagements</span> &nbsp; <a href="tel:+13239550154">+1 (323) 955-0154</a></span>
+  </div>
+</div>
+
+<nav class="main">
+  <div class="container">
+    <a href="#" class="brand">
+      <span class="brand-mark">P</span>
+      <span>Prime Path Advisory</span>
+    </a>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a href="contact.html#book" class="btn btn-primary btn-arrow">Book a strategy call</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow on-dark reveal"><span class="dot"></span> Tax strategy · Accounting · Wealth advisory</span>
+        <h1 class="reveal delay-1">
+          The proactive tax firm built for <span class="accent">high earners.</span>
+        </h1>
+        <p class="hero-sub reveal delay-2">
+          Most CPAs file your return. Prime Path engineers a year-round tax strategy that legally retains $150K–$350K of your income — every year, indefinitely. Built for high-income earners earning $1M and above.
+        </p>
+        <div class="hero-actions reveal delay-3">
+          <a href="contact.html#book" class="btn btn-primary btn-lg btn-arrow">Book a free strategy call</a>
+          <a href="#process" class="btn btn-ghost-dark btn-lg">See how it works</a>
+        </div>
+      </div>
+
+      <div class="video-panel reveal delay-3">
+        <div class="panel-head">
+          <span class="panel-title">A word from the founder</span>
+          <span class="panel-tag"><span class="live"></span> 1:42</span>
+        </div>
+        <!--
+          DAVID'S WELCOME VIDEO PLACEHOLDER
+          Replace the <video src> below (or swap for an <iframe> from YouTube/Vimeo)
+          once David's welcome video is uploaded.
+          Suggested: 16:9, MP4, with a poster image set on the <video> tag.
+        -->
+        <button type="button" class="video-frame" id="welcome-video" aria-label="Play David's welcome video">
+          <div class="video-stripes" aria-hidden="true"></div>
+          <div class="video-meta-tl mono">PPA · WELCOME · 2026</div>
+          <div class="video-meta-br mono">DAVID TRAN — FOUNDER &amp; CEO</div>
+          <div class="video-play">
+            <span class="video-play-ring"></span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M8 5.5v13l11-6.5z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="video-caption mono">[ Welcome video placeholder · click to replace ]</div>
+        </button>
+        <div class="video-foot">
+          <div class="video-foot-row">
+            <span class="video-foot-label">Topic</span>
+            <span class="video-foot-val">Why we built Prime Path</span>
+          </div>
+          <div class="video-foot-row">
+            <span class="video-foot-label">Length</span>
+            <span class="video-foot-val mono">1m 42s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container">
+    <div class="trust-label">Engaged by directors and senior leadership at</div>
+    <div class="trust-logos">
+      <span>Goldman Sachs</span>
+      <span>Stripe</span>
+      <span>Meta</span>
+      <span>BlackRock</span>
+      <span>Google</span>
+      <span>NVIDIA</span>
+      <span>Apple</span>
+      <span>Uber</span>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span> Our approach</span>
+        <h2>If you earn $1M+, you're <span class="accent">overpaying.</span> We fix that.</h2>
+      </div>
+      <p class="lede reveal delay-1">
+        Most high-earning professionals have a great accountant and a terrible tax outcome. The reason is structural: compliance and strategy are different jobs, and your CPA was hired to do the first one. We do the second — proactively, year-round, with a team built specifically for high-income W-2 earners.
+      </p>
+    </div>
+
+    <div class="approach-body">
+      <div class="approach-card reveal">
+        <div class="icon-wrap">01</div>
+        <h3>Proactive, not reactive</h3>
+        <p>Strategy designed throughout the year — not summarized in April. By the time most clients file, the savings are already locked in.</p>
+      </div>
+      <div class="approach-card reveal delay-1">
+        <div class="icon-wrap">02</div>
+        <h3>Built for W-2 earners</h3>
+        <p>The myth that high-W-2 earners have no options is the most expensive belief in personal finance. Every strategy we deploy is legal, documented, and IRS-defensible.</p>
+      </div>
+      <div class="approach-card reveal delay-2">
+        <div class="icon-wrap">03</div>
+        <h3>One coordinated team</h3>
+        <p>Tax attorneys, CPAs, and wealth strategists working from the same plan. No fragmentation, no advisors blaming each other when something falls through.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric reveal">
+        <div class="metric-num mono">$150–350<span class="unit">K</span></div>
+        <div class="metric-label">Avg annual savings / client</div>
+      </div>
+      <div class="metric reveal delay-1">
+        <div class="metric-num mono">7,000<span class="unit">+</span></div>
+        <div class="metric-label">Active strategies deployed</div>
+      </div>
+      <div class="metric reveal delay-2">
+        <div class="metric-num mono">0.01<span class="unit">%</span></div>
+        <div class="metric-label">Client audit rate</div>
+      </div>
+      <div class="metric reveal delay-3">
+        <div class="metric-num mono">300<span class="unit">%</span></div>
+        <div class="metric-label">Average ROI on engagement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span> How it works</span>
+        <h2>Four steps. One outcome: <span style="color:var(--teal);">you stop overpaying.</span></h2>
+      </div>
+      <p class="lede reveal delay-1">
+        Every engagement follows the same disciplined sequence — diagnostic, design, implementation, optimization. Documented before deployed, monitored as your situation evolves.
+      </p>
+    </div>
+
+    <div class="process-list">
+      <div class="step reveal">
+        <div class="step-tag"><span class="num">01</span> Audit</div>
+        <h3>Diagnostic</h3>
+        <p>Complete review of your current position, returns, and entity structure. We quantify the savings on the table — in dollars — before you commit to anything.</p>
+      </div>
+      <div class="step reveal delay-1">
+        <div class="step-tag"><span class="num">02</span> Design</div>
+        <h3>Strategy</h3>
+        <p>Our advisory team designs a coordinated multi-year plan. Every strategy is selected for compatibility, audit defensibility, and compounding effect over time.</p>
+      </div>
+      <div class="step reveal delay-2">
+        <div class="step-tag"><span class="num">03</span> Implement</div>
+        <h3>Execution</h3>
+        <p>Entity formation, qualified plans, transactional structuring, election filings — handled end-to-end. Every step documented to a standard that protects you for a decade.</p>
+      </div>
+      <div class="step reveal delay-3">
+        <div class="step-tag"><span class="num">04</span> Optimize</div>
+        <h3>Ongoing</h3>
+        <p>Tax law evolves; so does your income. Quarterly check-ins, mid-year projections, and full annual re-strategy keep your plan compounding for as long as we're engaged.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-photo reveal">
+        <div class="placeholder-letter">DT</div>
+        <div class="photo-tag">
+          <span class="name">David Tran</span>
+          <span class="role">Founder &amp; CEO</span>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow on-dark reveal"><span class="dot"></span> Founder</span>
+        <h2 class="reveal delay-1">Why I built <span class="accent">Prime Path.</span></h2>
+        <p class="reveal delay-2">
+          I spent a decade as a senior software engineer at Uber watching colleagues — people earning $1M and well into seven figures — hand a third of their income to the IRS and never question whether it had to be that way.
+        </p>
+        <p class="reveal delay-2">
+          So I went deep on the tax code. Treated it like an engineering problem: predictable inputs, optimizable outputs. The strategies that came out of that work are now deployed across every Prime Path engagement — and they've kept hundreds of millions of dollars in the hands of the people who earned them.
+        </p>
+        <div class="founder-meta reveal delay-3">
+          <div>
+            <div class="label">Background</div>
+            <div class="value">Sr. Engineer, Uber</div>
+          </div>
+          <div>
+            <div class="label">Credentials</div>
+            <div class="value">EA · Tax Strategist</div>
+          </div>
+          <div>
+            <div class="label">Founded</div>
+            <div class="value">2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span> The team</span>
+        <h2>Senior advisors on <span style="color:var(--teal);">every account.</span></h2>
+      </div>
+      <p class="lede reveal delay-1">
+        High-income tax situations don't tolerate junior staff. Every active engagement is led by a senior advisor with the credentials and corporate-finance depth required for situations that span multi-entity structures, complex compensation, and private investment vehicles.
+      </p>
+    </div>
+
+    <div class="team-grid">
+      <div class="person reveal">
+        <div class="person-head">
+          <div class="person-avatar">D</div>
+          <div class="person-name">
+            <h3>Deen Cadi</h3>
+            <div class="role">Tax Strategy Lead</div>
+          </div>
+        </div>
+        <p>Works with our highest-tier clients on multi-entity structures and complex compensation. Evaluates every tax decision through the lens of long-term wealth architecture — no move made in isolation.</p>
+        <p>Brings a rare combination of corporate-finance discipline and tax-strategy depth to the engagements that matter most.</p>
+        <div class="creds">
+          <span>CPA</span>
+          <span>MSc · LSE</span>
+          <span>BBA · UMass</span>
+        </div>
+      </div>
+
+      <div class="person reveal delay-1">
+        <div class="person-head">
+          <div class="person-avatar">S</div>
+          <div class="person-name">
+            <h3>Smit Shah</h3>
+            <div class="role">CPA</div>
+          </div>
+        </div>
+        <p>Aligns accounting, tax strategy, and financial decision-making into one coordinated system. Smit's discipline turns strategy into precise, defensible execution — the layer where most firms quietly fail their clients.</p>
+        <p>Where others see compliance, Smit sees a continuous opportunity to reinforce cash flow and protect long-term outcomes.</p>
+        <div class="creds">
+          <span>CA</span>
+          <span>CPA</span>
+          <span>Accounting &amp; Compliance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span> What we do</span>
+        <h2>Three disciplines. <span style="color:var(--teal);">One coordinated team.</span></h2>
+      </div>
+      <p class="lede reveal delay-1">
+        We integrate proactive tax strategy, in-house accounting, and wealth architecture under a single roof — so the work that saves you money in April is the same work that's compounding into wealth a decade from now.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service reveal">
+        <div class="service-num">01 / Strategy <span class="arrow">→</span></div>
+        <h3>Proactive tax strategy</h3>
+        <p>Year-round planning, entity structuring, qualified plan design, and advanced strategy deployment for high-income W-2 professionals.</p>
+        <ul>
+          <li>Entity &amp; structure optimization</li>
+          <li>Qualified plan design</li>
+          <li>Multi-year strategy modeling</li>
+          <li>Audit-grade documentation</li>
+        </ul>
+      </div>
+      <div class="service reveal delay-1">
+        <div class="service-num">02 / Accounting <span class="arrow">→</span></div>
+        <h3>Accounting &amp; compliance</h3>
+        <p>Preparation, filing, and ongoing bookkeeping handled in-house — fully integrated with strategic planning, never disconnected from it.</p>
+        <ul>
+          <li>Personal &amp; entity returns</li>
+          <li>Bookkeeping &amp; financials</li>
+          <li>Quarterly tax projections</li>
+          <li>IRS correspondence &amp; defense</li>
+        </ul>
+      </div>
+      <div class="service reveal delay-2">
+        <div class="service-num">03 / Wealth <span class="arrow">→</span></div>
+        <h3>Wealth architecture</h3>
+        <p>Coordination across investment, real estate, business, and estate planning so that every dollar saved in tax compounds into long-term wealth.</p>
+        <ul>
+          <li>Investment coordination</li>
+          <li>Real estate strategy</li>
+          <li>Estate &amp; legacy planning</li>
+          <li>Cash-flow architecture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="case-grid">
+      <div>
+        <span class="eyebrow on-dark reveal"><span class="dot"></span> Client outcome</span>
+        <p class="case-quote reveal delay-1">
+          In year one, Prime Path identified <span class="accent">$214,000</span> in legal optimization my prior CPA had never raised in eight years of returns. By year three, the cumulative figure exceeded the cost of my home.
+        </p>
+        <div class="case-byline reveal delay-2">
+          <div class="avatar">L.A.</div>
+          <div class="info">
+            <div class="name">L. A.</div>
+            <div class="title">Sr. Director, Technology · SF Bay Area</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-stats reveal delay-2">
+        <div class="case-stats-head">
+          <span class="label">Engagement summary</span>
+          <span class="industry">TECH · W-2 · $1.2M income</span>
+        </div>
+        <div class="case-stat-row">
+          <span class="k">Year 1 tax saved</span>
+          <span class="v">$214,000</span>
+        </div>
+        <div class="case-stat-row">
+          <span class="k">Year 2 tax saved</span>
+          <span class="v">$298,500 <span class="pos">+39%</span></span>
+        </div>
+        <div class="case-stat-row">
+          <span class="k">Year 3 tax saved</span>
+          <span class="v">$361,200 <span class="pos">+21%</span></span>
+        </div>
+        <div class="case-stat-row">
+          <span class="k">Cumulative (3 yrs)</span>
+          <span class="v">$873,700</span>
+        </div>
+        <div class="case-stat-row">
+          <span class="k">ROI on engagement</span>
+          <span class="v">~21×</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-head reveal">
+        <span class="eyebrow"><span class="dot"></span> FAQ</span>
+        <h2>Common questions, answered.</h2>
+        <p>If yours isn't here, raise it on the strategy call — we'd rather talk through specifics than generalities.</p>
+      </div>
+      <div class="faq-list reveal delay-1">
+        <details>
+          <summary>Why do high-income W-2 earners overpay so consistently?</summary>
+          <p>Because no one is paid to find the strategies that would prevent it. CPAs are trained for compliance — accurate filing of what you've already done. They're not retained or compensated to redesign your position. Our entire engagement begins where theirs ends.</p>
+        </details>
+        <details>
+          <summary>How is your firm different from a CPA practice?</summary>
+          <p>A CPA prepares your return. We engineer the position your return reports. The two functions are complementary but distinct. Many clients keep their CPA for filing and engage us for strategy; others move both functions under our roof. Either model works.</p>
+        </details>
+        <details>
+          <summary>I'm a W-2 employee. Are these strategies actually available to me?</summary>
+          <p>Yes. The widespread belief that W-2 earners have no tax-saving optionality is one of the most expensive misconceptions in personal finance. The legal vehicles available — investment structures, secondary income architecture, qualified plans, real estate strategies — are precisely the same ones used by the wealthy. They simply aren't marketed to you.</p>
+        </details>
+        <details>
+          <summary>How much can I expect to save in the first year?</summary>
+          <p>Documented engagements typically yield $150,000–$350,000 in first-year savings, with the figure compounding as additional strategies are layered in years two and three. Your specific outcome depends on income composition and current optimization, both of which we quantify in the diagnostic phase before any retainer is signed.</p>
+        </details>
+        <details>
+          <summary>What happens under audit?</summary>
+          <p>Every strategy we implement is documented to withstand examination. Our active client audit rate is 0.01% — substantially below the IRS baseline. In the rare case of inquiry, we represent and defend the position at no additional cost. Documentation isn't an afterthought; it's the deliverable.</p>
+        </details>
+        <details>
+          <summary>How does the engagement begin?</summary>
+          <p>With a complimentary strategy call. We review your current position, surface the largest opportunities, and quantify the savings on the table. If we're a fit, we proceed to a formal diagnostic. If not, you leave with a clearer picture than you arrived with — and no obligation either way.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="cta">
+  <div class="container">
+    <div class="cta-final-inner">
+      <span class="eyebrow on-dark reveal"><span class="dot"></span> Get started</span>
+      <h2 class="reveal delay-1">Stop overpaying. <span class="accent">Start optimizing.</span></h2>
+      <p class="reveal delay-2">
+        Book a free 30-minute strategy call with a senior advisor. We'll quantify what your current position is costing you and outline the path forward — whether or not you choose to engage us.
+      </p>
+      <a href="contact.html#book" class="btn btn-primary btn-lg btn-arrow reveal delay-3" style="position:relative;">Book your strategy call</a>
+      <div class="cta-fineprint reveal delay-3">
+        <span>No obligation</span>
+        <span>Senior advisor only</span>
+        <span>Fully confidential</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="brand"><span class="brand-mark">P</span><span>Prime Path Advisory</span></a>
+        <p class="foot-tag">Proactive tax strategy, accounting, and wealth advisory for high-income earners earning $1M and above.</p>
+      </div>
+      <div>
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Office</h5>
+        <ul>
+          <li>3435 Wilshire Blvd, Ste 1400</li>
+          <li>Los Angeles, CA 90010</li>
+          <li><a href="tel:+13239550154">+1 (323) 955-0154</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Prime Path Advisory, Inc. All rights reserved.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Disclosures</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
