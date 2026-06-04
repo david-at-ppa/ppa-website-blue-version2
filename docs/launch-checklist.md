@@ -10,8 +10,8 @@ Every item below must be replaced and verified before the site goes live. Nothin
 
 ## GHL Calendar Embeds
 
-- [ ] Free Tax Strategy Consultation calendar embed code — `/book`, answer b (`app/book/page.tsx`)
-- [ ] Tax Strategy Consultation calendar embed code — `/book`, answers c/d (`app/book/page.tsx`)
+- [x] Free Tax Strategy Consultation calendar embed code — `/book`, answer b (`components/booking-flow.tsx`)
+- [x] Tax Strategy Consultation calendar embed code — `/book`, answers c/d (`components/booking-flow.tsx`)
 
 ## Vimeo Embeds
 
