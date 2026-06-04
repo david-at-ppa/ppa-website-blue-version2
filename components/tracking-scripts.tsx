@@ -14,9 +14,18 @@ export function TrackingScripts() {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'META_PIXEL_ID');
+        fbq('init', '560364541162966');
         fbq('track', 'PageView');
       `}</Script>
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=560364541162966&ev=PageView&noscript=1"
+          alt=""
+        />
+      </noscript>
       <Script
         id="ga4"
         strategy="afterInteractive"
