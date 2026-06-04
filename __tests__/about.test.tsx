@@ -24,7 +24,7 @@ describe('About page', () => {
     expect(screen.getByText(/ahmed r/i)).toBeInTheDocument()
   })
 
-  it('renders a Vimeo embed placeholder', () => {
+  it('renders a Vidalytics embed placeholder', () => {
     render(<About />)
     expect(screen.getByRole('img', { name: /video placeholder/i })).toBeInTheDocument()
   })

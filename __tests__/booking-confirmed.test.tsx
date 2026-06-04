@@ -11,7 +11,7 @@ describe('BookingConfirmedPage', () => {
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
   })
 
-  it('renders a Vimeo embed placeholder', () => {
+  it('renders a Vidalytics embed placeholder', () => {
     const { container } = render(<BookingConfirmedPage />)
     expect(container.querySelector('iframe')).toBeInTheDocument()
   })

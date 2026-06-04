@@ -60,7 +60,7 @@ describe('Home page', () => {
       expect(screen.getByText(/proactive tax strategy/i)).toBeInTheDocument()
     })
 
-    it('renders a Vimeo embed placeholder', () => {
+    it('renders a Vidalytics embed placeholder', () => {
       render(<Home />)
       expect(screen.getByRole('img', { name: /video placeholder/i })).toBeInTheDocument()
     })

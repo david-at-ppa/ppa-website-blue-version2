@@ -13,7 +13,7 @@ Every item below must be replaced and verified before the site goes live. Nothin
 - [x] Free Tax Strategy Consultation calendar embed code — `/book`, answer b (`components/booking-flow.tsx`)
 - [x] Tax Strategy Consultation calendar embed code — `/book`, answers c/d (`components/booking-flow.tsx`)
 
-## Vimeo Embeds
+## Vidalytics Embeds
 
 - [ ] Founder hero video — homepage (`app/page.tsx`)
 - [ ] Why choose PPA video — `/about` (`app/about/page.tsx`)

@@ -27,7 +27,7 @@ function HeroSection() {
         aria-label="Video placeholder"
         className="w-full max-w-2xl aspect-video bg-muted rounded-lg flex items-center justify-center"
       >
-        <span className="text-muted-foreground text-sm">Vimeo embed — coming soon</span>
+        <span className="text-muted-foreground text-sm">Vidalytics embed — coming soon</span>
       </div>
     </section>
   )

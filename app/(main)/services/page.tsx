@@ -60,7 +60,7 @@ function ServicesSection() {
                 aria-label="Video placeholder"
                 className="w-full aspect-video bg-muted rounded-lg flex items-center justify-center"
               >
-                <span className="text-muted-foreground text-sm">Vimeo embed — coming soon</span>
+                <span className="text-muted-foreground text-sm">Vidalytics embed — coming soon</span>
               </div>
             </li>
           ))}
