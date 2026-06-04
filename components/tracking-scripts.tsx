@@ -14,9 +14,18 @@ export function TrackingScripts() {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'META_PIXEL_ID');
+        fbq('init', '560364541162966');
         fbq('track', 'PageView');
       `}</Script>
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=560364541162966&ev=PageView&noscript=1"
+          alt=""
+        />
+      </noscript>
       <Script
         id="ga4"
         strategy="afterInteractive"
@@ -29,13 +38,11 @@ export function TrackingScripts() {
         gtag('config', 'GA4_MEASUREMENT_ID');
       `}</Script>
       <Script id="hyros" strategy="afterInteractive">{`
-        !function(){
-          var e=document.createElement('script');
-          e.type='text/javascript';e.async=true;
-          e.src='https://t.hyros.com/v1/static/lnk.js';
-          e.setAttribute('data-id','HYROS_SNIPPET_ID');
-          document.head.appendChild(e);
-        }();
+        var head = document.head;
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "https://212493.t.hyros.com/v1/lst/universal-script?ph=9d1e5614f8f08d8d750f7ede39d1f8014cf648f5f6ae8e43ca5775eb101eb3d4&tag=!clicked&ref_url=" + encodeURI(document.URL);
+        head.appendChild(script);
       `}</Script>
     </>
   )

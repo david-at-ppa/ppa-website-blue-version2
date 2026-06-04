@@ -39,7 +39,7 @@ A new marketing website — a purpose-built authority site — that positions Pr
 20. As a lead earning $4M+ annually, I want to see a Tax Strategy Consultation calendar, so that I can book directly with a senior closer.
 21. As a lead, I want to pick a time slot on the GHL calendar embed, so that I can schedule a call without any friction.
 22. As a lead, I want to be redirected to `/booking-confirmed` after scheduling, so that I know my booking was successful.
-23. As a lead on `/booking-confirmed`, I want to see a confirmation message and a Vimeo video about what to expect, so that I arrive on the call prepared.
+23. As a lead on `/booking-confirmed`, I want to see a confirmation message and a Vidalytics video about what to expect, so that I arrive on the call prepared.
 24. As a lead, I want to receive GHL-automated reminders after booking, so that I do not forget the call.
 
 **Lead — contact and legal**
@@ -60,7 +60,7 @@ A new marketing website — a purpose-built authority site — that positions Pr
 32. As David, I want tracking scripts (Meta Pixel, Hyros, GA4) in the site-wide layout, so that all pages are tracked from day one.
 33. As David, I want all tracking script IDs to be placeholders during the build, so that I can swap in real IDs before launch without code changes.
 34. As David, I want GHL calendar embed codes to be placeholders during the build, so that I can swap in real embeds before launch.
-35. As David, I want Vimeo embed links to be placeholders during the build, so that I can add real videos before launch.
+35. As David, I want Vidalytics embed links to be placeholders during the build, so that I can add real videos before launch.
 36. As David, I want a before-launch checklist that lists every placeholder, so that nothing ships with fake content.
 37. As David, I want the site to use shadcn/ui components, so that the UI is consistent and maintainable.
 38. As David, I want the logo to be an inline SVG, so that it can be swapped for a commissioned logo later without changing the codebase.
@@ -109,7 +109,7 @@ Ten routes in scope: `/`, `/about`, `/services`, `/reviews`, `/book`, `/booking-
 - All three use placeholder IDs/snippets during the build.
 
 **Video**
-- Vimeo embeds on: Home (founder hero), About (why choose PPA), Services (service explanations), `/booking-confirmed` (what to expect).
+- Vidalytics embeds on: Home (founder hero), About (why choose PPA), Services (service explanations), `/booking-confirmed` (what to expect).
 - No video files stored in the codebase. Placeholder embed links during build.
 
 **Content**

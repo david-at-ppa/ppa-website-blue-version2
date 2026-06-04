@@ -12,7 +12,7 @@ describe('Services page', () => {
     expect(screen.getByRole('region', { name: /our services/i })).toBeInTheDocument()
   })
 
-  it('renders at least one Vimeo embed placeholder', () => {
+  it('renders at least one Vidalytics embed placeholder', () => {
     render(<Services />)
     const placeholders = screen.getAllByRole('img', { name: /video placeholder/i })
     expect(placeholders.length).toBeGreaterThanOrEqual(1)

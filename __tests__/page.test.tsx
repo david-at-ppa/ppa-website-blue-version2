@@ -60,9 +60,9 @@ describe('Home page', () => {
       expect(screen.getByText(/proactive tax strategy/i)).toBeInTheDocument()
     })
 
-    it('renders a Vimeo embed placeholder', () => {
+    it('renders a Vidalytics embed', () => {
       render(<Home />)
-      expect(screen.getByRole('img', { name: /video placeholder/i })).toBeInTheDocument()
+      expect(document.getElementById('vidalytics_embed_Cw2MFuq5vWpV54b7')).toBeInTheDocument()
     })
   })
 

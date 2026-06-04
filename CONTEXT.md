@@ -49,7 +49,7 @@ Three tracking scripts added to the site-wide `<head>` in `layout.tsx`:
 All three use placeholder script snippets during the build. Real IDs/snippets are swapped in before launch. GHL workflows fire independently and are not affected by the new site.
 
 ### Video Hosting
-Videos are hosted on Vimeo and embedded on the site via Vimeo embed links. No video files are stored in the codebase. Placeholder embeds used during build — real Vimeo links swapped in before launch. Videos appear on: Home (founder hero video), About (why choose PPA), Services (service explanations), and /booking-confirmed (what to expect / how to prepare for the call).
+Videos are hosted on Vidalytics and embedded on the site via Vidalytics embed links. No video files are stored in the codebase. Placeholder embeds used during build — real Vidalytics links swapped in before launch. Videos appear on: Home (founder hero video), About (why choose PPA), Services (service explanations), and /booking-confirmed (what to expect / how to prepare for the call).
 
 ### Blog / CMS
 Deferred. No blog and no CMS in the initial build. The site launches as a pure marketing/booking site. Blog can be added in a future phase if SEO content becomes a priority.

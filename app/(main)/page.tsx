@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ScrollRevealInit } from '@/components/scroll-reveal'
+import { VidalyticsEmbed } from '@/components/vidalytics-embed'
 
 export const metadata: Metadata = {
   title: 'Prime Path Advisory — Tax Strategy for High-Income Earners',
@@ -22,12 +23,8 @@ function HeroSection() {
           Book a Call
         </Link>
       </div>
-      <div
-        role="img"
-        aria-label="Video placeholder"
-        className="w-full max-w-2xl aspect-video bg-muted rounded-lg flex items-center justify-center"
-      >
-        <span className="text-muted-foreground text-sm">Vimeo embed — coming soon</span>
+      <div className="w-full max-w-2xl">
+        <VidalyticsEmbed embedId="Cw2MFuq5vWpV54b7" accountId="UJ6_PCbU" />
       </div>
     </section>
   )
