@@ -8,11 +8,14 @@ interface Props {
 }
 
 export function VidalyticsEmbed({ embedId, accountId }: Props) {
+  const containerId = `vidalytics_embed_${embedId}`
+
   useEffect(() => {
     const src = `https://fast.vidalytics.com/embeds/${accountId}/${embedId}/`
-    if (document.querySelector(`script[src="${src}loader.min.js"]`)) return
+    if (document.getElementById(`vidalytics-script-${embedId}`)) return
 
     const s = document.createElement('script')
+    s.id = `vidalytics-script-${embedId}`
     s.type = 'text/javascript'
     s.async = true
     s.innerHTML = `(function (v, i, d, a, l, y, t, c, s) {
@@ -23,13 +26,13 @@ export function VidalyticsEmbed({ embedId, accountId }: Props) {
         i.getElementsByTagName("head")[0].appendChild(s);
       };}
       vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-    })(window, document, 'Vidalytics', '${embedId}', '${src}');`
+    })(window, document, 'Vidalytics', '${containerId}', '${src}');`
     document.head.appendChild(s)
-  }, [embedId, accountId])
+  }, [embedId, accountId, containerId])
 
   return (
     <div
-      id={`vidalytics_embed_${embedId}`}
+      id={containerId}
       style={{ width: '100%', position: 'relative', paddingTop: '56.25%' }}
     />
   )
