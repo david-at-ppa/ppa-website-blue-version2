@@ -6,7 +6,7 @@ Every item below must be replaced and verified before the site goes live. Nothin
 
 - [x] Meta Pixel ID — replace placeholder in root layout (`app/layout.tsx`)
 - [x] Hyros script snippet — replace placeholder in root layout (`app/layout.tsx`)
-- [ ] GA4 measurement ID — replace placeholder in root layout (`app/layout.tsx`)
+- [~] GA4 measurement ID — deferred post-launch (account not yet set up; placeholder script remains inert until a real ID is added)
 
 ## GHL Calendar Embeds
 
