@@ -16,28 +16,7 @@ Every item below must be replaced and verified before the site goes live. Nothin
 ## Vidalytics Embeds
 
 - [x] Founder hero video — homepage (`app/(main)/page.tsx`)
-- [ ] Why choose PPA video — `/about` (`app/about/page.tsx`)
-- [ ] Service explanation videos — `/services` (`app/services/page.tsx`)
-- [ ] What to expect video — `/booking-confirmed` (`app/booking-confirmed/page.tsx`)
-
-## Content
-
-- [ ] All homepage copy, stats, and outcome figures
-- [ ] Founder bio and photo
-- [ ] Team bios and photos (Joseph Alexander, Lance Armour, Ahmed R)
-- [ ] Testimonials and client reviews
-- [ ] Services copy
-- [ ] Contact details (`app/contact/page.tsx`)
-
-## Legal
-
-- [ ] Privacy Policy copy (`app/privacy/page.tsx`)
-- [ ] Terms of Service copy (`app/terms/page.tsx`)
-- [ ] Disclosures copy (`app/disclosures/page.tsx`)
-
-## Logo
-
-- [ ] Commissioned logo SVG — replace placeholder inline SVG if applicable
+- [x] What to expect video — `/booking-confirmed` (`app/(minimal)/booking-confirmed/page.tsx`) — 3 videos: Booking Confirmation, What Happens on the Call, What to Bring on the Call
 
 ---
 
