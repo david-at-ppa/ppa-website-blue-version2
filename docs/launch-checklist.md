@@ -15,7 +15,7 @@ Every item below must be replaced and verified before the site goes live. Nothin
 
 ## Vidalytics Embeds
 
-- [ ] Founder hero video — homepage (`app/page.tsx`)
+- [x] Founder hero video — homepage (`app/(main)/page.tsx`)
 - [ ] Why choose PPA video — `/about` (`app/about/page.tsx`)
 - [ ] Service explanation videos — `/services` (`app/services/page.tsx`)
 - [ ] What to expect video — `/booking-confirmed` (`app/booking-confirmed/page.tsx`)
