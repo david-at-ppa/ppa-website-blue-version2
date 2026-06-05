@@ -3,6 +3,12 @@
 import { useState, useEffect } from 'react'
 import { getBookingOutcome, type BookingAnswer, type BookingOutcome } from '@/lib/booking'
 
+// Testing: both qualification outcomes use JP's personal calendar so test bookings
+// don't disturb closers. Production calendar IDs are in docs/ghl-calendar-widgets.md.
+const GHL_CALENDAR_SRC =
+  'https://api.leadconnectorhq.com/widget/booking/2AHs8LOXnqUN4v40s0ki'
+const GHL_CALENDAR_IFRAME_ID = '2AHs8LOXnqUN4v40s0ki_1780695434810'
+
 function GhlScript() {
   useEffect(() => {
     if (document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) return
@@ -61,8 +67,8 @@ export default function BookingFlow() {
           <h2 className="text-xl font-semibold mb-4 text-center">Free Tax Strategy Consultation</h2>
           <iframe
             title="Free Tax Strategy Consultation calendar"
-            src="https://api.leadconnectorhq.com/widget/booking/y0C0fmCrsbf0kJpBIc7B"
-            id="AKBNcJbVOUtg20XpUOKA_1780605077371"
+            src={GHL_CALENDAR_SRC}
+            id={GHL_CALENDAR_IFRAME_ID}
             className="w-full h-[600px] border-0"
             scrolling="no"
           />
@@ -75,8 +81,8 @@ export default function BookingFlow() {
           <h2 className="text-xl font-semibold mb-4 text-center">Tax Strategy Consultation</h2>
           <iframe
             title="Tax Strategy Consultation calendar"
-            src="https://api.leadconnectorhq.com/widget/booking/xzowzy5hi2CKDCENA4CS"
-            id="AKBNcJbVOUtg20XpUOKA_1780605264420"
+            src={GHL_CALENDAR_SRC}
+            id={GHL_CALENDAR_IFRAME_ID}
             className="w-full h-[600px] border-0"
             scrolling="no"
           />

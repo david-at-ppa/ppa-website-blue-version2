@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
+import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 
 export const metadata: Metadata = {
-  title: 'Client Reviews — Prime Path Advisory',
+  title: 'Client Reviews - Prime Path Advisory',
   description: 'See what high-income business owners say about working with Prime Path Advisory.',
 }
 
@@ -51,9 +51,9 @@ const STATS = [
 
 function HeroSection() {
   return (
-    <section data-reveal aria-labelledby="reviews-heading" className="flex flex-col items-center justify-center min-h-[40vh] text-center px-6 gap-6">
-      <div className="max-w-3xl space-y-5">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Client results</p>
+    <section aria-labelledby="reviews-heading" className="flex flex-col items-center justify-center min-h-[40vh] text-center px-6 gap-6">
+      <div data-reveal className="max-w-3xl space-y-5">
+        <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Client results</p>
         <h1 id="reviews-heading" className="text-5xl font-semibold tracking-tight">What Our Clients Say</h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Real outcomes from business owners who stopped overpaying in taxes. Placeholder copy.
@@ -65,11 +65,16 @@ function HeroSection() {
 
 function StatsSection() {
   return (
-    <section data-reveal aria-label="Client outcomes" className="py-20 px-6 border-y border-border">
+    <section aria-label="Client outcomes" className="py-20 px-6 border-y border-border">
       <ul className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 list-none">
-        {STATS.map(({ figure, label }) => (
-          <li key={label} className="text-center space-y-2">
-            <p className="text-4xl font-semibold tracking-tight text-[#0d7c54]">{figure}</p>
+        {STATS.map(({ figure, label }, index) => (
+          <li
+            key={label}
+            data-reveal
+            data-reveal-delay={String(Math.min(index + 1, 4))}
+            className="text-center space-y-2"
+          >
+            <p className="text-4xl font-semibold tracking-tight text-primary">{figure}</p>
             <p className="text-sm text-muted-foreground">{label}</p>
           </li>
         ))}
@@ -80,15 +85,20 @@ function StatsSection() {
 
 function TestimonialsSection() {
   return (
-    <section data-reveal aria-label="Testimonials" className="py-24 px-6">
+    <section aria-label="Testimonials" className="py-24 px-6">
       <div className="max-w-5xl mx-auto space-y-16">
-        <div className="text-center space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Reviews</p>
+        <div data-reveal className="text-center space-y-3">
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Reviews</p>
           <h2 className="text-3xl font-semibold tracking-tight">Client testimonials</h2>
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 list-none">
-          {TESTIMONIALS.map(({ quote, name, title }) => (
-            <li key={name} className="border border-border rounded-lg p-6 space-y-4">
+          {TESTIMONIALS.map(({ quote, name, title }, index) => (
+            <li
+              key={name}
+              data-reveal
+              data-reveal-delay={String(Math.min((index % 4) + 1, 4))}
+              className="border border-border rounded-lg p-6 space-y-4"
+            >
               <p className="text-muted-foreground text-sm leading-relaxed">&ldquo;{quote}&rdquo;</p>
               <div>
                 <p className="font-semibold text-sm">{name}</p>
@@ -109,8 +119,8 @@ function CtaSection() {
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
         Book a strategy call and start your own success story.
       </p>
-      <Link href="/book" className={cn(buttonVariants(), 'mt-8')}>
-        Book a Call
+      <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
+        {LARGE_CTA_LABEL}
       </Link>
     </section>
   )
@@ -119,7 +129,6 @@ function CtaSection() {
 export default function Reviews() {
   return (
     <>
-      <ScrollRevealInit />
       <HeroSection />
       <StatsSection />
       <TestimonialsSection />

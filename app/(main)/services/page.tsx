@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
+import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 
 export const metadata: Metadata = {
-  title: 'Services — Prime Path Advisory',
-  description: 'Tax strategy services for high-income business owners — proactive planning, entity structuring, and more.',
+  title: 'Services - Prime Path Advisory',
+  description:
+    'Tax strategy services for high-income business owners - proactive planning, entity structuring, and more.',
 }
 
 const SERVICES = [
@@ -30,10 +31,18 @@ const SERVICES = [
 
 function HeroSection() {
   return (
-    <section data-reveal aria-labelledby="services-heading" className="flex flex-col items-center justify-center min-h-[50vh] text-center px-6 gap-8">
-      <div className="max-w-3xl space-y-6">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">What we do</p>
-        <h1 id="services-heading" className="text-5xl font-semibold tracking-tight">Tax Strategy That Pays For Itself</h1>
+    <section
+      aria-labelledby="services-heading"
+      className="flex flex-col items-center justify-center min-h-[50vh] text-center px-6 gap-8"
+    >
+      <div data-reveal className="max-w-3xl space-y-6">
+        <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">What we do</p>
+        <h1
+          id="services-heading"
+          className="font-heading text-5xl font-semibold tracking-tight"
+        >
+          Tax Strategy That Pays For Itself
+        </h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Comprehensive tax strategy for business owners earning $1M+. Placeholder copy.
         </p>
@@ -44,15 +53,20 @@ function HeroSection() {
 
 function ServicesSection() {
   return (
-    <section data-reveal aria-label="Our services" className="py-24 px-6 border-t border-border">
+    <section aria-label="Our services" className="py-24 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto space-y-16">
-        <div className="text-center space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Services</p>
-          <h2 className="text-3xl font-semibold tracking-tight">What we offer</h2>
+        <div data-reveal className="text-center space-y-3">
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Services</p>
+          <h2 className="font-heading text-3xl font-semibold tracking-tight">What we offer</h2>
         </div>
         <ul className="grid md:grid-cols-2 gap-12 list-none">
-          {SERVICES.map(({ title, body }) => (
-            <li key={title} className="space-y-4">
+          {SERVICES.map(({ title, body }, index) => (
+            <li
+              key={title}
+              data-reveal
+              data-reveal-delay={String(Math.min(index + 1, 4))}
+              className="space-y-4"
+            >
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{body}</p>
               <div
@@ -60,7 +74,7 @@ function ServicesSection() {
                 aria-label="Video placeholder"
                 className="w-full aspect-video bg-muted rounded-lg flex items-center justify-center"
               >
-                <span className="text-muted-foreground text-sm">Vidalytics embed — coming soon</span>
+                <span className="text-muted-foreground text-sm">Vidalytics embed - coming soon</span>
               </div>
             </li>
           ))}
@@ -73,12 +87,14 @@ function ServicesSection() {
 function CtaSection() {
   return (
     <section data-reveal aria-labelledby="services-cta-heading" className="py-24 px-6 text-center">
-      <h2 id="services-cta-heading" className="text-3xl font-semibold tracking-tight">See what we can save you</h2>
+      <h2 id="services-cta-heading" className="font-heading text-3xl font-semibold tracking-tight">
+        See what we can save you
+      </h2>
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
-        Book a strategy call and find out exactly where you're overpaying.
+        Book a strategy call and find out exactly where you&apos;re overpaying.
       </p>
-      <Link href="/book" className={cn(buttonVariants(), 'mt-8')}>
-        Book a Call
+      <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
+        {LARGE_CTA_LABEL}
       </Link>
     </section>
   )
@@ -87,7 +103,6 @@ function CtaSection() {
 export default function Services() {
   return (
     <>
-      <ScrollRevealInit />
       <HeroSection />
       <ServicesSection />
       <CtaSection />

@@ -12,6 +12,11 @@ describe('Services page', () => {
     expect(screen.getByRole('region', { name: /our services/i })).toBeInTheDocument()
   })
 
+  it('does not render the process section', () => {
+    render(<Services />)
+    expect(screen.queryByRole('heading', { name: /you stop overpaying/i })).not.toBeInTheDocument()
+  })
+
   it('renders at least one Vidalytics embed placeholder', () => {
     render(<Services />)
     const placeholders = screen.getAllByRole('img', { name: /video placeholder/i })

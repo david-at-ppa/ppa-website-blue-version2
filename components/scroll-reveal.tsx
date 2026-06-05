@@ -1,24 +1,42 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export function ScrollRevealInit() {
+  const pathname = usePathname()
+
   useEffect(() => {
-    const targets = document.querySelectorAll<HTMLElement>('[data-reveal]')
+    const reducedMotion =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const reveal = (el: HTMLElement) => {
+      el.setAttribute('data-visible', '')
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.setAttribute('data-visible', '')
+            reveal(entry.target as HTMLElement)
             observer.unobserve(entry.target)
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
     )
-    targets.forEach((el) => observer.observe(el))
+
+    document.querySelectorAll<HTMLElement>('[data-reveal]:not([data-visible])').forEach((el) => {
+      if (reducedMotion) {
+        reveal(el)
+        return
+      }
+      observer.observe(el)
+    })
+
     return () => observer.disconnect()
-  }, [])
+  }, [pathname])
 
   return null
 }

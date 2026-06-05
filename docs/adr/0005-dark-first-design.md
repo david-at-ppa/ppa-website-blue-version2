@@ -1,19 +1,18 @@
-# ADR 0005: Dark-first design (inverts the reference mockup)
+# ADR 0005: White background with black and gold palette
 
 **Date:** 2026-06-03  
 **Status:** Accepted
 
 ## Context
 
-The reference mockup (`claude-design-export/index.html`) was generated as a light-first layout. The target audience ($1M+ earners) expects a premium, exclusive feel. Dark-background sites signal luxury and modernity in the wealth/finance space.
+The target audience ($1M+ earners) expects a premium, exclusive feel. A white background with high-contrast black text and warm gold accents signals confidence and clarity in the wealth/finance space.
 
 ## Decision
 
-The build inverts the mockup: near-black (`#0a0a0a`) is the dominant background, green (`#0d7c54`) is the primary accent, and light sections are used sparingly for contrast. The mockup remains the source of truth for layout, typography, and component structure — only the colour scheme is inverted.
+White (`#ffffff`) is the primary background, black (`#111111`) is the foreground, and gold (`#B08628`) is the accent. Card/alternate sections use light gray (`#f5f5f5`). The final CTA section uses a black (`#111111`) background for visual contrast. Reference: `claude-design-export/prime-path-gold.pdf`.
 
 ## Consequences
 
-- A developer reading the mockup and the built site will see opposite background colours — this is intentional, not a bug
-- Light sections (used sparingly) create visual contrast and break up long dark pages
-- The logo (cream/dark arrow + green arrow) reads correctly on dark backgrounds
-- If the mockup is regenerated or updated, the dark-first decision must be manually re-applied
+- The logo (black arrow + gold arrow) reads correctly on white backgrounds
+- The black CTA section at the bottom of each page provides a strong visual close
+- Light sections create visual rhythm without a dark-first inversion

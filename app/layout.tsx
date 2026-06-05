@@ -1,17 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter_Tight, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Oswald } from 'next/font/google'
 import { TrackingScripts } from '@/components/tracking-scripts'
 import './globals.css'
 
-const interTight = Inter_Tight({
-  variable: '--font-inter-tight',
+const oswald = Oswald({
+  variable: '--font-oswald',
   subsets: ['latin'],
+  weight: ['500', '600', '700'],
 })
 
-const cormorantGaramond = Cormorant_Garamond({
-  variable: '--font-cormorant-garamond',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interTight.variable} ${cormorantGaramond.variable} ${jetbrainsMono.variable} dark h-full antialiased`}
+      className={`${oswald.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <TrackingScripts />

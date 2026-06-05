@@ -1,13 +1,23 @@
 'use client'
 
 import { useEffect } from 'react'
+import { cn } from '@/lib/utils'
 
 interface Props {
   embedId: string
   accountId: string
+  /** Tailwind classes on the outer wrapper — use max-w-* or w-* to control display size. */
+  className?: string
+  /** Padding-top percentage for aspect ratio. Default 56.25% = 16:9. */
+  aspectRatio?: `${number}%`
 }
 
-export function VidalyticsEmbed({ embedId, accountId }: Props) {
+export function VidalyticsEmbed({
+  embedId,
+  accountId,
+  className,
+  aspectRatio = '56.25%',
+}: Props) {
   const containerId = `vidalytics_embed_${embedId}`
 
   useEffect(() => {
@@ -31,9 +41,12 @@ export function VidalyticsEmbed({ embedId, accountId }: Props) {
   }, [embedId, accountId, containerId])
 
   return (
-    <div
-      id={containerId}
-      style={{ width: '100%', position: 'relative', paddingTop: '56.25%' }}
-    />
+    <div className={cn('overflow-hidden rounded-xl', className)}>
+      <div
+        id={containerId}
+        className="[&_iframe]:rounded-xl"
+        style={{ width: '100%', position: 'relative', paddingTop: aspectRatio }}
+      />
+    </div>
   )
 }

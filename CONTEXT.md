@@ -1,7 +1,7 @@
 # Prime Path Advisory — Domain Context
 
 ## Design Direction
-**Premium/modern**: Predominantly dark backgrounds (near-black `#0a0a0a`), green (`#0d7c54`) as primary accent, bold typography. Signals exclusivity and wealth. Light sections used sparingly for contrast. Target audience: $1M+ earners who expect a high-end experience. Reference mockup: `claude-design-export/index.html` (note: mockup is light — the build inverts this to dark-first).
+**Premium/modern**: White (`#ffffff`) background with black (`#111111`) text and gold (`#B08628`) as primary accent. Bold typography. Signals exclusivity and wealth. The final CTA section uses a black (`#111111`) background for contrast. Card/alternate sections use light gray (`#f5f5f5`). Target audience: $1M+ earners who expect a high-end experience. Reference design: `claude-design-export/prime-path-gold.pdf`.
 
 All copy in the initial build is placeholder. Real stats, testimonials, and claims will be replaced before launch.
 
@@ -38,7 +38,7 @@ The website's architecture: a marketing site with a dominant primary CTA ("Book 
 Deferred to a future phase. Not in the initial build. Purpose when added: SEO-driven organic traffic targeting the $1M+ audience, and building authority/trust with leads who research before booking.
 
 ### Logo
-SVG mark of two opposing arrows (one dark/cream, one green) with "Prime Path / ADVISORY" wordmark. Defined inline in the mockup (`claude-design-export/index.html`). Used as the starting logo — can be swapped for a commissioned logo later without changing the codebase.
+SVG mark of two opposing arrows (one dark/cream, one gold) with "Prime Path / ADVISORY" wordmark. Reference: `claude-design-export/prime-path-gold.pdf`. Used as the starting logo — can be swapped for a commissioned logo later without changing the codebase.
 
 ### Tracking & Attribution
 Three tracking scripts added to the site-wide `<head>` in `layout.tsx`:
@@ -56,3 +56,9 @@ Deferred. No blog and no CMS in the initial build. The site launches as a pure m
 
 ### GoHighLevel (GHL)
 The existing CRM and calendar platform. Retained as the booking backend. The GHL calendar widget is embedded in the new website. GHL handles scheduling, reminders, and the sales pipeline downstream of booking.
+
+Production calendar embed codes live in `docs/ghl-calendar-widgets.md`:
+- **Free Tax Strategy Consultation** — answer b ($1M–$2M)
+- **Tax Strategy Consultation** — answers c/d ($2M+)
+
+**Testing calendar:** During development and QA, both qualification outcomes in `components/booking-flow.tsx` point to **JP's calendar** (`2AHs8LOXnqUN4v40s0ki`) so test bookings do not disturb closer round-robin calendars. Swap back to the production embed IDs before launch (see launch checklist).

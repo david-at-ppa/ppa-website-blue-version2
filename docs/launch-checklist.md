@@ -10,8 +10,10 @@ Every item below must be replaced and verified before the site goes live. Nothin
 
 ## GHL Calendar Embeds
 
-- [x] Free Tax Strategy Consultation calendar embed code — `/book`, answer b (`components/booking-flow.tsx`)
-- [x] Tax Strategy Consultation calendar embed code — `/book`, answers c/d (`components/booking-flow.tsx`)
+Currently using **JP's test calendar** for both outcomes during QA. Before go-live, swap `GHL_CALENDAR_SRC` in `components/booking-flow.tsx` back to the production IDs in `docs/ghl-calendar-widgets.md`.
+
+- [ ] Free Tax Strategy Consultation calendar embed code — `/book`, answer b (`components/booking-flow.tsx`)
+- [ ] Tax Strategy Consultation calendar embed code — `/book`, answers c/d (`components/booking-flow.tsx`)
 
 ## Vidalytics Embeds
 

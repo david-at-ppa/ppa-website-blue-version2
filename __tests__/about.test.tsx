@@ -12,21 +12,14 @@ describe('About page', () => {
     expect(screen.getByRole('region', { name: /founder/i })).toBeInTheDocument()
   })
 
-  it('renders the team section', () => {
+  it('renders the approach section', () => {
     render(<About />)
-    expect(screen.getByRole('region', { name: /our team/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /overpaying/i })).toBeInTheDocument()
   })
 
-  it('renders team member names', () => {
+  it('does not render the team section', () => {
     render(<About />)
-    expect(screen.getByText(/joseph alexander/i)).toBeInTheDocument()
-    expect(screen.getByText(/lance armour/i)).toBeInTheDocument()
-    expect(screen.getByText(/ahmed r/i)).toBeInTheDocument()
-  })
-
-  it('renders a Vidalytics embed placeholder', () => {
-    render(<About />)
-    expect(screen.getByRole('img', { name: /video placeholder/i })).toBeInTheDocument()
+    expect(screen.queryByRole('region', { name: /our team/i })).not.toBeInTheDocument()
   })
 
   it('renders at least one CTA link to /book', () => {

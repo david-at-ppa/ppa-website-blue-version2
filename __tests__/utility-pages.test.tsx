@@ -20,9 +20,9 @@ describe('Contact page', () => {
     expect((contactMetadata.description as string)!.length).toBeGreaterThan(0)
   })
 
-  it('has a section with data-reveal', () => {
+  it('marks content with data-reveal for scroll animations', () => {
     render(<Contact />)
-    expect(screen.getByRole('region', { name: /contact/i })).toHaveAttribute('data-reveal')
+    expect(document.querySelector('[data-reveal]')).toBeInTheDocument()
   })
 
   it('renders a CTA link to /book', () => {
