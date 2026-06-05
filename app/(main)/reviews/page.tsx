@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 import { ScrollRevealInit } from '@/components/scroll-reveal'
 
 export const metadata: Metadata = {
-  title: 'Client Reviews — Prime Path Advisory',
+  title: 'Client Reviews - Prime Path Advisory',
   description: 'See what high-income business owners say about working with Prime Path Advisory.',
 }
 
@@ -53,7 +54,7 @@ function HeroSection() {
   return (
     <section data-reveal aria-labelledby="reviews-heading" className="flex flex-col items-center justify-center min-h-[40vh] text-center px-6 gap-6">
       <div className="max-w-3xl space-y-5">
-        <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Client results</p>
+        <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Client results</p>
         <h1 id="reviews-heading" className="text-5xl font-semibold tracking-tight">What Our Clients Say</h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Real outcomes from business owners who stopped overpaying in taxes. Placeholder copy.
@@ -69,7 +70,7 @@ function StatsSection() {
       <ul className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 list-none">
         {STATS.map(({ figure, label }) => (
           <li key={label} className="text-center space-y-2">
-            <p className="text-4xl font-semibold tracking-tight text-[#0d7c54]">{figure}</p>
+            <p className="text-4xl font-semibold tracking-tight text-primary">{figure}</p>
             <p className="text-sm text-muted-foreground">{label}</p>
           </li>
         ))}
@@ -83,7 +84,7 @@ function TestimonialsSection() {
     <section data-reveal aria-label="Testimonials" className="py-24 px-6">
       <div className="max-w-5xl mx-auto space-y-16">
         <div className="text-center space-y-3">
-          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Reviews</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Reviews</p>
           <h2 className="text-3xl font-semibold tracking-tight">Client testimonials</h2>
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 list-none">
@@ -110,7 +111,7 @@ function CtaSection() {
         Book a strategy call and start your own success story.
       </p>
       <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
-        Book a Call
+        {LARGE_CTA_LABEL}
       </Link>
     </section>
   )

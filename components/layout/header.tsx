@@ -6,6 +6,7 @@ import { Dialog } from '@base-ui/react/dialog'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { LARGE_CTA_LABEL, SMALL_CTA_LABEL } from '@/lib/cta-labels'
 
 const NAV_LINKS = [
   { href: '/about', label: 'About' },
@@ -60,7 +61,7 @@ export function Header() {
             </Link>
           ))}
           <Link href="/book" className={cn(buttonVariants({ size: 'sm' }))}>
-            Book a Call
+            {SMALL_CTA_LABEL}
           </Link>
         </nav>
 
@@ -100,9 +101,9 @@ export function Header() {
                 <Link
                   href="/book"
                   onClick={() => setMobileOpen(false)}
-                  className={cn(buttonVariants({ size: 'lg' }), 'mt-4 w-full')}
+                  className={cn(buttonVariants({ size: 'sm' }), 'mt-4 w-full')}
                 >
-                  Book a Call
+                  {SMALL_CTA_LABEL}
                 </Link>
               </nav>
             </Dialog.Popup>

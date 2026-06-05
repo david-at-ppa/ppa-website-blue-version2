@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
 
 const QUICK_LINKS = [
   { href: '/about', label: 'About' },
@@ -29,7 +30,7 @@ export function Footer() {
               </p>
             </div>
             <Link href="/book" className={cn(buttonVariants({ size: 'sm' }), 'w-fit')}>
-              Book a Call
+              {SMALL_CTA_LABEL}
             </Link>
           </div>
 
