@@ -11,7 +11,7 @@ function DisclosuresSection() {
     <section data-reveal aria-label="Disclosures" className="py-24 px-6">
       <div className="max-w-3xl mx-auto space-y-8">
         <div className="space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Legal</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Legal</p>
           <h1 className="text-4xl font-semibold tracking-tight">Disclosures</h1>
         </div>
         <p className="text-muted-foreground leading-relaxed">

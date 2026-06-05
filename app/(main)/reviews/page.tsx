@@ -53,7 +53,7 @@ function HeroSection() {
   return (
     <section data-reveal aria-labelledby="reviews-heading" className="flex flex-col items-center justify-center min-h-[40vh] text-center px-6 gap-6">
       <div className="max-w-3xl space-y-5">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Client results</p>
+        <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Client results</p>
         <h1 id="reviews-heading" className="text-5xl font-semibold tracking-tight">What Our Clients Say</h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Real outcomes from business owners who stopped overpaying in taxes. Placeholder copy.
@@ -83,7 +83,7 @@ function TestimonialsSection() {
     <section data-reveal aria-label="Testimonials" className="py-24 px-6">
       <div className="max-w-5xl mx-auto space-y-16">
         <div className="text-center space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Reviews</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Reviews</p>
           <h2 className="text-3xl font-semibold tracking-tight">Client testimonials</h2>
         </div>
         <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 list-none">
@@ -109,7 +109,7 @@ function CtaSection() {
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
         Book a strategy call and start your own success story.
       </p>
-      <Link href="/book" className={cn(buttonVariants(), 'mt-8')}>
+      <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
         Book a Call
       </Link>
     </section>

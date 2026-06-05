@@ -32,7 +32,7 @@ function HeroSection() {
   return (
     <section data-reveal aria-labelledby="services-heading" className="flex flex-col items-center justify-center min-h-[50vh] text-center px-6 gap-8">
       <div className="max-w-3xl space-y-6">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">What we do</p>
+        <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">What we do</p>
         <h1 id="services-heading" className="text-5xl font-semibold tracking-tight">Tax Strategy That Pays For Itself</h1>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Comprehensive tax strategy for business owners earning $1M+. Placeholder copy.
@@ -47,7 +47,7 @@ function ServicesSection() {
     <section data-reveal aria-label="Our services" className="py-24 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Services</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Services</p>
           <h2 className="text-3xl font-semibold tracking-tight">What we offer</h2>
         </div>
         <ul className="grid md:grid-cols-2 gap-12 list-none">
@@ -77,7 +77,7 @@ function CtaSection() {
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
         Book a strategy call and find out exactly where you're overpaying.
       </p>
-      <Link href="/book" className={cn(buttonVariants(), 'mt-8')}>
+      <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
         Book a Call
       </Link>
     </section>

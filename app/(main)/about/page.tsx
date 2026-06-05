@@ -21,7 +21,7 @@ function FounderSection() {
           <span className="text-muted-foreground text-sm">Photo — coming soon</span>
         </div>
         <div className="space-y-6">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Founder</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Founder</p>
           <h2 className="text-3xl font-semibold tracking-tight">David Tran</h2>
           <p className="text-muted-foreground leading-relaxed">
             David founded Prime Path Advisory after seeing too many high-income business owners leave six figures on the table every year. He specialises in proactive tax strategy for entrepreneurs earning $1M+. Placeholder bio copy.
@@ -43,7 +43,7 @@ function TeamSection() {
     <section data-reveal aria-label="Our team" className="py-24 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">The team</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">The team</p>
           <h2 className="text-3xl font-semibold tracking-tight">People behind the strategy</h2>
         </div>
         <ul className="grid md:grid-cols-3 gap-10 list-none">
@@ -73,7 +73,7 @@ function WhySection() {
     <section data-reveal aria-label="Why choose PPA" className="py-24 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="text-center space-y-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-[#0d7c54]">Why us</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-widest text-[#0d7c54]">Why us</p>
           <h2 className="text-3xl font-semibold tracking-tight">Why choose Prime Path Advisory</h2>
         </div>
         <div
@@ -98,7 +98,7 @@ function CtaSection() {
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
         Book a strategy call and see what proactive tax planning can do for your business.
       </p>
-      <Link href="/book" className={cn(buttonVariants(), 'mt-8')}>
+      <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
         Book a Call
       </Link>
     </section>

@@ -29,12 +29,12 @@ function Logo() {
       >
         <path d="M2 12 L34 12" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" />
         <path d="M26 5 L34 12 L26 19" stroke="currentColor" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
-        <path d="M62 12 L30 12" stroke="#0d7c54" strokeWidth="2.4" strokeLinecap="square" />
-        <path d="M38 5 L30 12 L38 19" stroke="#0d7c54" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
+        <path d="M62 12 L30 12" stroke="#B08628" strokeWidth="2.4" strokeLinecap="square" />
+        <path d="M38 5 L30 12 L38 19" stroke="#B08628" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
       </svg>
       <div className="flex flex-col leading-none">
         <span className="font-semibold tracking-tight">Prime Path</span>
-        <span className="text-xs tracking-widest uppercase font-mono">ADVISORY</span>
+        <span className="text-xs tracking-widest uppercase font-sans font-medium">ADVISORY</span>
       </div>
     </Link>
   )
@@ -100,7 +100,7 @@ export function Header() {
                 <Link
                   href="/book"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-4 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/80 transition-colors"
+                  className={cn(buttonVariants({ size: 'lg' }), 'mt-4 w-full')}
                 >
                   Book a Call
                 </Link>
