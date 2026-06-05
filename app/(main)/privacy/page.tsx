@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - Prime Path Advisory',
@@ -23,10 +22,5 @@ function PrivacySection() {
 }
 
 export default function Privacy() {
-  return (
-    <>
-      <ScrollRevealInit />
-      <PrivacySection />
-    </>
-  )
+  return <PrivacySection />
 }

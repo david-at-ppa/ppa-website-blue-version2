@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 
 export const metadata: Metadata = {
   title: 'Contact - Prime Path Advisory',
@@ -12,9 +11,9 @@ export const metadata: Metadata = {
 
 function ContactSection() {
   return (
-    <section data-reveal aria-label="Contact" className="py-24 px-6">
+    <section aria-label="Contact" className="py-24 px-6">
       <div className="max-w-4xl mx-auto space-y-12">
-        <div className="space-y-3">
+        <div data-reveal className="space-y-3">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Get in touch</p>
           <h1 className="text-4xl font-semibold tracking-tight">Contact us</h1>
           <p className="text-muted-foreground leading-relaxed max-w-xl">
@@ -22,7 +21,7 @@ function ContactSection() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6">
+          <div data-reveal data-reveal-delay="1" className="space-y-6">
             <div>
               <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary mb-1">Email</p>
               <p className="text-muted-foreground">hello@primepathadvisory.com</p>
@@ -36,7 +35,7 @@ function ContactSection() {
               <p className="text-muted-foreground">Placeholder - coming soon</p>
             </div>
           </div>
-          <div className="space-y-4">
+          <div data-reveal data-reveal-delay="2" className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">
               Ready to explore what proactive tax strategy can do for your business? Book a call directly - no obligation.
             </p>
@@ -51,10 +50,5 @@ function ContactSection() {
 }
 
 export default function Contact() {
-  return (
-    <>
-      <ScrollRevealInit />
-      <ContactSection />
-    </>
-  )
+  return <ContactSection />
 }

@@ -19,12 +19,11 @@ const WHY_PILLARS = [
 export function WhySection() {
   return (
     <section
-      data-reveal
       aria-labelledby="why-heading"
       className="py-24 px-6 bg-card border-t border-border"
     >
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-        <div className="space-y-6">
+        <div data-reveal className="space-y-6">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
             Our approach
           </p>
@@ -46,8 +45,13 @@ export function WhySection() {
           </p>
         </div>
         <ol className="space-y-10 list-none">
-          {WHY_PILLARS.map(({ num, title, body }) => (
-            <li key={num} className="space-y-2">
+          {WHY_PILLARS.map(({ num, title, body }, index) => (
+            <li
+              key={num}
+              data-reveal
+              data-reveal-delay={String(Math.min(index + 1, 4))}
+              className="space-y-2"
+            >
               <p className="font-sans text-xs font-medium text-primary">{num}</p>
               <h3 className="font-heading font-semibold">{title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>

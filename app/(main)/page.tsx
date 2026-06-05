@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL, SMALL_CTA_LABEL } from '@/lib/cta-labels'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 import { VidalyticsEmbed } from '@/components/vidalytics-embed'
 import { GuaranteeSection } from '@/components/sections/guarantee-section'
 import { ClientLogosSection } from '@/components/sections/client-logos-section'
@@ -21,12 +20,11 @@ export const metadata: Metadata = {
 function HeroSection() {
   return (
     <section
-      data-reveal
       aria-labelledby="hero-heading"
       className="py-20 lg:py-28 px-6 pb-20"
     >
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.28fr] gap-12 lg:gap-14 items-start">
-        <div className="space-y-6 text-center lg:text-left">
+        <div data-reveal className="space-y-6 text-center lg:text-left">
           <h1
             id="hero-heading"
             className="font-heading text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-semibold leading-none tracking-tight"
@@ -52,7 +50,7 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="space-y-6 w-full max-w-xl mx-auto lg:max-w-none lg:mx-0">
+        <div data-reveal data-reveal-delay="1" className="space-y-6 w-full max-w-xl mx-auto lg:max-w-none lg:mx-0">
           <VidalyticsEmbed
             embedId="Cw2MFuq5vWpV54b7"
             accountId="UJ6_PCbU"
@@ -70,7 +68,6 @@ function HeroSection() {
 export default function Home() {
   return (
     <>
-      <ScrollRevealInit />
       <HeroSection />
       <GuaranteeSection />
       <ClientLogosSection />

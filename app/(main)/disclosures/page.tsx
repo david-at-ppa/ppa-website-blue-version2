@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 
 export const metadata: Metadata = {
   title: 'Disclosures - Prime Path Advisory',
@@ -23,10 +22,5 @@ function DisclosuresSection() {
 }
 
 export default function Disclosures() {
-  return (
-    <>
-      <ScrollRevealInit />
-      <DisclosuresSection />
-    </>
-  )
+  return <DisclosuresSection />
 }

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 
 export const metadata: Metadata = {
   title: 'Services - Prime Path Advisory',
@@ -33,11 +32,10 @@ const SERVICES = [
 function HeroSection() {
   return (
     <section
-      data-reveal
       aria-labelledby="services-heading"
       className="flex flex-col items-center justify-center min-h-[50vh] text-center px-6 gap-8"
     >
-      <div className="max-w-3xl space-y-6">
+      <div data-reveal className="max-w-3xl space-y-6">
         <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">What we do</p>
         <h1
           id="services-heading"
@@ -55,15 +53,20 @@ function HeroSection() {
 
 function ServicesSection() {
   return (
-    <section data-reveal aria-label="Our services" className="py-24 px-6 border-t border-border">
+    <section aria-label="Our services" className="py-24 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto space-y-16">
-        <div className="text-center space-y-3">
+        <div data-reveal className="text-center space-y-3">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Services</p>
           <h2 className="font-heading text-3xl font-semibold tracking-tight">What we offer</h2>
         </div>
         <ul className="grid md:grid-cols-2 gap-12 list-none">
-          {SERVICES.map(({ title, body }) => (
-            <li key={title} className="space-y-4">
+          {SERVICES.map(({ title, body }, index) => (
+            <li
+              key={title}
+              data-reveal
+              data-reveal-delay={String(Math.min(index + 1, 4))}
+              className="space-y-4"
+            >
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{body}</p>
               <div
@@ -100,7 +103,6 @@ function CtaSection() {
 export default function Services() {
   return (
     <>
-      <ScrollRevealInit />
       <HeroSection />
       <ServicesSection />
       <CtaSection />

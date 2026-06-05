@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 
 export const metadata: Metadata = {
   title: 'Terms of Service - Prime Path Advisory',
@@ -23,10 +22,5 @@ function TermsSection() {
 }
 
 export default function Terms() {
-  return (
-    <>
-      <ScrollRevealInit />
-      <TermsSection />
-    </>
-  )
+  return <TermsSection />
 }

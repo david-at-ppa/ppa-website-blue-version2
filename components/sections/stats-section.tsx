@@ -7,10 +7,15 @@ const STATS = [
 
 export function StatsSection() {
   return (
-    <section data-reveal aria-label="Client outcomes" className="py-24 px-6">
+    <section aria-label="Client outcomes" className="py-24 px-6">
       <ul className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 list-none">
-        {STATS.map(({ figure, label, sub }) => (
-          <li key={label} className="text-center space-y-1">
+        {STATS.map(({ figure, label, sub }, index) => (
+          <li
+            key={label}
+            data-reveal
+            data-reveal-delay={String(Math.min(index + 1, 4))}
+            className="text-center space-y-1"
+          >
             <p className="font-heading text-4xl md:text-5xl font-semibold tracking-tight text-primary">
               {figure}
             </p>

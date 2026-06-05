@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
-import { ScrollRevealInit } from '@/components/scroll-reveal'
 import { FounderSection } from '@/components/sections/founder-section'
 import { WhySection } from '@/components/sections/why-section'
 
@@ -31,7 +30,6 @@ function CtaSection() {
 export default function About() {
   return (
     <>
-      <ScrollRevealInit />
       <FounderSection />
       <WhySection />
       <CtaSection />

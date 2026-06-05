@@ -1,18 +1,14 @@
 export function FounderSection() {
   return (
-    <section
-      data-reveal
-      aria-label="Founder"
-      className="py-24 px-6"
-    >
+    <section aria-label="Founder" className="py-24 px-6">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-        <div className="space-y-6">
+        <div data-reveal className="space-y-6">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">Founder</p>
           <h2
             id="founder-heading"
             className="font-heading text-4xl md:text-5xl font-semibold tracking-tight leading-tight"
           >
-            Why I built <span className="text-primary">Prime Path.</span>
+            Why I built <span className="text-primary">Prime Path Advisory.</span>
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
@@ -23,12 +19,12 @@ export function FounderSection() {
             <p>
               So I went deep on the tax code. Treated it like an engineering problem: predictable
               inputs, optimizable outputs. The strategies that came out of that work are now deployed
-              across every Prime Path engagement - and they&apos;ve kept hundreds of millions of dollars
+              across every Prime Path Advisory engagement - and they&apos;ve kept hundreds of millions of dollars
               in the hands of the people who earned them.
             </p>
           </div>
         </div>
-        <div className="space-y-8">
+        <div data-reveal data-reveal-delay="1" className="space-y-8">
           <div className="border border-border rounded-lg p-8 space-y-6">
             <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
               David Tran · Founder &amp; CEO

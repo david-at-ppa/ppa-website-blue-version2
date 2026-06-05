@@ -27,9 +27,12 @@ const PROCESS_STEPS = [
 
 export function ProcessSection() {
   return (
-    <section data-reveal aria-labelledby="process-heading" className="py-24 px-6 border-t border-border">
+    <section
+      aria-labelledby="process-heading"
+      className="py-24 px-6 bg-muted border-t border-border"
+    >
       <div className="max-w-5xl mx-auto space-y-16">
-        <div className="space-y-4">
+        <div data-reveal className="space-y-4">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
             How it works
           </p>
@@ -46,8 +49,13 @@ export function ProcessSection() {
           </p>
         </div>
         <ol className="grid md:grid-cols-2 gap-6 list-none">
-          {PROCESS_STEPS.map(({ num, phase, title, body }) => (
-            <li key={num} className="space-y-3 border border-border rounded-lg p-8">
+          {PROCESS_STEPS.map(({ num, phase, title, body }, index) => (
+            <li
+              key={num}
+              data-reveal
+              data-reveal-delay={String(Math.min(index + 1, 4))}
+              className="space-y-3 rounded-lg bg-primary/5 p-8"
+            >
               <div className="flex items-center gap-3">
                 <span className="font-sans text-xs font-medium text-primary">{num}</span>
                 <span className="font-sans text-xs font-medium uppercase tracking-widest text-muted-foreground">

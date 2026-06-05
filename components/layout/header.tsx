@@ -33,9 +33,8 @@ function Logo() {
         <path d="M62 12 L30 12" stroke="#B08628" strokeWidth="2.4" strokeLinecap="square" />
         <path d="M38 5 L30 12 L38 19" stroke="#B08628" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
       </svg>
-      <div className="flex flex-col leading-none">
-        <span className="font-semibold tracking-tight">Prime Path</span>
-        <span className="text-xs tracking-widest uppercase font-sans font-medium">ADVISORY</span>
+      <div className="leading-none">
+        <span className="font-semibold tracking-tight">Prime Path Advisory</span>
       </div>
     </Link>
   )
