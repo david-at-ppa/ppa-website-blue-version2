@@ -56,3 +56,9 @@ Deferred. No blog and no CMS in the initial build. The site launches as a pure m
 
 ### GoHighLevel (GHL)
 The existing CRM and calendar platform. Retained as the booking backend. The GHL calendar widget is embedded in the new website. GHL handles scheduling, reminders, and the sales pipeline downstream of booking.
+
+Production calendar embed codes live in `docs/ghl-calendar-widgets.md`:
+- **Free Tax Strategy Consultation** — answer b ($1M–$2M)
+- **Tax Strategy Consultation** — answers c/d ($2M+)
+
+**Testing calendar:** During development and QA, both qualification outcomes in `components/booking-flow.tsx` point to **JP's calendar** (`2AHs8LOXnqUN4v40s0ki`) so test bookings do not disturb closer round-robin calendars. Swap back to the production embed IDs before launch (see launch checklist).
