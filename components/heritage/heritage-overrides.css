@@ -1,0 +1,4 @@
+:root[data-theme='heritage'] {
+  --serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

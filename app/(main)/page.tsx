@@ -4,12 +4,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL, SMALL_CTA_LABEL } from '@/lib/cta-labels'
 import { VidalyticsEmbed } from '@/components/vidalytics-embed'
-import { GuaranteeSection } from '@/components/sections/guarantee-section'
-import { ClientLogosSection } from '@/components/sections/client-logos-section'
-import { StatsSection } from '@/components/sections/stats-section'
-import { ProcessSection } from '@/components/sections/process-section'
-import { FounderSection } from '@/components/sections/founder-section'
-import { HomeCtaSection } from '@/components/sections/home-cta-section'
+import { HomeSections } from '@/components/pages/home-sections'
 
 export const metadata: Metadata = {
   title: 'Prime Path Advisory - Tax Strategy for High-Income Earners',
@@ -69,12 +64,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <GuaranteeSection />
-      <ClientLogosSection />
-      <StatsSection />
-      <ProcessSection />
-      <FounderSection />
-      <HomeCtaSection />
+      <HomeSections />
     </>
   )
 }

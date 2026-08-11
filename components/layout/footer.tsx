@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
+import type { VariantProps } from 'class-variance-authority'
 
 const QUICK_LINKS = [
   { href: '/about', label: 'About' },
@@ -16,7 +17,11 @@ const LEGAL_LINKS = [
   { href: '/disclosures', label: 'Disclosures' },
 ]
 
-export function Footer() {
+type FooterProps = {
+  ctaVariant?: VariantProps<typeof buttonVariants>['variant']
+}
+
+export function Footer({ ctaVariant = 'default' }: FooterProps) {
   return (
     <footer className="border-t border-border/40 bg-background">
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -29,7 +34,10 @@ export function Footer() {
                 Tax strategy for high-income earners.
               </p>
             </div>
-            <Link href="/book" className={cn(buttonVariants({ size: 'sm' }), 'w-fit')}>
+            <Link
+              href="/book"
+              className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'w-fit')}
+            >
               {SMALL_CTA_LABEL}
             </Link>
           </div>

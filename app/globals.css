@@ -118,6 +118,35 @@
   --sidebar-ring: #3d5a80;
 }
 
+[data-theme="heritage"] {
+  --background: #F7F4ED;
+  --foreground: #1A241B;
+  --card: #ffffff;
+  --card-foreground: #1A241B;
+  --popover: #ffffff;
+  --popover-foreground: #1A241B;
+  --primary: #9A7B3D;
+  --primary-foreground: #F7F4ED;
+  --secondary: #FBF9F3;
+  --secondary-foreground: #1A241B;
+  --muted: #F1EDE2;
+  --muted-foreground: #495247;
+  --accent: #F1EDE2;
+  --accent-foreground: #1A241B;
+  --border: #D8DED2;
+  --input: #D8DED2;
+  --ring: #9A7B3D;
+  --radius: 1rem;
+  --sidebar: #F1EDE2;
+  --sidebar-foreground: #1A241B;
+  --sidebar-primary: #9A7B3D;
+  --sidebar-primary-foreground: #F7F4ED;
+  --sidebar-accent: #FBF9F3;
+  --sidebar-accent-foreground: #1A241B;
+  --sidebar-border: #D8DED2;
+  --sidebar-ring: #9A7B3D;
+}
+
 .dark {
   --background: #111111;
   --foreground: #ffffff;
@@ -215,5 +244,25 @@
 
   .logo-marquee-mask {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  [data-theme="heritage"] .heritage-ambient::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(46, 74, 50, 0.05), transparent 60%),
+      radial-gradient(900px 600px at -10% 20%, rgba(154, 123, 61, 0.05), transparent 55%);
+  }
+
+  [data-theme="heritage"] .heritage-hero-grid {
+    background-image:
+      linear-gradient(rgba(26, 36, 26, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 36, 26, 0.07) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(900px 500px at 50% 0%, black 0%, transparent 75%);
+    opacity: 0.5;
   }
 }
