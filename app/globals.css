@@ -83,6 +83,41 @@
   --sidebar-ring: #B08628;
 }
 
+[data-theme="gold"] {
+  --primary: #B08628;
+  --ring: #B08628;
+  --sidebar-primary: #B08628;
+  --sidebar-ring: #B08628;
+}
+
+[data-theme="navy"] {
+  --primary: #1e3a5f;
+  --ring: #1e3a5f;
+  --sidebar-primary: #1e3a5f;
+  --sidebar-ring: #1e3a5f;
+}
+
+[data-theme="forest"] {
+  --primary: #2d5a3d;
+  --ring: #2d5a3d;
+  --sidebar-primary: #2d5a3d;
+  --sidebar-ring: #2d5a3d;
+}
+
+[data-theme="burgundy"] {
+  --primary: #7c3044;
+  --ring: #7c3044;
+  --sidebar-primary: #7c3044;
+  --sidebar-ring: #7c3044;
+}
+
+[data-theme="slate-blue"] {
+  --primary: #3d5a80;
+  --ring: #3d5a80;
+  --sidebar-primary: #3d5a80;
+  --sidebar-ring: #3d5a80;
+}
+
 .dark {
   --background: #111111;
   --foreground: #ffffff;

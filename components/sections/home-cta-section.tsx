@@ -8,7 +8,7 @@ export function HomeCtaSection() {
     <section
       data-reveal
       aria-labelledby="cta-heading"
-      className="py-32 px-6 text-center bg-[#111111] text-white"
+      className="py-32 px-6 text-center bg-foreground text-background"
     >
       <div className="max-w-2xl mx-auto space-y-6">
         <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
@@ -22,7 +22,7 @@ export function HomeCtaSection() {
           <br />
           <span className="text-primary">Start optimizing.</span>
         </h2>
-        <p className="text-white/60 leading-relaxed">
+        <p className="text-background/60 leading-relaxed">
           Book a free 30-minute discovery call with our team. We&apos;ll quantify what your current
           position is costing you and outline the path forward - whether or not you choose to engage
           us.
@@ -32,12 +32,12 @@ export function HomeCtaSection() {
             href="/book"
             className={cn(
               buttonVariants({ size: 'lg' }),
-              'bg-white text-foreground hover:bg-white/90'
+              'bg-background text-foreground hover:bg-background/90'
             )}
           >
             {LARGE_CTA_LABEL}
           </Link>
-          <p className="font-sans text-xs text-white/50">
+          <p className="font-sans text-xs text-background/50">
             ✓ No obligation &nbsp;·&nbsp; ✓ Discovery call first &nbsp;·&nbsp; ✓ Fully confidential
           </p>
         </div>

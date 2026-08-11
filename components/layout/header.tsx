@@ -6,6 +6,7 @@ import { Dialog } from '@base-ui/react/dialog'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { LogoMark } from '@/components/logo-mark'
 import { LARGE_CTA_LABEL, SMALL_CTA_LABEL } from '@/lib/cta-labels'
 
 const NAV_LINKS = [
@@ -21,18 +22,7 @@ function Logo() {
       aria-label="Prime Path Advisory home"
       className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
     >
-      <svg
-        className="h-6 w-auto"
-        viewBox="0 0 64 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path d="M2 12 L34 12" stroke="currentColor" strokeWidth="2.4" strokeLinecap="square" />
-        <path d="M26 5 L34 12 L26 19" stroke="currentColor" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
-        <path d="M62 12 L30 12" stroke="#B08628" strokeWidth="2.4" strokeLinecap="square" />
-        <path d="M38 5 L30 12 L38 19" stroke="#B08628" strokeWidth="2.4" strokeLinejoin="miter" strokeLinecap="square" />
-      </svg>
+      <LogoMark className="h-6 w-auto" />
       <div className="leading-none">
         <span className="font-semibold tracking-tight">Prime Path Advisory</span>
       </div>
