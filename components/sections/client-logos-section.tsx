@@ -20,70 +20,92 @@ const CLIENT_LOGOS = [
   { name: 'Salesforce', src: '/logos/salesforce.svg' },
 ] as const
 
+export type ClientLogo = {
+  name: string
+  src: string
+}
+
 const LOGO_CLASS = 'h-10 md:h-11 w-auto'
 const LOGO_SIZE = 44
 
-function LogoRow({ suffix }: { suffix: string }) {
+function ClientLogoImage({ name, src }: ClientLogo) {
+  const className = name === 'Google' ? 'h-8 md:h-9 w-auto' : LOGO_CLASS
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element -- brand SVG logos
+    <img
+      src={src}
+      alt={name}
+      width={LOGO_SIZE}
+      height={LOGO_SIZE}
+      className={className}
+      draggable={false}
+    />
+  )
+}
+
+function LogoRow({ suffix, logos }: { suffix: string; logos: readonly ClientLogo[] }) {
   return (
     <>
-      {CLIENT_LOGOS.map(({ name, src }) => (
+      {logos.map(({ name, src }) => (
         <li key={`${name}-${suffix}`} className="flex shrink-0 items-center px-10 md:px-16">
-          {/* eslint-disable-next-line @next/next/no-img-element -- brand SVG logos */}
-          <img
-            src={src}
-            alt={name}
-            width={LOGO_SIZE}
-            height={LOGO_SIZE}
-            className={LOGO_CLASS}
-            draggable={false}
-          />
+          <ClientLogoImage name={name} src={src} />
         </li>
       ))}
     </>
   )
 }
 
-export function ClientLogosSection() {
+type ClientLogosSectionProps = {
+  animated?: boolean
+  logos?: readonly ClientLogo[]
+}
+
+export function ClientLogosSection({ animated = true, logos = CLIENT_LOGOS }: ClientLogosSectionProps) {
   return (
     <section
       data-reveal
       aria-label="Companies our clients work with"
-      className="py-16 border-y border-border"
+      className="bg-background py-16 border-y border-border"
     >
       <div className="space-y-10">
         <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-6 leading-relaxed">
           We work with high-income earners at the world&apos;s leading organizations
         </p>
 
-        <ul className="hidden motion-reduce:flex flex-wrap items-center justify-center gap-x-14 gap-y-8 list-none px-6">
-          {CLIENT_LOGOS.map(({ name, src }) => (
-            <li key={name}>
-              {/* eslint-disable-next-line @next/next/no-img-element -- brand SVG logos */}
-              <img
-                src={src}
-                alt={name}
-                width={LOGO_SIZE}
-                height={LOGO_SIZE}
-                className={LOGO_CLASS}
-                draggable={false}
-              />
-            </li>
-          ))}
-        </ul>
+        {animated ? (
+          <>
+            <ul className="hidden motion-reduce:flex flex-wrap items-center justify-center gap-x-14 gap-y-8 list-none px-6">
+              {logos.map(({ name, src }) => (
+                <li key={name}>
+                  <ClientLogoImage name={name} src={src} />
+                </li>
+              ))}
+            </ul>
 
-        <div
-          className="relative overflow-hidden logo-marquee-mask motion-reduce:hidden"
-          aria-label="Company logos"
-        >
-          <div className="flex w-max animate-logo-marquee">
-            <ul className="flex items-center list-none">
-              <LogoRow suffix="a" />
-            </ul>
-            <ul className="flex items-center list-none" aria-hidden="true">
-              <LogoRow suffix="b" />
-            </ul>
-          </div>
-        </div>
+            <div
+              className="relative overflow-hidden logo-marquee-mask motion-reduce:hidden"
+              aria-label="Company logos"
+            >
+              <div className="flex w-max animate-logo-marquee">
+                <ul className="flex items-center list-none">
+                  <LogoRow suffix="a" logos={logos} />
+                </ul>
+                <ul className="flex items-center list-none" aria-hidden="true">
+                  <LogoRow suffix="b" logos={logos} />
+                </ul>
+              </div>
+            </div>
+          </>
+        ) : (
+          <ul className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-8 list-none px-6 md:gap-x-14">
+            {logos.map(({ name, src }) => (
+              <li key={name}>
+                <ClientLogoImage name={name} src={src} />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   )

@@ -1,4 +1,74 @@
+#assessment {
+  scroll-margin-top: 5rem;
+}
+
 :root[data-theme='heritage'] {
+  --font-heading: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme='heritage'] {
+    scroll-behavior: auto;
+  }
+}
+
+/* One flat page background — no section alternates on heritage */
+[data-theme='heritage'] .heritage-ambient::before {
+  display: none;
+}
+
+.heritage-page > section {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.heritage-page .heritage-hero-grid {
+  display: none;
+}
+
+.heritage-page section.bg-muted,
+.heritage-page section.bg-foreground,
+.heritage-page section.bg-card {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.heritage-page section.bg-foreground .text-background\/60,
+.heritage-page section.bg-foreground .text-background\/50 {
+  color: var(--muted-foreground);
+}
+
+/* Default CTAs on heritage pages use forest green, not main-site black */
+[data-theme='heritage'] [data-slot='button'].bg-foreground {
+  background: linear-gradient(180deg, var(--heritage-green), var(--heritage-green-dark));
+  color: var(--heritage-green-foreground);
+  border-radius: 9999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 12px 30px -12px var(--heritage-green-glow);
+}
+
+[data-theme='heritage'] [data-slot='button'].bg-foreground:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 20px 40px -14px var(--heritage-green-glow);
+}
+
+.heritage-page section[aria-labelledby='cta-heading'] a[href='#assessment'] {
+  background: linear-gradient(180deg, var(--heritage-green), var(--heritage-green-dark));
+  color: var(--heritage-green-foreground);
+  border-radius: 9999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 12px 30px -12px var(--heritage-green-glow);
+}
+
+.heritage-page section[aria-labelledby='cta-heading'] a[href='#assessment']:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
 }

@@ -1,9 +1,17 @@
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
-import { LARGE_CTA_LABEL, SMALL_CTA_LABEL } from '@/lib/cta-labels'
+import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 
-export function HomeCtaSection() {
+export function HomeCtaSection({
+  ctaHref = '/book',
+  ctaScrollTarget,
+}: {
+  ctaHref?: string
+  ctaScrollTarget?: string
+}) {
+  const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
   return (
     <section
       data-reveal
@@ -28,15 +36,16 @@ export function HomeCtaSection() {
           us.
         </p>
         <div className="flex flex-col items-center gap-3 pt-2">
-          <Link
-            href="/book"
+          <CtaLink
+            href={ctaHref}
+            scrollTargetId={ctaScrollTarget}
             className={cn(
               buttonVariants({ size: 'lg' }),
               'bg-background text-foreground hover:bg-background/90'
             )}
           >
             {LARGE_CTA_LABEL}
-          </Link>
+          </CtaLink>
           <p className="font-sans text-xs text-background/50">
             ✓ No obligation &nbsp;·&nbsp; ✓ Discovery call first &nbsp;·&nbsp; ✓ Fully confidential
           </p>

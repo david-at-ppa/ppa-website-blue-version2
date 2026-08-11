@@ -145,6 +145,11 @@
   --sidebar-accent-foreground: #1A241B;
   --sidebar-border: #D8DED2;
   --sidebar-ring: #9A7B3D;
+  /* Forest green — matches primepath-v3-heritage.vercel.app btn-gold */
+  --heritage-green: #35583B;
+  --heritage-green-dark: #2C4A32;
+  --heritage-green-foreground: #F7F4ED;
+  --heritage-green-glow: rgba(44, 74, 50, 0.4);
 }
 
 .dark {

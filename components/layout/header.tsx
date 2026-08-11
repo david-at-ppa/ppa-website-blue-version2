@@ -5,20 +5,24 @@ import Link from 'next/link'
 import { Dialog } from '@base-ui/react/dialog'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
+import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { LogoMark } from '@/components/logo-mark'
-import { LARGE_CTA_LABEL, SMALL_CTA_LABEL } from '@/lib/cta-labels'
+import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
+import type { VariantProps } from 'class-variance-authority'
 
 const NAV_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/reviews', label: 'Reviews' },
-]
+] as const
 
-function Logo() {
+type NavLink = (typeof NAV_LINKS)[number]
+
+function Logo({ homeHref }: { homeHref: string }) {
   return (
     <Link
-      href="/"
+      href={homeHref}
       aria-label="Prime Path Advisory home"
       className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
     >
@@ -30,17 +34,32 @@ function Logo() {
   )
 }
 
-export function Header() {
+type HeaderProps = {
+  homeHref?: string
+  ctaHref?: string
+  ctaScrollTarget?: string
+  ctaVariant?: VariantProps<typeof buttonVariants>['variant']
+  navLinks?: readonly NavLink[]
+}
+
+export function Header({
+  homeHref = '/',
+  ctaHref = '/book',
+  ctaScrollTarget,
+  ctaVariant = 'default',
+  navLinks = NAV_LINKS,
+}: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Logo />
+        <Logo homeHref={homeHref} />
 
         {/* Desktop nav */}
         <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
-          {NAV_LINKS.map(({ href, label }) => (
+          {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -49,9 +68,13 @@ export function Header() {
               {label}
             </Link>
           ))}
-          <Link href="/book" className={cn(buttonVariants({ size: 'sm' }))}>
+          <CtaLink
+            href={ctaHref}
+            scrollTargetId={ctaScrollTarget}
+            className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }))}
+          >
             {SMALL_CTA_LABEL}
-          </Link>
+          </CtaLink>
         </nav>
 
         {/* Mobile nav — Base UI Dialog as slide-in drawer */}
@@ -67,7 +90,7 @@ export function Header() {
             <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/60 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 transition-opacity duration-200" />
             <Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex h-full w-3/4 max-w-sm flex-col bg-background shadow-xl data-[ending-style]:translate-x-full data-[starting-style]:translate-x-full transition-transform duration-200 ease-in-out">
               <div className="flex items-center justify-between border-b border-border px-6 py-4">
-                <Logo />
+                <Logo homeHref={homeHref} />
                 <Dialog.Close
                   aria-label="Close menu"
                   className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -77,7 +100,7 @@ export function Header() {
               </div>
 
               <nav aria-label="Mobile navigation" className="flex flex-col gap-1 p-6">
-                {NAV_LINKS.map(({ href, label }) => (
+                {navLinks.map(({ href, label }) => (
                   <Link
                     key={href}
                     href={href}
@@ -87,13 +110,14 @@ export function Header() {
                     {label}
                   </Link>
                 ))}
-                <Link
-                  href="/book"
+                <CtaLink
+                  href={ctaHref}
+                  scrollTargetId={ctaScrollTarget}
                   onClick={() => setMobileOpen(false)}
-                  className={cn(buttonVariants({ size: 'sm' }), 'mt-4 w-full')}
+                  className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'mt-4 w-full')}
                 >
                   {SMALL_CTA_LABEL}
-                </Link>
+                </CtaLink>
               </nav>
             </Dialog.Popup>
           </Dialog.Portal>

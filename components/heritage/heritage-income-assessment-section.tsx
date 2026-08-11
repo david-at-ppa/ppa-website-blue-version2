@@ -1,0 +1,77 @@
+import { HeritageCheckIcon, HeritageChevronIcon } from '@/components/heritage/heritage-icons'
+import { HERITAGE_INCOME_OPTIONS } from '@/lib/heritage-content'
+
+const ASSESSMENT_BULLETS = [
+  'Typical savings of $150K–$350K+ per year',
+  'Confidential & selective — W-2 earners $700K+',
+  'No obligation, no last-minute surprises',
+] as const
+
+export function HeritageIncomeAssessmentSection() {
+  return (
+    <section
+      id="assessment"
+      aria-labelledby="assessment-heading"
+      className="bg-background px-6 pb-16 pt-8 lg:pb-24 lg:pt-12"
+    >
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div data-reveal className="space-y-6 text-center lg:text-left">
+          <p className="inline-flex items-center gap-3 font-sans text-xs font-medium uppercase tracking-widest text-primary">
+            <span
+              className="h-px w-7 bg-gradient-to-r from-primary to-transparent"
+              aria-hidden="true"
+            />
+            Book Your Free Tax Savings Assessment
+          </p>
+          <h2
+            id="assessment-heading"
+            className="font-heading text-4xl font-semibold tracking-tight md:text-5xl"
+          >
+            See how much you could be saving.
+          </h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            Answer one quick question to start your free 30-minute consultation. If we&apos;re a fit,
+            we&apos;ll map out exactly how much you could legally keep every year.
+          </p>
+          <ul className="mx-auto flex max-w-xl flex-col gap-3 text-left lg:mx-0">
+            {ASSESSMENT_BULLETS.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                <HeritageCheckIcon className="mt-0.5 size-5 shrink-0 text-[var(--heritage-green)]" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div
+          data-reveal
+          data-reveal-delay="1"
+          className="mx-auto w-full max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
+        >
+          <p className="mb-2.5 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            Free Tax Savings Assessment
+          </p>
+          <h3 className="font-heading text-2xl font-normal tracking-tight">
+            What is your annual income?
+          </h3>
+          <ul className="mt-6 grid list-none gap-3">
+            {HERITAGE_INCOME_OPTIONS.map(({ label }) => (
+              <li key={label}>
+                <button
+                  type="button"
+                  className="group flex w-full items-center justify-between gap-4 rounded-xl border border-border bg-secondary px-5 py-4 text-left text-[15.5px] font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/5"
+                >
+                  <span>{label}</span>
+                  <HeritageChevronIcon className="size-[18px] shrink-0 text-primary opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+                </button>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-center text-xs text-muted-foreground">
+            Select your income to continue to booking.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -1,8 +1,27 @@
+export const HERITAGE_ASSESSMENT_ID = 'assessment'
+export const HERITAGE_ASSESSMENT_HREF = `#${HERITAGE_ASSESSMENT_ID}`
+
 export const HERITAGE_INCOME_OPTIONS = [
   { label: 'Less than $1,000,000', href: '/book' },
   { label: '$1,000,000 – $2,000,000', href: '/book' },
   { label: '$2,000,000 – $4,000,000', href: '/book' },
   { label: '$4,000,000+', href: '/book' },
+] as const
+
+export const HERITAGE_STATS = [
+  { figure: '$47M+', label: 'saved across 140+ clients', sub: 'Verified by independent CPA' },
+  { figure: '$312k', label: 'avg. annual savings', sub: "In client's first year" },
+  { figure: '8 yrs', label: 'in private practice', sub: 'Est. 2024 · Los Angeles' },
+] as const
+
+export const HERITAGE_CLIENT_LOGOS = [
+  { name: 'Google', src: '/logos/google.svg' },
+  { name: 'Apple', src: '/logos/apple.svg' },
+  { name: 'Netflix', src: '/logos/netflix.svg' },
+  { name: 'Meta', src: '/logos/meta.svg' },
+  { name: 'Amazon', src: '/logos/amazon.svg' },
+  { name: 'Nvidia', src: '/logos/nvidia.svg' },
+  { name: 'Microsoft', src: '/logos/microsoft.svg' },
 ] as const
 
 export const HERITAGE_TRUSTED_ORGS = [

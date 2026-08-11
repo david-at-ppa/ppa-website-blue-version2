@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
 import type { VariantProps } from 'class-variance-authority'
@@ -18,10 +19,17 @@ const LEGAL_LINKS = [
 ]
 
 type FooterProps = {
+  ctaHref?: string
+  ctaScrollTarget?: string
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
 }
 
-export function Footer({ ctaVariant = 'default' }: FooterProps) {
+export function Footer({
+  ctaHref = '/book',
+  ctaScrollTarget,
+  ctaVariant = 'default',
+}: FooterProps) {
+  const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
   return (
     <footer className="border-t border-border/40 bg-background">
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -34,12 +42,13 @@ export function Footer({ ctaVariant = 'default' }: FooterProps) {
                 Tax strategy for high-income earners.
               </p>
             </div>
-            <Link
-              href="/book"
+            <CtaLink
+              href={ctaHref}
+              scrollTargetId={ctaScrollTarget}
               className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'w-fit')}
             >
               {SMALL_CTA_LABEL}
-            </Link>
+            </CtaLink>
           </div>
 
           {/* Quick links */}

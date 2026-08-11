@@ -1,11 +1,17 @@
 import type { Metadata } from 'next'
 import { Fraunces } from 'next/font/google'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
+import { ScrollRevealInit } from '@/components/scroll-reveal'
 import { HeritageHtmlTheme } from '@/components/heritage/heritage-html-theme'
-import { HeritageRevealInit } from '@/components/heritage/heritage-reveal-init'
-import { HeritageSiteFooter } from '@/components/heritage/heritage-site-footer'
-import { HeritageSiteHeader } from '@/components/heritage/heritage-site-header'
-import '@/components/heritage/heritage-styles.css'
+import { HERITAGE_ASSESSMENT_HREF, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 import '@/components/heritage/heritage-overrides.css'
+
+const HERITAGE_NAV_LINKS = [
+  { href: '/heritage/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/reviews', label: 'Reviews' },
+] as const
 
 const fraunces = Fraunces({
   variable: '--font-fraunces',
@@ -25,10 +31,22 @@ export default function HeritageLayout({ children }: { children: React.ReactNode
   return (
     <>
       <HeritageHtmlTheme fontClassName={fraunces.variable} />
-      <HeritageRevealInit />
-      <HeritageSiteHeader />
-      <main>{children}</main>
-      <HeritageSiteFooter />
+      <ScrollRevealInit />
+      <div className="heritage-ambient relative flex min-h-full flex-1 flex-col bg-background">
+        <Header
+          homeHref="/heritage"
+          ctaHref={HERITAGE_ASSESSMENT_HREF}
+          ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
+          ctaVariant="heritage"
+          navLinks={HERITAGE_NAV_LINKS}
+        />
+        <main className="heritage-page bg-background">{children}</main>
+        <Footer
+          ctaHref={HERITAGE_ASSESSMENT_HREF}
+          ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
+          ctaVariant="heritage"
+        />
+      </div>
     </>
   )
 }
