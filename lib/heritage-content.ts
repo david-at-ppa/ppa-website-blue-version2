@@ -1,4 +1,6 @@
 export const HERITAGE_ASSESSMENT_ID = 'assessment'
+export const HERITAGE_ASSESSMENT_LINK = `/heritage#${HERITAGE_ASSESSMENT_ID}`
+/** Same-page anchor on /heritage */
 export const HERITAGE_ASSESSMENT_HREF = `#${HERITAGE_ASSESSMENT_ID}`
 
 export const HERITAGE_INCOME_OPTIONS = [

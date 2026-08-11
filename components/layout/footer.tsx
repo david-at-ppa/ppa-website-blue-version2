@@ -18,16 +18,22 @@ const LEGAL_LINKS = [
   { href: '/disclosures', label: 'Disclosures' },
 ]
 
+type FooterLink = { href: string; label: string }
+
 type FooterProps = {
   ctaHref?: string
   ctaScrollTarget?: string
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
+  quickLinks?: readonly FooterLink[]
+  legalAsText?: boolean
 }
 
 export function Footer({
   ctaHref = '/book',
   ctaScrollTarget,
   ctaVariant = 'default',
+  quickLinks = QUICK_LINKS,
+  legalAsText = false,
 }: FooterProps) {
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
   return (
@@ -57,7 +63,7 @@ export function Footer({
               Quick Links
             </p>
             <nav aria-label="Quick links" className="flex flex-col gap-2">
-              {QUICK_LINKS.map(({ href, label }) => (
+              {quickLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
@@ -74,17 +80,27 @@ export function Footer({
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               Legal
             </p>
-            <nav aria-label="Legal" className="flex flex-col gap-2">
-              {LEGAL_LINKS.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
+            {legalAsText ? (
+              <ul aria-label="Legal" className="flex list-none flex-col gap-2">
+                {LEGAL_LINKS.map(({ label }) => (
+                  <li key={label} className="text-sm text-muted-foreground">
+                    {label}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <nav aria-label="Legal" className="flex flex-col gap-2">
+                {LEGAL_LINKS.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            )}
           </div>
         </div>
 

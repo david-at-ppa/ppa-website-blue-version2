@@ -59,7 +59,7 @@
     0 20px 40px -14px var(--heritage-green-glow);
 }
 
-.heritage-page section[aria-labelledby='cta-heading'] a[href='#assessment'] {
+.heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment'] {
   background: linear-gradient(180deg, var(--heritage-green), var(--heritage-green-dark));
   color: var(--heritage-green-foreground);
   border-radius: 9999px;
@@ -68,7 +68,7 @@
     0 12px 30px -12px var(--heritage-green-glow);
 }
 
-.heritage-page section[aria-labelledby='cta-heading'] a[href='#assessment']:hover {
+.heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment']:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
 }

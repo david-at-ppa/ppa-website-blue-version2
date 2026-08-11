@@ -2,7 +2,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
-import { HERITAGE_ASSESSMENT_HREF, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
+import { HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 import { VidalyticsEmbed } from '@/components/vidalytics-embed'
 import { HeritageHomeSections } from '@/components/heritage/heritage-home-sections'
 import { HeritageIncomeAssessmentSection } from '@/components/heritage/heritage-income-assessment-section'
@@ -33,7 +33,7 @@ function HeroSection() {
           </p>
           <div className="flex w-full flex-col items-center gap-3 pt-2 lg:items-stretch">
             <SmoothScrollLink
-              href={HERITAGE_ASSESSMENT_HREF}
+              href={HERITAGE_ASSESSMENT_LINK}
               scrollTargetId={HERITAGE_ASSESSMENT_ID}
               className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'w-full')}
             >
