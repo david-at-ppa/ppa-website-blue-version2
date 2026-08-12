@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
         destination: "/#assessment",
         permanent: true,
       },
+      {
+        source: "/heritage",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/heritage/about",
+        destination: "/about",
+        permanent: true,
+      },
     ];
   },
 };

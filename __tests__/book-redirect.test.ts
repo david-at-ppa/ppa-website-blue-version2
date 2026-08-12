@@ -1,6 +1,6 @@
 import nextConfig from '@/next.config'
 
-describe('/book redirect', () => {
+describe('legacy route redirects', () => {
   it('redirects /book to the home assessment', async () => {
     const redirects = nextConfig.redirects ? await nextConfig.redirects() : []
     expect(redirects).toEqual(
@@ -8,6 +8,32 @@ describe('/book redirect', () => {
         expect.objectContaining({
           source: '/book',
           destination: '/#assessment',
+          permanent: true,
+        }),
+      ])
+    )
+  })
+
+  it('redirects /heritage to home', async () => {
+    const redirects = nextConfig.redirects ? await nextConfig.redirects() : []
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          source: '/heritage',
+          destination: '/',
+          permanent: true,
+        }),
+      ])
+    )
+  })
+
+  it('redirects /heritage/about to /about', async () => {
+    const redirects = nextConfig.redirects ? await nextConfig.redirects() : []
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          source: '/heritage/about',
+          destination: '/about',
           permanent: true,
         }),
       ])
