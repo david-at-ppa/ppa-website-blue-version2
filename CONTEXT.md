@@ -1,7 +1,7 @@
 # Prime Path Advisory — Domain Context
 
 ## Design Direction
-**Heritage**: Cream (`#F7F4ED`) background with forest (`#1A241B`) text and bronze (`#9A7B3D`) as primary accent. Fraunces for headings; forest-green pill CTAs. Soft ambient washes instead of flat white/black marketing slabs. Target audience: $1M+ earners who expect a high-end experience. Canonical look is the former `/heritage` preview, now the default site theme (`data-theme="heritage"`).
+**Heritage**: Cream (`#F7F4ED`) background with forest (`#1A241B`) text and bronze (`#9A7B3D`) as primary accent. Fraunces for headings; forest-green pill CTAs. Soft ambient washes instead of flat white/black marketing slabs. Target audience: $1M+ earners who expect a high-end experience. Canonical look applied sitewide via `data-theme="heritage"`.
 
 All copy in the initial build is placeholder. Real stats, testimonials, and claims will be replaced before launch.
 

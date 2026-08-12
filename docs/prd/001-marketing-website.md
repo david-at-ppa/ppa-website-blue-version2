@@ -81,7 +81,7 @@ A new marketing website — a purpose-built authority site — that positions Pr
 Routes in scope: `/`, `/about`, `/services`, `/reviews`, `/booking-confirmed`, `/contact`, `/privacy`, `/terms`, `/disclosures`.
 - Marketing pages and `/booking-confirmed` share the full heritage layout (header + footer).
 - `/book` is removed; it permanently redirects to `/#assessment`.
-- Preview routes `/heritage` and `/heritage/about` may remain temporarily for comparison until explicitly removed.
+- `/heritage` and `/heritage/about` are removed; they permanently redirect to `/` and `/about`.
 - Mobile navigation: hamburger icon → full-screen slide-in drawer.
 
 **Qualification flow**
