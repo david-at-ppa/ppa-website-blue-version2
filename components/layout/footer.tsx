@@ -29,9 +29,9 @@ type FooterProps = {
 }
 
 export function Footer({
-  ctaHref = '/book',
-  ctaScrollTarget,
-  ctaVariant = 'default',
+  ctaHref = '/#assessment',
+  ctaScrollTarget = 'assessment',
+  ctaVariant = 'heritage',
   quickLinks = QUICK_LINKS,
   legalAsText = false,
 }: FooterProps) {

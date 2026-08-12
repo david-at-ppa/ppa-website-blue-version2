@@ -13,7 +13,9 @@ describe('Header', () => {
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /services/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /reviews/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /book a call/i })).toBeInTheDocument()
+    const cta = screen.getByRole('link', { name: /book a call/i })
+    expect(cta).toBeInTheDocument()
+    expect(cta.getAttribute('href')).toMatch(/#assessment$/)
   })
 
   it('renders a hamburger button for mobile nav', () => {

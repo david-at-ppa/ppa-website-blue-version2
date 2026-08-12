@@ -1,13 +1,18 @@
+import type { BookingAnswer } from '@/lib/booking'
+
 export const HERITAGE_ASSESSMENT_ID = 'assessment'
-export const HERITAGE_ASSESSMENT_LINK = `/heritage#${HERITAGE_ASSESSMENT_ID}`
-/** Same-page anchor on /heritage */
+export const HERITAGE_ASSESSMENT_LINK = `/#${HERITAGE_ASSESSMENT_ID}`
+/** Same-page anchor on home */
 export const HERITAGE_ASSESSMENT_HREF = `#${HERITAGE_ASSESSMENT_ID}`
 
-export const HERITAGE_INCOME_OPTIONS = [
-  { label: 'Less than $1,000,000', href: '/book' },
-  { label: '$1,000,000 – $2,000,000', href: '/book' },
-  { label: '$2,000,000 – $4,000,000', href: '/book' },
-  { label: '$4,000,000+', href: '/book' },
+export const HERITAGE_INCOME_OPTIONS: readonly {
+  label: string
+  answer: BookingAnswer
+}[] = [
+  { label: 'Less than $1,000,000', answer: 'a' },
+  { label: '$1,000,000 – $2,000,000', answer: 'b' },
+  { label: '$2,000,000 – $4,000,000', answer: 'c' },
+  { label: '$4,000,000+', answer: 'd' },
 ] as const
 
 export const HERITAGE_STATS = [

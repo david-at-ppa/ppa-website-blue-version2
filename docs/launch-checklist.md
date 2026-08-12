@@ -10,15 +10,15 @@ Every item below must be replaced and verified before the site goes live. Nothin
 
 ## GHL Calendar Embeds
 
-Currently using **JP's test calendar** for both outcomes during QA. Before go-live, swap `GHL_CALENDAR_SRC` in `components/booking-flow.tsx` back to the production IDs in `docs/ghl-calendar-widgets.md`.
+Currently using **JP's test calendar** for all schedule routes during QA. Before go-live, swap `GHL_CALENDAR_SRC` in `components/schedule-calendar.tsx` (or split per route) back to the production IDs in `docs/ghl-calendar-widgets.md`.
 
-- [ ] Free Tax Strategy Consultation calendar embed code — `/book`, answer b (`components/booking-flow.tsx`)
-- [ ] Tax Strategy Consultation calendar embed code — `/book`, answers c/d (`components/booking-flow.tsx`)
+- [ ] Free Tax Strategy Consultation calendar embed — `/schedule-a` (`components/schedule-calendar.tsx`)
+- [ ] Tax Strategy Consultation calendar embed — `/schedule-b` and `/schedule-c` (`components/schedule-calendar.tsx`)
 
 ## Vidalytics Embeds
 
 - [x] Founder hero video — homepage (`app/(main)/page.tsx`)
-- [x] What to expect video — `/booking-confirmed` (`app/(minimal)/booking-confirmed/page.tsx`) — 3 videos: Booking Confirmation, What Happens on the Call, What to Bring on the Call
+- [x] What to expect video — `/booking-confirmed` (`app/(main)/booking-confirmed/page.tsx`) — 3 videos: Booking Confirmation, What Happens on the Call, What to Bring on the Call
 
 ---
 

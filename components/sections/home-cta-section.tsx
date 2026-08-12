@@ -5,11 +5,13 @@ import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 
 export function HomeCtaSection({
-  ctaHref = '/book',
-  ctaScrollTarget,
+  ctaHref = '/#assessment',
+  ctaScrollTarget = 'assessment',
+  ctaVariant = 'heritage',
 }: {
   ctaHref?: string
   ctaScrollTarget?: string
+  ctaVariant?: 'default' | 'heritage'
 }) {
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
   return (
@@ -39,10 +41,7 @@ export function HomeCtaSection({
           <CtaLink
             href={ctaHref}
             scrollTargetId={ctaScrollTarget}
-            className={cn(
-              buttonVariants({ size: 'lg' }),
-              'bg-background text-foreground hover:bg-background/90'
-            )}
+            className={cn(buttonVariants({ variant: ctaVariant, size: 'lg' }))}
           >
             {LARGE_CTA_LABEL}
           </CtaLink>

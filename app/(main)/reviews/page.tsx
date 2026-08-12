@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
+import { HERITAGE_ASSESSMENT_ID, HERITAGE_ASSESSMENT_LINK } from '@/lib/heritage-content'
 
 export const metadata: Metadata = {
   title: 'Client Reviews - Prime Path Advisory',
@@ -119,9 +120,13 @@ function CtaSection() {
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
         Book a strategy call and start your own success story.
       </p>
-      <Link href="/book" className={cn(buttonVariants({ size: 'lg' }), 'mt-8')}>
+      <SmoothScrollLink
+        href={HERITAGE_ASSESSMENT_LINK}
+        scrollTargetId={HERITAGE_ASSESSMENT_ID}
+        className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'mt-8')}
+      >
         {LARGE_CTA_LABEL}
-      </Link>
+      </SmoothScrollLink>
     </section>
   )
 }

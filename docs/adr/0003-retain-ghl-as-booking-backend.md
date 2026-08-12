@@ -9,7 +9,7 @@ Prime Path Advisory already runs its sales pipeline, CRM, calendar, and automate
 
 ## Decision
 
-Keep GHL as the booking backend. Embed GHL calendar iframes inside the custom `/book` page built in Next.js. GHL handles scheduling, reminders, and CRM downstream of booking.
+Keep GHL as the booking backend. Embed GHL calendar iframes on the dedicated schedule routes (`/schedule-a`, `/schedule-b`, `/schedule-c`) after home-page qualification. GHL handles scheduling, reminders, and CRM downstream of booking.
 
 ## Consequences
 

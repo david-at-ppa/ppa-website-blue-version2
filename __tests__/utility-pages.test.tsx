@@ -25,12 +25,12 @@ describe('Contact page', () => {
     expect(document.querySelector('[data-reveal]')).toBeInTheDocument()
   })
 
-  it('renders a CTA link to /book', () => {
+  it('renders a CTA that targets the assessment', () => {
     render(<Contact />)
-    const bookLinks = screen.getAllByRole('link').filter(
-      (link) => link.getAttribute('href') === '/book'
+    const assessmentLinks = screen.getAllByRole('link').filter((link) =>
+      (link.getAttribute('href') ?? '').endsWith('#assessment')
     )
-    expect(bookLinks.length).toBeGreaterThanOrEqual(1)
+    expect(assessmentLinks.length).toBeGreaterThanOrEqual(1)
   })
 })
 

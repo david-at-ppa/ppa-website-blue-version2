@@ -14,32 +14,39 @@ describe('Home page', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders a book CTA in the hero', () => {
+  it('renders a book CTA in the hero that targets the assessment', () => {
     render(<Home />)
-    const hero = screen.getByRole('heading', { name: /save \$100k\+ on your taxes this year/i, level: 1 })
+    const hero = screen
+      .getByRole('heading', { name: /save \$100k\+ on your taxes this year/i, level: 1 })
       .closest('section')!
+    const cta = within(hero).getByRole('link', { name: /book your free strategy call/i })
+    expect(cta.getAttribute('href')).toMatch(/#assessment$/)
+  })
+
+  it('renders the income assessment section', () => {
+    render(<Home />)
+    expect(document.getElementById('assessment')).toBeInTheDocument()
     expect(
-      within(hero).getByRole('link', { name: /book your free strategy call/i })
+      screen.getByRole('heading', { name: /see how much you could be saving/i })
     ).toBeInTheDocument()
   })
 
-  it('renders at least two CTA links to /book', () => {
+  it('does not render the guarantee section', () => {
     render(<Home />)
-    const bookLinks = screen.getAllByRole('link').filter(
-      (link) => link.getAttribute('href') === '/book'
-    )
-    expect(bookLinks.length).toBeGreaterThanOrEqual(2)
+    expect(
+      screen.queryByRole('heading', { name: /no tax savings\? pay nothing/i })
+    ).not.toBeInTheDocument()
+  })
+
+  it('does not render the founder section on home', () => {
+    render(<Home />)
+    expect(screen.queryByRole('region', { name: /founder/i })).not.toBeInTheDocument()
   })
 
   it('marks key sections with data-reveal for scroll animations', () => {
     render(<Home />)
     const revealTargets = document.querySelectorAll('[data-reveal]')
     expect(revealTargets.length).toBeGreaterThanOrEqual(3)
-  })
-
-  it('renders the guarantee section', () => {
-    render(<Home />)
-    expect(screen.getByRole('heading', { name: /no tax savings\? pay nothing/i })).toBeInTheDocument()
   })
 
   it('renders the stats section', () => {
@@ -50,11 +57,6 @@ describe('Home page', () => {
   it('renders the process section', () => {
     render(<Home />)
     expect(screen.getByRole('heading', { name: /you stop overpaying/i })).toBeInTheDocument()
-  })
-
-  it('renders the founder section', () => {
-    render(<Home />)
-    expect(screen.getByRole('region', { name: /founder/i })).toBeInTheDocument()
   })
 
   describe('hero section', () => {

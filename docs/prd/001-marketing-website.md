@@ -25,13 +25,13 @@ A new marketing website — a purpose-built authority site — that positions Pr
 9. As a lead, I want to see a breakdown of the firm's services, so that I understand what they actually do.
 10. As a lead, I want to watch a founder video, so that I can hear directly from the person behind the firm.
 11. As a lead, I want a clear FAQ section, so that my objections are addressed before I book.
-12. As a lead, I want multiple CTAs across every page linking to `/book`, so that I can convert whenever I'm ready.
+12. As a lead, I want multiple CTAs across every page linking to `/#assessment`, so that I can convert whenever I'm ready.
 13. As a lead, I want the site to load and render well on mobile, so that I can research on my phone.
 14. As a lead, I want smooth scroll-reveal animations on the homepage, so that the browsing experience feels polished and premium.
 
 **Lead — booking flow**
 
-15. As a lead arriving at `/book`, I want a distraction-free page with no site navigation, so that I stay focused on completing the booking.
+15. As a lead arriving at the home assessment, I want the income question and calendar on the same page as the marketing story, so that I can qualify and book without leaving `/`.
 16. As a lead, I want to be asked a single income qualification question before seeing any calendar, so that I understand this firm is selective.
 17. As a lead earning less than $1M annually, I want to see a respectful disqualification message, so that I understand I am not the right fit now but may be in future.
 18. As a lead earning $1M–$2M annually, I want to see a Free Tax Strategy Consultation calendar, so that I can book a no-cost discovery call.
@@ -41,29 +41,30 @@ A new marketing website — a purpose-built authority site — that positions Pr
 22. As a lead, I want to be redirected to `/booking-confirmed` after scheduling, so that I know my booking was successful.
 23. As a lead on `/booking-confirmed`, I want to see a confirmation message and a Vidalytics video about what to expect, so that I arrive on the call prepared.
 24. As a lead, I want to receive GHL-automated reminders after booking, so that I do not forget the call.
+25. As a lead following an old `/book` link (ads/CRM), I want to land on `/#assessment`, so that campaigns keep working after the dedicated book route is removed.
 
 **Lead — contact and legal**
 
-25. As a lead, I want a contact page with a way to reach the firm, so that I can ask questions before committing to a booking.
-26. As a lead, I want to access Privacy Policy, Terms, and Disclosures pages, so that I can verify the firm meets regulatory and legal standards.
+26. As a lead, I want a contact page with a way to reach the firm, so that I can ask questions before committing to a booking.
+27. As a lead, I want to access Privacy Policy, Terms, and Disclosures pages, so that I can verify the firm meets regulatory and legal standards.
 
 **Closer**
 
-27. As a closer, I want leads arriving on calls to be pre-qualified at $1M+ income, so that I do not spend time on leads outside the firm's target.
-28. As a closer, I want the round-robin calendar to distribute $1M–$2M leads across Joseph, Lance, and Ahmed, so that call volume is shared fairly.
-29. As a closer, I want $2M+ leads routed only to Lance and Ahmed, so that the most valuable opportunities go to senior closers.
-30. As a closer, I want GHL to handle all reminders and pipeline updates, so that my workflow is unaffected by the new site.
+28. As a closer, I want leads arriving on calls to be pre-qualified at $1M+ income, so that I do not spend time on leads outside the firm's target.
+29. As a closer, I want the round-robin calendar to distribute $1M–$2M leads across Joseph, Lance, and Ahmed, so that call volume is shared fairly.
+30. As a closer, I want $2M+ leads routed only to Lance and Ahmed, so that the most valuable opportunities go to senior closers.
+31. As a closer, I want GHL to handle all reminders and pipeline updates, so that my workflow is unaffected by the new site.
 
 **David (site owner)**
 
-31. As David, I want the site deployed to `www.primepathadvisory.com` on Vercel, so that deployment is simple and reliable.
-32. As David, I want tracking scripts (Meta Pixel, Hyros, GA4) in the site-wide layout, so that all pages are tracked from day one.
-33. As David, I want all tracking script IDs to be placeholders during the build, so that I can swap in real IDs before launch without code changes.
-34. As David, I want GHL calendar embed codes to be placeholders during the build, so that I can swap in real embeds before launch.
-35. As David, I want Vidalytics embed links to be placeholders during the build, so that I can add real videos before launch.
-36. As David, I want a before-launch checklist that lists every placeholder, so that nothing ships with fake content.
-37. As David, I want the site to use shadcn/ui components, so that the UI is consistent and maintainable.
-38. As David, I want the logo to be an inline SVG, so that it can be swapped for a commissioned logo later without changing the codebase.
+32. As David, I want the site deployed to `www.primepathadvisory.com` on Vercel, so that deployment is simple and reliable.
+33. As David, I want tracking scripts (Meta Pixel, Hyros, GA4) in the site-wide layout, so that all pages are tracked from day one.
+34. As David, I want all tracking script IDs to be placeholders during the build, so that I can swap in real IDs before launch without code changes.
+35. As David, I want GHL calendar embed codes to be placeholders during the build, so that I can swap in real embeds before launch.
+36. As David, I want Vidalytics embed links to be placeholders during the build, so that I can add real videos before launch.
+37. As David, I want a before-launch checklist that lists every placeholder, so that nothing ships with fake content.
+38. As David, I want the site to use shadcn/ui components, so that the UI is consistent and maintainable.
+39. As David, I want the logo to be an inline SVG, so that it can be swapped for a commissioned logo later without changing the codebase.
 
 ## Implementation Decisions
 
@@ -73,20 +74,20 @@ A new marketing website — a purpose-built authority site — that positions Pr
 - Fonts: Inter Tight (body/UI), Cormorant Garamond (display/headings), JetBrains Mono (accents). Loaded via Next.js font system.
 
 **Design direction**
-- Dark-first: near-black (`#0a0a0a`) backgrounds dominate. Green (`#0d7c54`) is the primary accent. Light sections used sparingly for contrast. (ADR 0005)
-- The reference mockup (`claude-design-export/index.html`) is light-first — the build inverts this. Layout, typography, and component structure follow the mockup; colour scheme does not.
+- Heritage theme: cream (`#F7F4ED`) background, forest text (`#1A241B`), bronze primary (`#9A7B3D`), Fraunces headings, forest-green pill CTAs. Applied sitewide via `data-theme="heritage"`.
 - Scroll-reveal fade-in animations on scroll throughout the homepage.
 
 **Routing and pages**
-Ten routes in scope: `/`, `/about`, `/services`, `/reviews`, `/book`, `/booking-confirmed`, `/contact`, `/privacy`, `/terms`, `/disclosures`.
-- `/book` and `/booking-confirmed` use a minimal layout with no site navigation.
-- All other pages share a full layout with header navigation and footer.
-- Mobile navigation: hamburger icon → full-screen slide-in drawer using shadcn/ui Sheet component.
+Routes in scope: `/`, `/about`, `/services`, `/reviews`, `/booking-confirmed`, `/contact`, `/privacy`, `/terms`, `/disclosures`.
+- Marketing pages and `/booking-confirmed` share the full heritage layout (header + footer).
+- `/book` is removed; it permanently redirects to `/#assessment`.
+- Preview routes `/heritage` and `/heritage/about` may remain temporarily for comparison until explicitly removed.
+- Mobile navigation: hamburger icon → full-screen slide-in drawer.
 
 **Qualification flow**
-- Built as a custom React component on the `/book` route. (ADR 0004)
+- Built as a custom React component in the home `#assessment` section. (ADR 0004)
 - A single income question with four answer options (a–d) is shown on page load.
-- The selected answer determines which GHL calendar iframe variant is rendered, or hides the calendar and shows disqualification copy.
+- The selected answer determines which GHL calendar iframe variant is rendered inline, or hides the calendar and shows disqualification copy.
 - Income routing:
 
 | Answer | Income bracket | Outcome |
@@ -98,6 +99,7 @@ Ten routes in scope: `/`, `/about`, `/services`, `/reviews`, `/book`, `/booking-
 
 - Both GHL calendar embeds are placeholder iframes during the build. Real embed codes swapped in before launch.
 - GHL handles the redirect to `/booking-confirmed` after scheduling.
+- All CTAs point to `/#assessment`.
 
 **Booking backend**
 - GoHighLevel retained as the booking, CRM, and reminder platform. (ADR 0003)
@@ -132,8 +134,8 @@ Each of the ten routes renders without error. No assertions on copy or visual la
 **Seam 3 — Tracking script presence (integration)**
 The root layout `<head>` contains all three tracking script placeholders (Meta Pixel, Hyros, GA4). Asserts the tracking architecture is wired up — not that the scripts work (that requires real IDs).
 
-**Seam 4 — `/book` has no site navigation (integration)**
-The `/book` page renders without the site header and navigation. This is a deliberate business decision (distraction-free booking) that a future developer might accidentally undo.
+**Seam 4 — Home assessment hosts qualification (integration)**
+The home `#assessment` section asks the income question and shows the matching calendar or disqualification outcome. Legacy `/book` redirects to `/#assessment`.
 
 **Seam 5 — SEO metadata per page (integration)**
 Each route has a non-empty `<title>` tag and `<meta name="description">` content. Asserts the minimum SEO baseline — not copy quality, just presence.

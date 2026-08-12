@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import BookingConfirmedPage, { metadata } from '@/app/(minimal)/booking-confirmed/page'
+import BookingConfirmedPage, { metadata } from '@/app/(main)/booking-confirmed/page'
+import MainLayout from '@/app/(main)/layout'
 
 describe('BookingConfirmedPage', () => {
   it('mounts without error', () => {
@@ -13,7 +14,17 @@ describe('BookingConfirmedPage', () => {
 
   it('renders a Vidalytics embed placeholder', () => {
     const { container } = render(<BookingConfirmedPage />)
-    expect(container.querySelector('iframe')).toBeInTheDocument()
+    expect(container.querySelector('[id^="vidalytics_embed_"]')).toBeInTheDocument()
+  })
+
+  it('renders inside the main site chrome', () => {
+    render(
+      <MainLayout>
+        <BookingConfirmedPage />
+      </MainLayout>
+    )
+    expect(screen.getByRole('link', { name: /prime path advisory/i })).toBeInTheDocument()
+    expect(screen.getByText('© 2026 Prime Path Advisory. All rights reserved.')).toBeInTheDocument()
   })
 
   it('exports a non-empty title', () => {

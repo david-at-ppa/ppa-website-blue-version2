@@ -1,13 +1,30 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { HeritageCheckIcon, HeritageChevronIcon } from '@/components/heritage/heritage-icons'
 import { HERITAGE_INCOME_OPTIONS } from '@/lib/heritage-content'
+import { getScheduleRoute, type BookingAnswer } from '@/lib/booking'
 
 const ASSESSMENT_BULLETS = [
   'Typical savings of $150K–$350K+ per year',
-  'Confidential & selective — W-2 earners $700K+',
+  'Confidential & selective — W-2 earners $1M+',
   'No obligation, no last-minute surprises',
 ] as const
 
 export function HeritageIncomeAssessmentSection() {
+  const router = useRouter()
+  const [disqualified, setDisqualified] = useState(false)
+
+  function handleAnswer(answer: BookingAnswer) {
+    const route = getScheduleRoute(answer)
+    if (!route) {
+      setDisqualified(true)
+      return
+    }
+    router.push(route)
+  }
+
   return (
     <section
       id="assessment"
@@ -48,28 +65,40 @@ export function HeritageIncomeAssessmentSection() {
           data-reveal-delay="1"
           className="mx-auto w-full max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
         >
-          <p className="mb-2.5 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-            Free Tax Savings Assessment
-          </p>
-          <h3 className="font-heading text-2xl font-normal tracking-tight">
-            What is your annual income?
-          </h3>
-          <ul className="mt-6 grid list-none gap-3">
-            {HERITAGE_INCOME_OPTIONS.map(({ label }) => (
-              <li key={label}>
-                <button
-                  type="button"
-                  className="group flex w-full items-center justify-between gap-4 rounded-xl border border-border bg-secondary px-5 py-4 text-left text-[15.5px] font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/5"
-                >
-                  <span>{label}</span>
-                  <HeritageChevronIcon className="size-[18px] shrink-0 text-primary opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
-                </button>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-center text-xs text-muted-foreground">
-            Select your income to continue to booking.
-          </p>
+          {disqualified ? (
+            <section aria-label="not qualified" className="text-center">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Thank you for your interest. Our services are designed for businesses generating $1M
+                or more in annual revenue. We encourage you to revisit us as your business grows.
+              </p>
+            </section>
+          ) : (
+            <>
+              <p className="mb-2.5 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                Free Tax Savings Assessment
+              </p>
+              <h3 className="font-heading text-2xl font-normal tracking-tight">
+                What is your annual income?
+              </h3>
+              <ul className="mt-6 grid list-none gap-3">
+                {HERITAGE_INCOME_OPTIONS.map(({ label, answer }) => (
+                  <li key={label}>
+                    <button
+                      type="button"
+                      onClick={() => handleAnswer(answer)}
+                      className="group flex w-full items-center justify-between gap-4 rounded-xl border border-border bg-secondary px-5 py-4 text-left text-[15.5px] font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/5"
+                    >
+                      <span>{label}</span>
+                      <HeritageChevronIcon className="size-[18px] shrink-0 text-primary opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-center text-xs text-muted-foreground">
+                Select your income to continue to booking.
+              </p>
+            </>
+          )}
         </div>
       </div>
     </section>
