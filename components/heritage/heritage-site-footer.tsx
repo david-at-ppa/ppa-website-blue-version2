@@ -9,7 +9,7 @@ export function HeritageSiteFooter() {
           <div>
             <HeritageLogo href="/heritage" />
             <p className="about">
-              A done-for-you tax optimization firm for W-2 professionals earning $700K+. Proactive
+              A done-for-you tax optimization firm for W-2 professionals earning $1M+. Proactive
               planning, expert execution, and year-round protection—centralized under one team.
             </p>
           </div>

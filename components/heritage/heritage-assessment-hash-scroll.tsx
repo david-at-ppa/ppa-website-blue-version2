@@ -8,7 +8,7 @@ export function HeritageAssessmentHashScroll() {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (pathname !== '/heritage') return
+    if (pathname !== '/' && pathname !== '/heritage') return
     if (window.location.hash !== `#${HERITAGE_ASSESSMENT_ID}`) return
 
     const target = document.getElementById(HERITAGE_ASSESSMENT_ID)

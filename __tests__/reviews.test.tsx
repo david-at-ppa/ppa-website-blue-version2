@@ -17,12 +17,12 @@ describe('Reviews page', () => {
     expect(screen.getByRole('region', { name: /client outcomes/i })).toBeInTheDocument()
   })
 
-  it('renders at least one CTA link to /book', () => {
+  it('renders at least one CTA that targets the assessment', () => {
     render(<Reviews />)
-    const bookLinks = screen.getAllByRole('link').filter(
-      (link) => link.getAttribute('href') === '/book'
+    const assessmentLinks = screen.getAllByRole('link').filter((link) =>
+      (link.getAttribute('href') ?? '').endsWith('#assessment')
     )
-    expect(bookLinks.length).toBeGreaterThanOrEqual(1)
+    expect(assessmentLinks.length).toBeGreaterThanOrEqual(1)
   })
 
   describe('metadata', () => {

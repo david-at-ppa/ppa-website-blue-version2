@@ -13,12 +13,12 @@ describe('Layout split', () => {
     expect(screen.getByText('© 2026 Prime Path Advisory. All rights reserved.')).toBeInTheDocument()
   })
 
-  it('/book uses minimal layout — no site header', () => {
+  it('minimal layout has no site header', () => {
     render(<MinimalLayout>content</MinimalLayout>)
     expect(screen.queryByRole('link', { name: /prime path advisory/i })).not.toBeInTheDocument()
   })
 
-  it('/book uses minimal layout — children render', () => {
+  it('minimal layout renders children', () => {
     render(<MinimalLayout>content</MinimalLayout>)
     expect(screen.getByText('content')).toBeInTheDocument()
   })

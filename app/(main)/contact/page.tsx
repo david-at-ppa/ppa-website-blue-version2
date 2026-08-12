@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
+import { HERITAGE_ASSESSMENT_ID, HERITAGE_ASSESSMENT_LINK } from '@/lib/heritage-content'
 
 export const metadata: Metadata = {
   title: 'Contact - Prime Path Advisory',
@@ -39,9 +40,13 @@ function ContactSection() {
             <p className="text-muted-foreground leading-relaxed">
               Ready to explore what proactive tax strategy can do for your business? Book a call directly - no obligation.
             </p>
-            <Link href="/book" className={cn(buttonVariants({ size: 'lg' }))}>
+            <SmoothScrollLink
+              href={HERITAGE_ASSESSMENT_LINK}
+              scrollTargetId={HERITAGE_ASSESSMENT_ID}
+              className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }))}
+            >
               {LARGE_CTA_LABEL}
-            </Link>
+            </SmoothScrollLink>
           </div>
         </div>
       </div>

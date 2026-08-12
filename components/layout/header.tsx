@@ -44,9 +44,9 @@ type HeaderProps = {
 
 export function Header({
   homeHref = '/',
-  ctaHref = '/book',
-  ctaScrollTarget,
-  ctaVariant = 'default',
+  ctaHref = '/#assessment',
+  ctaScrollTarget = 'assessment',
+  ctaVariant = 'heritage',
   navLinks = NAV_LINKS,
 }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
