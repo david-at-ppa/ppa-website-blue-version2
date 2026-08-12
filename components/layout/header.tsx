@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { href: '/reviews', label: 'Reviews' },
 ] as const
 
-type NavLink = (typeof NAV_LINKS)[number]
+type NavLink = { href: string; label: string }
 
 function Logo({ homeHref }: { homeHref: string }) {
   return (
