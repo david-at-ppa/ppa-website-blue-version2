@@ -34,7 +34,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
           ctaVariant="heritage"
         />
-        <main className="heritage-page bg-background">{children}</main>
+        <main className="heritage-page min-w-0 overflow-x-clip bg-background">{children}</main>
         <Footer
           ctaHref={HERITAGE_ASSESSMENT_LINK}
           ctaScrollTarget={HERITAGE_ASSESSMENT_ID}

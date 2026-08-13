@@ -41,10 +41,10 @@ export function VidalyticsEmbed({
   }, [embedId, accountId, containerId])
 
   return (
-    <div className={cn('overflow-hidden rounded-xl', className)}>
+    <div className={cn('min-w-0 max-w-full overflow-hidden rounded-xl', className)}>
       <div
         id={containerId}
-        className="[&_iframe]:rounded-xl"
+        className="max-w-full [&_iframe]:h-full [&_iframe]:w-full [&_iframe]:max-w-full [&_iframe]:rounded-xl"
         style={{ width: '100%', position: 'relative', paddingTop: aspectRatio }}
       />
     </div>

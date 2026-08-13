@@ -10,9 +10,12 @@ describe('Header', () => {
 
   it('renders desktop nav links', () => {
     render(<Header />)
-    expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /services/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /reviews/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /about us/i })).toHaveAttribute('href', '/about-us')
+    expect(screen.getByRole('link', { name: /how it works/i })).toHaveAttribute(
+      'href',
+      '/how-it-works'
+    )
+    expect(screen.getByRole('link', { name: /faqs/i })).toHaveAttribute('href', '/faqs')
     const cta = screen.getByRole('link', { name: /book a call/i })
     expect(cta).toBeInTheDocument()
     expect(cta.getAttribute('href')).toMatch(/#assessment$/)
@@ -33,7 +36,7 @@ describe('Header', () => {
     render(<Header />)
     await userEvent.click(screen.getByRole('button', { name: /open menu/i }))
     const dialog = screen.getByRole('dialog')
-    await userEvent.click(within(dialog).getByRole('link', { name: /about/i }))
+    await userEvent.click(within(dialog).getByRole('link', { name: /about us/i }))
     expect(dialog).not.toBeInTheDocument()
   })
 })

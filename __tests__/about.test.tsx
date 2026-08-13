@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import About, { metadata } from '@/app/(main)/about/page'
+import About, { metadata } from '@/app/(main)/about-us/page'
 
-describe('About page', () => {
+describe('About Us page', () => {
   it('renders without error', () => {
     render(<About />)
     expect(document.body).toBeTruthy()
@@ -34,6 +34,10 @@ describe('About page', () => {
     it('exports a non-empty title', () => {
       expect(typeof metadata.title).toBe('string')
       expect((metadata.title as string).length).toBeGreaterThan(0)
+    })
+
+    it('exports a title that references About Us', () => {
+      expect(metadata.title).toMatch(/about us/i)
     })
 
     it('exports a non-empty description', () => {

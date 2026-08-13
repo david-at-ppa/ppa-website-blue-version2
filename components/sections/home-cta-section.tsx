@@ -46,7 +46,7 @@ export function HomeCtaSection({
             {LARGE_CTA_LABEL}
           </CtaLink>
           <p className="font-sans text-xs text-background/50">
-            ✓ No obligation &nbsp;·&nbsp; ✓ Discovery call first &nbsp;·&nbsp; ✓ Fully confidential
+            ✓ No obligation · ✓ Discovery call first · ✓ Fully confidential
           </p>
         </div>
       </div>

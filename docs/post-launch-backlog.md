@@ -4,8 +4,7 @@ Items deliberately excluded from the launch checklist — good to have, not requ
 
 ## Vidalytics Embeds
 
-- [ ] Why choose PPA video — `/about` (`app/about/page.tsx`) — use `<VidalyticsEmbed embedId="..." accountId="UJ6_PCbU" />`
-- [ ] Service explanation videos — `/services` (`app/services/page.tsx`) — one embed per service card; see `docs/vidalytics-embed.md` for the embed pattern
+- [ ] Why choose PPA video — `/about-us` (`app/(main)/about-us/page.tsx`) — use `<VidalyticsEmbed embedId="..." accountId="UJ6_PCbU" />`
 
 ## Content & Copy
 
@@ -13,7 +12,8 @@ Items deliberately excluded from the launch checklist — good to have, not requ
 - [ ] Founder bio and photo
 - [ ] Team bios and photos (Joseph Alexander, Lance Armour, Ahmed R)
 - [ ] Testimonials and client reviews
-- [ ] Services copy
+- [ ] How It Works page copy (`app/(main)/how-it-works/page.tsx`)
+- [ ] FAQs page copy (`app/(main)/faqs/page.tsx`)
 - [ ] Contact details (`app/contact/page.tsx`)
 
 ## Legal

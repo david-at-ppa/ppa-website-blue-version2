@@ -6,9 +6,9 @@ import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
 import type { VariantProps } from 'class-variance-authority'
 
 const QUICK_LINKS = [
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/reviews', label: 'Reviews' },
+  { href: '/about-us', label: 'About Us' },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/faqs', label: 'FAQs' },
   { href: '/contact', label: 'Contact' },
 ]
 

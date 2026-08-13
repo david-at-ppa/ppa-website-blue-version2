@@ -9,10 +9,13 @@ describe('Footer', () => {
 
   it('renders quick links', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /services/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /reviews/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /about us/i })).toHaveAttribute('href', '/about-us')
+    expect(screen.getByRole('link', { name: /how it works/i })).toHaveAttribute(
+      'href',
+      '/how-it-works'
+    )
+    expect(screen.getByRole('link', { name: /faqs/i })).toHaveAttribute('href', '/faqs')
+    expect(screen.getByRole('link', { name: /contact/i })).toHaveAttribute('href', '/contact')
   })
 
   it('renders legal links', () => {

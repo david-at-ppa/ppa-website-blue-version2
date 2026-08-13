@@ -8,7 +8,7 @@ import { HeritageFounderSection } from '@/components/heritage/heritage-founder-s
 import { WhySection } from '@/components/sections/why-section'
 
 export const metadata: Metadata = {
-  title: 'About — Prime Path Advisory',
+  title: 'About Us — Prime Path Advisory',
   description: 'Meet the team behind Prime Path Advisory — tax strategists for high-income earners.',
 }
 
@@ -36,7 +36,7 @@ function CtaSection() {
   )
 }
 
-export default function About() {
+export default function AboutUs() {
   return (
     <>
       <HeritageFounderSection />

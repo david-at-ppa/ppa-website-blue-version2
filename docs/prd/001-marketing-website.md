@@ -20,14 +20,13 @@ A new marketing website — a purpose-built authority site — that positions Pr
 4. As a lead, I want to read about the firm's approach and process, so that I understand how they work before committing to a call.
 5. As a lead, I want to read about the founder, so that I feel I'm dealing with a credible expert, not a faceless company.
 6. As a lead, I want to see the team's bios and photos, so that I know who I'll be speaking with.
-7. As a lead, I want to see client testimonials and reviews, so that I can verify others at my income level have had good experiences.
-8. As a lead, I want to read a full reviews page, so that I can do thorough due diligence before booking.
-9. As a lead, I want to see a breakdown of the firm's services, so that I understand what they actually do.
-10. As a lead, I want to watch a founder video, so that I can hear directly from the person behind the firm.
-11. As a lead, I want a clear FAQ section, so that my objections are addressed before I book.
-12. As a lead, I want multiple CTAs across every page linking to `/#assessment`, so that I can convert whenever I'm ready.
-13. As a lead, I want the site to load and render well on mobile, so that I can research on my phone.
-14. As a lead, I want smooth scroll-reveal animations on the homepage, so that the browsing experience feels polished and premium.
+7. As a lead, I want to see client testimonials and reviews on the homepage, so that I can verify others at my income level have had good experiences.
+8. As a lead, I want to see a breakdown of how the firm works, so that I understand what they actually do.
+9. As a lead, I want to watch a founder video, so that I can hear directly from the person behind the firm.
+10. As a lead, I want a clear FAQ section, so that my objections are addressed before I book.
+11. As a lead, I want multiple CTAs across every page linking to `/#assessment`, so that I can convert whenever I'm ready.
+12. As a lead, I want the site to load and render well on mobile, so that I can research on my phone.
+13. As a lead, I want smooth scroll-reveal animations on the homepage, so that the browsing experience feels polished and premium.
 
 **Lead — booking flow**
 
@@ -78,10 +77,12 @@ A new marketing website — a purpose-built authority site — that positions Pr
 - Scroll-reveal fade-in animations on scroll throughout the homepage.
 
 **Routing and pages**
-Routes in scope: `/`, `/about`, `/services`, `/reviews`, `/booking-confirmed`, `/contact`, `/privacy`, `/terms`, `/disclosures`.
+Routes in scope: `/`, `/about-us`, `/how-it-works`, `/faqs`, `/booking-confirmed`, `/contact`, `/privacy`, `/terms`, `/disclosures`.
 - Marketing pages and `/booking-confirmed` share the full heritage layout (header + footer).
+- `/how-it-works` and `/faqs` ship as placeholder pages until real content is ready.
 - `/book` is removed; it permanently redirects to `/#assessment`.
-- `/heritage` and `/heritage/about` are removed; they permanently redirect to `/` and `/about`.
+- `/about`, `/heritage`, and `/heritage/about` are removed; they permanently redirect to `/about-us` or `/`.
+- Header nav: About Us, How It Works, FAQs.
 - Mobile navigation: hamburger icon → full-screen slide-in drawer.
 
 **Qualification flow**
@@ -111,7 +112,7 @@ Routes in scope: `/`, `/about`, `/services`, `/reviews`, `/booking-confirmed`, `
 - All three use placeholder IDs/snippets during the build.
 
 **Video**
-- Vidalytics embeds on: Home (founder hero), About (why choose PPA), Services (service explanations), `/booking-confirmed` (what to expect).
+- Vidalytics embeds on: Home (founder hero), About Us (why choose PPA), `/booking-confirmed` (what to expect).
 - No video files stored in the codebase. Placeholder embed links during build.
 
 **Content**
@@ -129,7 +130,7 @@ Good tests assert observable external behavior, not implementation details. A te
 The income answer → outcome mapping is pure business logic. Test as a function: given answer `a`, `b`, `c`, or `d`, assert the correct outcome (disqualification state, or which calendar variant is active). This is the highest-value test in the codebase — it encodes a business rule that closers depend on.
 
 **Seam 2 — Page smoke tests (integration)**
-Each of the ten routes renders without error. No assertions on copy or visual layout — just that the page mounts successfully. Protects against broken imports or missing components silently crashing a page.
+Each marketing route renders without error. No assertions on copy or visual layout — just that the page mounts successfully. Protects against broken imports or missing components silently crashing a page.
 
 **Seam 3 — Tracking script presence (integration)**
 The root layout `<head>` contains all three tracking script placeholders (Meta Pixel, Hyros, GA4). Asserts the tracking architecture is wired up — not that the scripts work (that requires real IDs).

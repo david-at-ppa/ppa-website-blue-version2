@@ -31,8 +31,8 @@ export function HeritageIncomeAssessmentSection() {
       aria-labelledby="assessment-heading"
       className="bg-background px-6 pb-16 pt-8 lg:pb-24 lg:pt-12"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div data-reveal className="space-y-6 text-center lg:text-left">
+      <div className="mx-auto grid w-full min-w-0 max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div data-reveal className="min-w-0 space-y-6 text-center lg:text-left">
           <p className="inline-flex items-center gap-3 font-sans text-xs font-medium uppercase tracking-widest text-primary">
             <span
               className="h-px w-7 bg-gradient-to-r from-primary to-transparent"
@@ -63,7 +63,7 @@ export function HeritageIncomeAssessmentSection() {
         <div
           data-reveal
           data-reveal-delay="1"
-          className="mx-auto w-full max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
+          className="mx-auto w-full min-w-0 max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
         >
           {disqualified ? (
             <section aria-label="not qualified" className="text-center">
