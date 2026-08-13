@@ -9,8 +9,8 @@ import { HeritageTeamSection } from '@/components/heritage/heritage-team-section
 import { WhySection } from '@/components/sections/why-section'
 
 export const metadata: Metadata = {
-  title: 'About Us — Prime Path Advisory',
-  description: 'Meet the team behind Prime Path Advisory — tax strategists for high-income earners.',
+  title: 'About Us - Prime Path Advisory',
+  description: 'Meet the team behind Prime Path Advisory - tax strategists for high-income earners.',
 }
 
 function CtaSection() {

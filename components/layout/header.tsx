@@ -77,7 +77,7 @@ export function Header({
           </CtaLink>
         </nav>
 
-        {/* Mobile nav — Base UI Dialog as slide-in drawer */}
+        {/* Mobile nav - Base UI Dialog as slide-in drawer */}
         <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
           <Dialog.Trigger
             aria-label="Open menu"

@@ -25,15 +25,12 @@ function ContactSection() {
           <div data-reveal data-reveal-delay="1" className="space-y-6">
             <div>
               <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary mb-1">Email</p>
-              <p className="text-muted-foreground">hello@primepathadvisory.com</p>
-            </div>
-            <div>
-              <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary mb-1">Phone</p>
-              <p className="text-muted-foreground">Placeholder - coming soon</p>
-            </div>
-            <div>
-              <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary mb-1">Location</p>
-              <p className="text-muted-foreground">Placeholder - coming soon</p>
+              <a
+                href="mailto:team@primepathadvisory.com"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                team@primepathadvisory.com
+              </a>
             </div>
           </div>
           <div data-reveal data-reveal-delay="2" className="space-y-4">

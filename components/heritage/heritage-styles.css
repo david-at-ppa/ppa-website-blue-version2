@@ -1,5 +1,5 @@
 ﻿/* =========================================================================
-   PRIME PATH ADVISORY — Design System
+   PRIME PATH ADVISORY - Design System
    Theme: Charcoal + Gold (editorial luxury for high-income W-2 professionals)
    ========================================================================= */
 
@@ -42,7 +42,7 @@
   --glow-b: rgba(201,162,75,0.035);
 
   /* Type */
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Layout */
@@ -55,7 +55,7 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ============ THEME B — EMERALD NOIR (recommended) ============ */
+/* ============ THEME B - EMERALD NOIR (recommended) ============ */
 :root[data-theme="emerald"] {
   --bg:        #08130E;
   --bg-2:      #0B1712;
@@ -89,7 +89,7 @@
   --glow-b: rgba(201,162,75,0.05);
 }
 
-/* ============ THEME C — EVERGREEN HERITAGE (Neil-inspired, light) ============ */
+/* ============ THEME C - EVERGREEN HERITAGE (Neil-inspired, light) ============ */
 :root[data-theme="heritage"] {
   --bg:        #F7F4ED;
   --bg-2:      #F1EDE2;
