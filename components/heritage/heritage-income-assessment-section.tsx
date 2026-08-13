@@ -8,8 +8,8 @@ import { getScheduleRoute, type BookingAnswer } from '@/lib/booking'
 
 const ASSESSMENT_BULLETS = [
   'Typical savings of $150K–$350K+ per year',
-  'Confidential & selective — W-2 earners $1M+',
-  'No obligation, no last-minute surprises',
+  'Selective and confidential — $1M+ earners only',
+  'No obligation, and nothing to prepare',
 ] as const
 
 export function HeritageIncomeAssessmentSection() {
@@ -38,17 +38,17 @@ export function HeritageIncomeAssessmentSection() {
               className="h-px w-7 bg-gradient-to-r from-primary to-transparent"
               aria-hidden="true"
             />
-            Book Your Free Tax Savings Assessment
+            Free 30-minute strategy call
           </p>
           <h2
             id="assessment-heading"
             className="font-heading text-4xl font-semibold tracking-tight md:text-5xl"
           >
-            See how much you could be saving.
+            One question. Then pick a time.
           </h2>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Answer one quick question to start your free 30-minute consultation. If we&apos;re a fit,
-            we&apos;ll map out exactly how much you could legally keep every year.
+            Answer one question to see if we&apos;re a fit. If we are, you&apos;ll book a 30-minute call
+            with our team to walk through where your current setup is costing you.
           </p>
           <ul className="mx-auto flex max-w-xl flex-col gap-3 text-left lg:mx-0">
             {ASSESSMENT_BULLETS.map((item) => (
@@ -66,17 +66,17 @@ export function HeritageIncomeAssessmentSection() {
           className="mx-auto w-full min-w-0 max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
         >
           {disqualified ? (
-            <section aria-label="not qualified" className="text-center">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Thank you for your interest. Our services are designed for businesses generating $1M
-                or more in annual revenue. We encourage you to revisit us as your business grows.
+            <section aria-label="not qualified">
+              <h3 className="font-heading text-2xl font-normal tracking-tight">
+                We&apos;re not the right fit yet.
+              </h3>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                Our strategies need $1M+ in annual income to be worth the setup. Come back when you cross
+                that line — we&apos;d like to help then.
               </p>
             </section>
           ) : (
             <>
-              <p className="mb-2.5 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                Free Tax Savings Assessment
-              </p>
               <h3 className="font-heading text-2xl font-normal tracking-tight">
                 What is your annual income?
               </h3>
@@ -95,7 +95,7 @@ export function HeritageIncomeAssessmentSection() {
                 ))}
               </ul>
               <p className="mt-4 text-center text-xs text-muted-foreground">
-                Select your income to continue to booking.
+                Your answer stays confidential.
               </p>
             </>
           )}

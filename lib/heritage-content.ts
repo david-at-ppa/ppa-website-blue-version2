@@ -31,15 +31,25 @@ export const HERITAGE_CLIENT_LOGOS = [
   { name: 'Microsoft', src: '/logos/microsoft.svg' },
 ] as const
 
-export const HERITAGE_TRUSTED_ORGS = [
-  'Google',
-  'Uber',
-  'Meta',
-  'Amazon',
-  'Salesforce',
-  'Nvidia',
-  'Stripe',
+export const HOW_IT_WORKS_INTRO = {
+  heading: 'What Prime Path Advisory Does For High-Income W-2 Professionals',
+  paragraphs: [
+    'Most high-income earners only hear from their accountant at tax time. They get a clean return, but almost no proactive guidance on how to legally reduce what they pay. Nobody is walking them through options, and they do not have hours to dig through the tax code or worry if they are applying strategies correctly. We bridge that gap.',
+    'We are a done-for-you tax optimization firm for W-2 professionals earning $1M or more. Instead of leaving you to research complex ideas on your own, we uncover the legal strategies you did not know existed, then design and implement a coordinated plan around your income, entities, and investment goals. Your role — review simple recommendations, choose what fits, and let us do the rest.',
+  ],
+} as const
+
+export const HOW_IT_WORKS_STATS = [
+  { figure: '7,000+', label: 'Tax Strategies Executed' },
+  { figure: '0.01%', label: 'Audit Rate' },
+  { figure: '300+%', label: 'Avg. ROI' },
 ] as const
+
+export const HERITAGE_SERVICES_INTRO = {
+  lead: 'The most powerful strategies are set up during the year, not at filing time. Start now so you',
+  emphasis: 'do not lose another tax year',
+  trail: 'to overpaying just because nobody told you what is possible.',
+} as const
 
 export const HERITAGE_SERVICES = [
   {
@@ -48,12 +58,12 @@ export const HERITAGE_SERVICES = [
     icon: 'chart',
   },
   {
-    title: 'Done-For-You Implementation',
+    title: 'Done For Your Implementation',
     body: 'We research, design, and execute strategies so you do not have to become a tax expert.',
     icon: 'layers',
   },
   {
-    title: 'Attorney & CPA Led',
+    title: 'Attorney and CPA Led',
     body: 'Tax attorneys, accountants, and compliance experts coordinating year-round for optimal tax planning.',
     icon: 'shield',
   },
@@ -63,7 +73,7 @@ export const HERITAGE_SERVICES = [
     icon: 'clock',
   },
   {
-    title: 'Entity Strategy & Structuring',
+    title: 'Entity Strategy and Structuring',
     body: 'We analyze and optimize your entity structure to uncover missed opportunities and legal strategies your current setup is missing.',
     icon: 'grid',
   },

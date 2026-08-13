@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+
 const CLIENT_LOGOS = [
   { name: 'Alphabet', src: '/logos/alphabet.svg' },
   { name: 'Meta', src: '/logos/meta.svg' },
@@ -59,19 +61,39 @@ function LogoRow({ suffix, logos }: { suffix: string; logos: readonly ClientLogo
 type ClientLogosSectionProps = {
   animated?: boolean
   logos?: readonly ClientLogo[]
+  eyebrow?: string
+  heading?: string
+  className?: string
 }
 
-export function ClientLogosSection({ animated = true, logos = CLIENT_LOGOS }: ClientLogosSectionProps) {
+export function ClientLogosSection({
+  animated = true,
+  logos = CLIENT_LOGOS,
+  eyebrow,
+  heading,
+  className,
+}: ClientLogosSectionProps) {
   return (
     <section
       data-reveal
       aria-label="Companies our clients work with"
-      className="bg-background py-16 border-y border-border"
+      className={cn('bg-background border-y border-border py-16', className)}
     >
       <div className="space-y-10">
-        <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-6 leading-relaxed">
-          We work with high-income earners at the world&apos;s leading organizations
-        </p>
+        {eyebrow && heading ? (
+          <div className="space-y-3 px-6 text-center">
+            <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
+              {eyebrow}
+            </p>
+            <h2 className="mx-auto font-heading text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
+              {heading}
+            </h2>
+          </div>
+        ) : (
+          <p className="mx-auto max-w-2xl px-6 text-center text-sm leading-relaxed text-muted-foreground md:text-base">
+            We work with high-income earners at the world&apos;s leading organizations
+          </p>
+        )}
 
         {animated ? (
           <>

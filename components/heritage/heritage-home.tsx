@@ -1,7 +1,6 @@
 import { buttonVariants } from '@/components/ui/button'
 import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
-import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 import { HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 import { VidalyticsEmbed } from '@/components/vidalytics-embed'
 import { HeritageHomeSections } from '@/components/heritage/heritage-home-sections'
@@ -21,15 +20,15 @@ function HeroSection() {
         <div data-reveal className="min-w-0 space-y-6 text-center lg:text-left">
           <h1
             id="hero-heading"
-            className="font-heading text-5xl font-semibold leading-none tracking-tight break-words md:text-6xl lg:text-6xl xl:text-7xl"
+            className="font-heading text-[2.625rem] font-semibold leading-[1.1] tracking-tight text-balance break-words sm:text-5xl sm:leading-none md:text-6xl lg:text-6xl xl:text-7xl"
           >
-            Save $100k+ on your taxes{' '}
-            <span className="text-primary">this year.</span>
+            You earn $1M+. Your CPA files.{' '}
+            <span className="text-primary">Nobody plans.</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl lg:max-w-none mx-auto lg:mx-0 leading-relaxed">
-            We help tech founders, operators, and high-RSU earners making $1M-$10M+ a year save on
-            taxes. Stop losing 45-52% of your gross income - with a real strategy, designed,
-            defensible, and deliberately done by experts.
+            Year-round tax strategy for founders, executives, and high-RSU earners making $1M+.
+            Designed, implemented, and filed by our team — not a PDF of ideas you have to go execute
+            yourself.
           </p>
           <div className="flex w-full flex-col items-center gap-3 pt-2 lg:items-stretch">
             <SmoothScrollLink
@@ -37,10 +36,10 @@ function HeroSection() {
               scrollTargetId={HERITAGE_ASSESSMENT_ID}
               className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'w-full')}
             >
-              {LARGE_CTA_LABEL}
+              Book your free 30-minute strategy call →
             </SmoothScrollLink>
             <p className="font-sans text-xs font-medium uppercase tracking-widest text-muted-foreground">
-              30-minute call · no obligation · audited savings projection
+              30-minute call · No obligation · Nothing to prepare
             </p>
           </div>
         </div>

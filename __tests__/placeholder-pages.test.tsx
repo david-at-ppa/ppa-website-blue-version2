@@ -8,9 +8,33 @@ describe('How It Works page', () => {
     expect(document.body).toBeTruthy()
   })
 
-  it('renders a page heading', () => {
+  it('renders the intro heading', () => {
     render(<HowItWorks />)
-    expect(screen.getByRole('heading', { name: /how it works/i, level: 1 })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', {
+        name: /what prime path advisory does for high-income w-2 professionals/i,
+        level: 1,
+      })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/we bridge that gap/i)).toBeInTheDocument()
+  })
+
+  it('renders the stats section', () => {
+    render(<HowItWorks />)
+    expect(screen.getByRole('region', { name: /firm outcomes/i })).toBeInTheDocument()
+    expect(screen.getByText(/7,000\+/i)).toBeInTheDocument()
+    expect(screen.getByText(/tax strategies executed/i)).toBeInTheDocument()
+    expect(screen.getByText(/0\.01%/i)).toBeInTheDocument()
+    expect(screen.getByText(/audit rate/i)).toBeInTheDocument()
+    expect(screen.getByText(/300\+\%/i)).toBeInTheDocument()
+    expect(screen.getByText(/avg\. roi/i)).toBeInTheDocument()
+  })
+
+  it('renders the process section', () => {
+    render(<HowItWorks />)
+    expect(
+      screen.getByRole('heading', { name: /you stop overpaying/i, level: 2 })
+    ).toBeInTheDocument()
   })
 
   it('exports a non-empty title', () => {

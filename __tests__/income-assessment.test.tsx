@@ -14,6 +14,20 @@ describe('Income assessment', () => {
     push.mockClear()
   })
 
+  it('renders the updated assessment copy on load', () => {
+    render(<HeritageIncomeAssessmentSection />)
+    expect(screen.getByText(/free 30-minute strategy call/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /one question\. then pick a time\./i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(/answer one question to see if we're a fit/i)
+    ).toBeInTheDocument()
+    expect(screen.getByText(/selective and confidential — \$1m\+ earners only/i)).toBeInTheDocument()
+    expect(screen.getByText(/no obligation, and nothing to prepare/i)).toBeInTheDocument()
+    expect(screen.getByText(/your answer stays confidential\./i)).toBeInTheDocument()
+  })
+
   it('renders the income question on load', () => {
     render(<HeritageIncomeAssessmentSection />)
     expect(
@@ -30,6 +44,11 @@ describe('Income assessment', () => {
     render(<HeritageIncomeAssessmentSection />)
     await userEvent.click(screen.getByRole('button', { name: /less than \$1,000,000/i }))
     expect(screen.getByRole('region', { name: /not qualified/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /we're not the right fit yet/i })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/come back when you cross that line/i)).toBeInTheDocument()
+    expect(screen.queryByText(/business/i)).not.toBeInTheDocument()
   })
 
   it('selecting under $1M shows no calendar and does not navigate', async () => {

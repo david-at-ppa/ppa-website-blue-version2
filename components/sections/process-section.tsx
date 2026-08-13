@@ -25,7 +25,9 @@ const PROCESS_STEPS = [
   },
 ]
 
-export function ProcessSection() {
+export function ProcessSection({ pageHeading = false }: { pageHeading?: boolean }) {
+  const HeadingTag = pageHeading ? 'h1' : 'h2'
+
   return (
     <section
       aria-labelledby="process-heading"
@@ -36,13 +38,13 @@ export function ProcessSection() {
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
             How it works
           </p>
-          <h2
+          <HeadingTag
             id="process-heading"
             className="font-heading text-4xl md:text-5xl font-semibold tracking-tight leading-tight"
           >
             Four steps. One outcome:{' '}
             <span className="text-primary">you stop overpaying.</span>
-          </h2>
+          </HeadingTag>
           <p className="text-muted-foreground max-w-2xl leading-relaxed">
             Diagnose. Design. Implement. Optimize. Every step is built around your specific income,
             equity, and residency - not a template.
