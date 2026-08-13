@@ -87,4 +87,8 @@ describe('BookingConfirmedPage', () => {
     expect(typeof metadata.description).toBe('string')
     expect((metadata.description as string)!.length).toBeGreaterThan(0)
   })
+
+  it('is not indexed by search engines', () => {
+    expect(metadata.robots).toEqual({ index: false })
+  })
 })

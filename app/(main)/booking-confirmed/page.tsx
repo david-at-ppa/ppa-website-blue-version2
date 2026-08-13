@@ -4,6 +4,9 @@ import { BookingConfirmedContent } from '@/components/booking-confirmed/booking-
 export const metadata: Metadata = {
   title: 'Booking Confirmed | Prime Path Advisory',
   description: 'Your strategy call is booked. Here is what to expect next.',
+  robots: {
+    index: false,
+  },
 }
 
 export default function BookingConfirmedPage() {
