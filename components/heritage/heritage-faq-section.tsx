@@ -5,7 +5,7 @@ export function HeritageFaqSection({ pageHeading = false }: { pageHeading?: bool
   const HeadingTag = pageHeading ? 'h1' : 'h2'
 
   return (
-    <section aria-labelledby="faq-heading" className="bg-background px-6 py-20 lg:py-24">
+    <section aria-labelledby="faq-heading" className="px-6 py-20 lg:py-24">
       <div className="mx-auto max-w-3xl space-y-10">
         <header data-reveal className="space-y-3 text-center">
           <HeadingTag

@@ -18,7 +18,7 @@ function CtaSection() {
     <section
       data-reveal
       aria-labelledby="about-cta-heading"
-      className="bg-background px-6 py-24 text-center"
+      className="px-6 py-24 text-center"
     >
       <h2 id="about-cta-heading" className="font-heading text-3xl font-semibold tracking-tight">
         Ready to work with us?

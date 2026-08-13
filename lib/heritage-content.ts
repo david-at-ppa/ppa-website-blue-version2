@@ -31,6 +31,13 @@ export const HERITAGE_CLIENT_LOGOS = [
   { name: 'Microsoft', src: '/logos/microsoft.svg' },
 ] as const
 
+export const HERITAGE_CLIENT_LOGOS_INTRO = {
+  eyebrow: 'Where our clients work',
+  heading: 'Trusted by high earners at the companies everyone knows',
+  subtext:
+    'The same legal, documented strategies we deploy for clients at Google, Apple, Meta, and Nvidia - tailored to your income, entities, and goals.',
+} as const
+
 export const HOW_IT_WORKS_INTRO = {
   heading: 'What Prime Path Advisory Does For High-Income W-2 Professionals',
   paragraphs: [
@@ -46,9 +53,9 @@ export const HOW_IT_WORKS_STATS = [
 ] as const
 
 export const HERITAGE_SERVICES_INTRO = {
-  lead: 'The most powerful strategies are set up during the year, not at filing time. Start now so you',
-  emphasis: 'do not lose another tax year',
-  trail: 'to overpaying just because nobody told you what is possible.',
+  heading: 'The most powerful strategies are set up during the year, not at filing time.',
+  subtext:
+    'Start now so you do not lose another tax year to overpaying just because nobody told you what is possible.',
 } as const
 
 export const HERITAGE_SERVICES = [

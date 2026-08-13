@@ -10,7 +10,7 @@ function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative bg-background px-6 py-20 lg:py-28"
+      className="relative px-6 py-20 lg:py-28"
     >
       <div
         className="heritage-hero-grid pointer-events-none absolute inset-0"
@@ -34,9 +34,12 @@ function HeroSection() {
             <SmoothScrollLink
               href={HERITAGE_ASSESSMENT_LINK}
               scrollTargetId={HERITAGE_ASSESSMENT_ID}
-              className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'w-full')}
+              className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'heritage-hero-cta w-full')}
             >
-              Book your free 30-minute strategy call →
+              Book your free 30-minute strategy call{' '}
+              <span className="heritage-hero-cta-arrow" aria-hidden="true">
+                →
+              </span>
             </SmoothScrollLink>
             <p className="font-sans text-xs font-medium uppercase tracking-widest text-muted-foreground">
               30-minute call · No obligation · Nothing to prepare

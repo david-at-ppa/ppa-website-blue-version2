@@ -2,7 +2,7 @@ import { HOW_IT_WORKS_INTRO } from '@/lib/heritage-content'
 
 export function HowItWorksIntroSection() {
   return (
-    <section aria-labelledby="how-it-works-intro-heading" className="bg-background px-6 py-20 lg:py-24">
+    <section aria-labelledby="how-it-works-intro-heading" className="px-6 py-20 lg:py-24">
       <div className="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <h1
           id="how-it-works-intro-heading"

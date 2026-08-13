@@ -20,7 +20,7 @@ export function WhySection() {
   return (
     <section
       aria-labelledby="why-heading"
-      className="py-24 px-6 bg-card border-t border-border"
+      className="py-24 px-6"
     >
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div data-reveal className="space-y-6">

@@ -31,7 +31,7 @@ export function ProcessSection({ pageHeading = false }: { pageHeading?: boolean 
   return (
     <section
       aria-labelledby="process-heading"
-      className="py-24 px-6 bg-muted border-t border-border"
+      className="py-24 px-6"
     >
       <div className="max-w-5xl mx-auto space-y-16">
         <div data-reveal className="space-y-4">

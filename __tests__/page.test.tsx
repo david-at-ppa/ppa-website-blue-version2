@@ -66,7 +66,9 @@ describe('Home page', () => {
     render(<Home />)
     expect(screen.getByText(/where our clients work/i)).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /we plan for the people these companies pay the most/i })
+      screen.getByRole('heading', {
+        name: /trusted by high earners at the companies everyone knows/i,
+      })
     ).toBeInTheDocument()
   })
 

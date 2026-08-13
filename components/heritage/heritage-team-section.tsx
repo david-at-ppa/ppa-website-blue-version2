@@ -43,7 +43,7 @@ function TeamMemberPhoto({ image }: { image: { src: string; alt: string } }) {
 
 export function HeritageTeamSection() {
   return (
-    <section aria-labelledby="team-heading" className="border-t border-border bg-background px-6 py-24">
+    <section aria-labelledby="team-heading" className="px-6 py-24">
       <div className="mx-auto max-w-5xl space-y-12">
         <div data-reveal className="space-y-6">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">

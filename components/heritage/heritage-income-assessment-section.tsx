@@ -29,7 +29,7 @@ export function HeritageIncomeAssessmentSection() {
     <section
       id="assessment"
       aria-labelledby="assessment-heading"
-      className="bg-background px-6 pb-16 pt-8 lg:pb-24 lg:pt-12"
+      className="px-6 pb-16 pt-8 lg:pb-24 lg:pt-12"
     >
       <div className="mx-auto grid w-full min-w-0 max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div data-reveal className="min-w-0 space-y-6 text-center lg:text-left">

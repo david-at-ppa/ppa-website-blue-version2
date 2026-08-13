@@ -9,6 +9,29 @@
   /* 85% of Tailwind's default 0.25rem spacing unit - tighter section rhythm sitewide */
   --spacing: 0.2125rem;
   scroll-behavior: smooth;
+  --heritage-mesh-base: #f7f4ed;
+  --heritage-mesh-sage: rgba(207, 227, 214, 0.72);
+  --heritage-mesh-sage-soft: rgba(207, 227, 214, 0.38);
+  --heritage-mesh-white: rgba(255, 255, 255, 0.94);
+  --heritage-mesh-beige: rgba(222, 221, 191, 0.78);
+  --heritage-mesh-beige-soft: rgba(222, 221, 191, 0.42);
+  min-height: 100%;
+  background-color: var(--heritage-mesh-base);
+  background-image:
+    radial-gradient(ellipse 85% 72% at 50% 48%, var(--heritage-mesh-white), transparent 68%),
+    radial-gradient(ellipse 72% 58% at 8% 38%, var(--heritage-mesh-sage), transparent 56%),
+    radial-gradient(ellipse 68% 54% at 92% 34%, var(--heritage-mesh-beige), transparent 54%),
+    radial-gradient(ellipse 58% 46% at 22% 12%, var(--heritage-mesh-sage-soft), transparent 58%),
+    radial-gradient(ellipse 54% 44% at 78% 10%, var(--heritage-mesh-beige-soft), transparent 56%),
+    radial-gradient(ellipse 62% 50% at 12% 88%, var(--heritage-mesh-sage-soft), transparent 55%),
+    radial-gradient(ellipse 60% 48% at 90% 82%, var(--heritage-mesh-beige), transparent 53%),
+    radial-gradient(ellipse 48% 40% at 64% 68%, var(--heritage-mesh-beige-soft), transparent 58%),
+    radial-gradient(ellipse 46% 38% at 36% 62%, var(--heritage-mesh-sage-soft), transparent 56%);
+  background-attachment: fixed;
+}
+
+html[data-theme='heritage'] body {
+  background: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -17,25 +40,19 @@
   }
 }
 
-/* One flat page background - no section alternates on heritage */
-[data-theme='heritage'] .heritage-ambient::before {
-  display: none;
+[data-theme='heritage'] .heritage-ambient,
+[data-theme='heritage'] .heritage-page {
+  background: transparent;
 }
 
-.heritage-page > section {
-  background-color: var(--background);
-  color: var(--foreground);
+/* One page background - sections stay transparent */
+[data-theme='heritage'] .heritage-page :is(section, article) {
+  background-color: transparent;
+  background-image: none;
 }
 
 .heritage-page .heritage-hero-grid {
   display: none;
-}
-
-.heritage-page section.bg-muted,
-.heritage-page section.bg-foreground,
-.heritage-page section.bg-card {
-  background-color: var(--background);
-  color: var(--foreground);
 }
 
 .heritage-page section.bg-foreground .text-background\/60,
@@ -73,4 +90,19 @@
 .heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment']:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
+}
+
+.heritage-hero-cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.heritage-hero-cta:hover .heritage-hero-cta-arrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heritage-hero-cta-arrow {
+    transition: none;
+  }
 }
