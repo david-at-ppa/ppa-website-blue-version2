@@ -47,11 +47,9 @@ The owner is **David Tran** (david@primepathadvisory.com), a self-taught develop
 | Route | Description |
 |---|---|
 | `/` | Home — hero, stats, approach, process, founder, team, services overview, case study, reviews teaser, FAQ, CTA |
-| `/about` | Team bios, firm story, why choose PPA, Vimeo video |
-| `/services` | Detailed service breakdown with Vimeo videos |
-| `/blog` | Article index (Sanity-powered) |
-| `/blog/[slug]` | Individual blog post (Sanity-powered) |
-| `/reviews` | Full testimonials page (expanded version of home page review cards) |
+| `/about-us` | Team bios, firm story, why choose PPA, Vimeo video |
+| `/how-it-works` | Process overview (placeholder during build) |
+| `/faqs` | Frequently asked questions (placeholder during build) |
 | `/book` | Qualification + booking page (see booking flow below) |
 | `/booking-confirmed` | Post-booking confirmation + Vimeo video (what to expect, how to prepare) |
 | `/contact` | Contact page |

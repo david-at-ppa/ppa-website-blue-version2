@@ -15,7 +15,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/heritage/about",
-        destination: "/about",
+        destination: "/about-us",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/about-us",
         permanent: true,
       },
     ];

@@ -11,17 +11,17 @@ function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative bg-background py-20 lg:py-28 px-6 pb-20"
+      className="relative bg-background px-6 py-20 lg:py-28"
     >
       <div
         className="heritage-hero-grid pointer-events-none absolute inset-0"
         aria-hidden="true"
       />
-      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.28fr] gap-12 lg:gap-14 items-start">
-        <div data-reveal className="space-y-6 text-center lg:text-left">
+      <div className="relative mx-auto grid w-full max-w-7xl min-w-0 items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.28fr)] lg:gap-14">
+        <div data-reveal className="min-w-0 space-y-6 text-center lg:text-left">
           <h1
             id="hero-heading"
-            className="font-heading text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-semibold leading-none tracking-tight"
+            className="font-heading text-5xl font-semibold leading-none tracking-tight break-words md:text-6xl lg:text-6xl xl:text-7xl"
           >
             Save $100k+ on your taxes{' '}
             <span className="text-primary">this year.</span>
@@ -48,12 +48,12 @@ function HeroSection() {
         <div
           data-reveal
           data-reveal-delay="1"
-          className="space-y-6 w-full max-w-xl mx-auto lg:max-w-none lg:mx-0"
+          className="mx-auto w-full min-w-0 max-w-xl space-y-6 lg:mx-0 lg:max-w-none"
         >
           <VidalyticsEmbed
             embedId="Cw2MFuq5vWpV54b7"
             accountId="UJ6_PCbU"
-            className="w-full"
+            className="w-full max-w-full min-w-0"
           />
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary text-center lg:text-left">
             David Tran · Founder &amp; CEO
