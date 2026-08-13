@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 interface Props {
   embedId: string
   accountId: string
-  /** Tailwind classes on the outer wrapper — use max-w-* or w-* to control display size. */
+  /** Tailwind classes on the outer wrapper - use max-w-* or w-* to control display size. */
   className?: string
   /** Padding-top percentage for aspect ratio. Default 56.25% = 16:9. */
   aspectRatio?: `${number}%`

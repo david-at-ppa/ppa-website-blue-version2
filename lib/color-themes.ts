@@ -12,7 +12,7 @@ export const COLOR_THEMES: ColorTheme[] = [
     id: 'gold',
     label: 'Gold',
     primary: '#B08628',
-    description: 'Current brand — premium wealth, established',
+    description: 'Current brand - premium wealth, established',
   },
   {
     id: 'navy',

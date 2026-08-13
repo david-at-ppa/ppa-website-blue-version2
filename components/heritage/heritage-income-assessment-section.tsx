@@ -7,8 +7,8 @@ import { HERITAGE_INCOME_OPTIONS } from '@/lib/heritage-content'
 import { getScheduleRoute, type BookingAnswer } from '@/lib/booking'
 
 const ASSESSMENT_BULLETS = [
-  'Typical savings of $150K–$350K+ per year',
-  'Selective and confidential — $1M+ earners only',
+  'Typical savings of $150K-$350K+ per year',
+  'Selective and confidential - $1M+ earners only',
   'No obligation, and nothing to prepare',
 ] as const
 
@@ -72,7 +72,7 @@ export function HeritageIncomeAssessmentSection() {
               </h3>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 Our strategies need $1M+ in annual income to be worth the setup. Come back when you cross
-                that line — we&apos;d like to help then.
+                that line - we&apos;d like to help then.
               </p>
             </section>
           ) : (

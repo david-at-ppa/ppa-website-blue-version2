@@ -3,7 +3,7 @@ import { HeritageServicesSection } from '@/components/heritage/heritage-services
 import { HomeCtaSection } from '@/components/sections/home-cta-section'
 import { HERITAGE_CLIENT_LOGOS, HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 
-/** Heritage homepage sections — guarantee and founder omitted. */
+/** Heritage homepage sections - guarantee and founder omitted. */
 export function HeritageHomeSections() {
   return (
     <>

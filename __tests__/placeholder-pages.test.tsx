@@ -54,9 +54,18 @@ describe('FAQs page', () => {
     expect(document.body).toBeTruthy()
   })
 
-  it('renders a page heading', () => {
+  it('renders the page heading and FAQ items', () => {
     render(<Faqs />)
-    expect(screen.getByRole('heading', { name: /faqs/i, level: 1 })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /frequently asked questions/i, level: 1 })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(/everything you need to know about prime path advisory/i)
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(/why do high-income earners overpay so much in taxes\?/i)
+    ).toBeInTheDocument()
+    expect(screen.getByText(/how long does it take to see results\?/i)).toBeInTheDocument()
   })
 
   it('exports a non-empty title', () => {

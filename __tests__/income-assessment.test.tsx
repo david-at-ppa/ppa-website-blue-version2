@@ -23,7 +23,7 @@ describe('Income assessment', () => {
     expect(
       screen.getByText(/answer one question to see if we're a fit/i)
     ).toBeInTheDocument()
-    expect(screen.getByText(/selective and confidential — \$1m\+ earners only/i)).toBeInTheDocument()
+    expect(screen.getByText(/selective and confidential - \$1m\+ earners only/i)).toBeInTheDocument()
     expect(screen.getByText(/no obligation, and nothing to prepare/i)).toBeInTheDocument()
     expect(screen.getByText(/your answer stays confidential\./i)).toBeInTheDocument()
   })
@@ -58,15 +58,15 @@ describe('Income assessment', () => {
     expect(push).not.toHaveBeenCalled()
   })
 
-  it('selecting $1M–$2M navigates to /schedule-a', async () => {
+  it('selecting $1M-$2M navigates to /schedule-a', async () => {
     render(<HeritageIncomeAssessmentSection />)
-    await userEvent.click(screen.getByRole('button', { name: /\$1,000,000 – \$2,000,000/i }))
+    await userEvent.click(screen.getByRole('button', { name: /\$1,000,000 - \$2,000,000/i }))
     expect(push).toHaveBeenCalledWith('/schedule-a')
   })
 
-  it('selecting $2M–$4M navigates to /schedule-b', async () => {
+  it('selecting $2M-$4M navigates to /schedule-b', async () => {
     render(<HeritageIncomeAssessmentSection />)
-    await userEvent.click(screen.getByRole('button', { name: /\$2,000,000 – \$4,000,000/i }))
+    await userEvent.click(screen.getByRole('button', { name: /\$2,000,000 - \$4,000,000/i }))
     expect(push).toHaveBeenCalledWith('/schedule-b')
   })
 

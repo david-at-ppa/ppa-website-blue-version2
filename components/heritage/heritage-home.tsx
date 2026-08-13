@@ -27,7 +27,7 @@ function HeroSection() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl lg:max-w-none mx-auto lg:mx-0 leading-relaxed">
             Year-round tax strategy for founders, executives, and high-RSU earners making $1M+.
-            Designed, implemented, and filed by our team — not a PDF of ideas you have to go execute
+            Designed, implemented, and filed by our team - not a PDF of ideas you have to go execute
             yourself.
           </p>
           <div className="flex w-full flex-col items-center gap-3 pt-2 lg:items-stretch">
