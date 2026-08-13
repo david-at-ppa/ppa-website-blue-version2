@@ -63,6 +63,7 @@ type ClientLogosSectionProps = {
   logos?: readonly ClientLogo[]
   eyebrow?: string
   heading?: string
+  subtext?: string
   className?: string
 }
 
@@ -71,6 +72,7 @@ export function ClientLogosSection({
   logos = CLIENT_LOGOS,
   eyebrow,
   heading,
+  subtext,
   className,
 }: ClientLogosSectionProps) {
   return (
@@ -81,13 +83,16 @@ export function ClientLogosSection({
     >
       <div className="space-y-10">
         {eyebrow && heading ? (
-          <div className="space-y-3 px-6 text-center">
+          <div className="mx-auto max-w-4xl space-y-4 px-6 text-center">
             <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">
               {eyebrow}
             </p>
-            <h2 className="mx-auto font-heading text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
+            <h2 className="font-heading text-2xl font-semibold leading-snug tracking-tight text-foreground md:text-3xl lg:text-[2rem] lg:leading-snug">
               {heading}
             </h2>
+            {subtext ? (
+              <p className="text-lg leading-relaxed text-muted-foreground">{subtext}</p>
+            ) : null}
           </div>
         ) : (
           <p className="mx-auto max-w-2xl px-6 text-center text-sm leading-relaxed text-muted-foreground md:text-base">

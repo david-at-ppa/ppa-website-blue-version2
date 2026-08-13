@@ -1,7 +1,7 @@
 import { ClientLogosSection } from '@/components/sections/client-logos-section'
 import { HeritageServicesSection } from '@/components/heritage/heritage-services-section'
 import { HomeCtaSection } from '@/components/sections/home-cta-section'
-import { HERITAGE_CLIENT_LOGOS, HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
+import { HERITAGE_CLIENT_LOGOS, HERITAGE_CLIENT_LOGOS_INTRO, HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 
 /** Heritage homepage sections - guarantee and founder omitted. */
 export function HeritageHomeSections() {
@@ -10,8 +10,9 @@ export function HeritageHomeSections() {
       <ClientLogosSection
         animated={false}
         logos={HERITAGE_CLIENT_LOGOS}
-        eyebrow="Where our clients work"
-        heading="We plan for the people these companies pay the most"
+        eyebrow={HERITAGE_CLIENT_LOGOS_INTRO.eyebrow}
+        heading={HERITAGE_CLIENT_LOGOS_INTRO.heading}
+        subtext={HERITAGE_CLIENT_LOGOS_INTRO.subtext}
         className="border-t-0 pt-10 pb-16 lg:pt-12"
       />
       <HeritageServicesSection />

@@ -22,15 +22,17 @@ export function HeritageServicesSection() {
   return (
     <section aria-labelledby="services-heading" className="border-t border-border bg-background px-6 py-20 lg:py-24">
       <div className="mx-auto max-w-6xl space-y-12">
-        <p
-          id="services-heading"
-          data-reveal
-          className="max-w-5xl font-heading text-2xl font-semibold leading-snug tracking-tight text-foreground md:text-3xl lg:text-[2rem] lg:leading-snug"
-        >
-          {HERITAGE_SERVICES_INTRO.lead}{' '}
-          <span className="font-semibold">{HERITAGE_SERVICES_INTRO.emphasis}</span>{' '}
-          {HERITAGE_SERVICES_INTRO.trail}
-        </p>
+        <div data-reveal className="max-w-5xl space-y-4">
+          <h2
+            id="services-heading"
+            className="font-heading text-2xl font-semibold leading-snug tracking-tight text-foreground md:text-3xl lg:text-[2rem] lg:leading-snug"
+          >
+            {HERITAGE_SERVICES_INTRO.heading}
+          </h2>
+          <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">
+            {HERITAGE_SERVICES_INTRO.subtext}
+          </p>
+        </div>
 
         <ul className="grid list-none gap-6 md:grid-cols-2 lg:grid-cols-3">
           {HERITAGE_SERVICES.map(({ title, body, icon }, index) => {
