@@ -74,3 +74,18 @@
   transform: translateY(-2px);
   filter: brightness(1.05);
 }
+
+.heritage-hero-cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.heritage-hero-cta:hover .heritage-hero-cta-arrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heritage-hero-cta-arrow {
+    transition: none;
+  }
+}
