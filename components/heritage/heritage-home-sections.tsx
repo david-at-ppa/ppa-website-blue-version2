@@ -1,16 +1,20 @@
-import { StatsSection } from '@/components/sections/stats-section'
 import { ClientLogosSection } from '@/components/sections/client-logos-section'
-import { ProcessSection } from '@/components/sections/process-section'
+import { HeritageServicesSection } from '@/components/heritage/heritage-services-section'
 import { HomeCtaSection } from '@/components/sections/home-cta-section'
-import { HERITAGE_CLIENT_LOGOS, HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID, HERITAGE_STATS } from '@/lib/heritage-content'
+import { HERITAGE_CLIENT_LOGOS, HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 
 /** Heritage homepage sections — guarantee and founder omitted. */
 export function HeritageHomeSections() {
   return (
     <>
-      <StatsSection stats={HERITAGE_STATS} />
-      <ClientLogosSection animated={false} logos={HERITAGE_CLIENT_LOGOS} />
-      <ProcessSection />
+      <ClientLogosSection
+        animated={false}
+        logos={HERITAGE_CLIENT_LOGOS}
+        eyebrow="Where our clients work"
+        heading="We plan for the people these companies pay the most"
+        className="border-t-0 pt-10 pb-16 lg:pt-12"
+      />
+      <HeritageServicesSection />
       <HomeCtaSection
         ctaHref={HERITAGE_ASSESSMENT_LINK}
         ctaScrollTarget={HERITAGE_ASSESSMENT_ID}

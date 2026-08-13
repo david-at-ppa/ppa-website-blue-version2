@@ -10,16 +10,24 @@ describe('Home page', () => {
   it('renders the hero heading', () => {
     render(<Home />)
     expect(
-      screen.getByRole('heading', { name: /save \$100k\+ on your taxes this year/i, level: 1 })
+      screen.getByRole('heading', {
+        name: /you earn \$1m\+\. your cpa files\. nobody plans\./i,
+        level: 1,
+      })
     ).toBeInTheDocument()
   })
 
   it('renders a book CTA in the hero that targets the assessment', () => {
     render(<Home />)
     const hero = screen
-      .getByRole('heading', { name: /save \$100k\+ on your taxes this year/i, level: 1 })
+      .getByRole('heading', {
+        name: /you earn \$1m\+\. your cpa files\. nobody plans\./i,
+        level: 1,
+      })
       .closest('section')!
-    const cta = within(hero).getByRole('link', { name: /book your free strategy call/i })
+    const cta = within(hero).getByRole('link', {
+      name: /book your free 30-minute strategy call/i,
+    })
     expect(cta.getAttribute('href')).toMatch(/#assessment$/)
   })
 
@@ -27,7 +35,7 @@ describe('Home page', () => {
     render(<Home />)
     expect(document.getElementById('assessment')).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /see how much you could be saving/i })
+      screen.getByRole('heading', { name: /one question\. then pick a time\./i })
     ).toBeInTheDocument()
   })
 
@@ -49,14 +57,29 @@ describe('Home page', () => {
     expect(revealTargets.length).toBeGreaterThanOrEqual(3)
   })
 
-  it('renders the stats section', () => {
+  it('does not render the stats section', () => {
     render(<Home />)
-    expect(screen.getByRole('region', { name: /client outcomes/i })).toBeInTheDocument()
+    expect(screen.queryByRole('region', { name: /client outcomes/i })).not.toBeInTheDocument()
   })
 
-  it('renders the process section', () => {
+  it('renders the client logos heading', () => {
     render(<Home />)
-    expect(screen.getByRole('heading', { name: /you stop overpaying/i })).toBeInTheDocument()
+    expect(screen.getByText(/where our clients work/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /we plan for the people these companies pay the most/i })
+    ).toBeInTheDocument()
+  })
+
+  it('renders the services section', () => {
+    render(<Home />)
+    expect(screen.getByText(/do not lose another tax year/i)).toBeInTheDocument()
+    expect(screen.getByText(/proactive tax planning & education/i)).toBeInTheDocument()
+    expect(screen.getByText(/priority support & defense/i)).toBeInTheDocument()
+  })
+
+  it('does not render the process section', () => {
+    render(<Home />)
+    expect(screen.queryByRole('heading', { name: /you stop overpaying/i })).not.toBeInTheDocument()
   })
 
   describe('hero section', () => {

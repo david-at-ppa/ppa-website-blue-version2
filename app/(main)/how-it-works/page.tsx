@@ -1,17 +1,20 @@
 import type { Metadata } from 'next'
+import { HowItWorksIntroSection } from '@/components/heritage/how-it-works-intro-section'
+import { HowItWorksStatsSection } from '@/components/heritage/how-it-works-stats-section'
+import { ProcessSection } from '@/components/sections/process-section'
 
 export const metadata: Metadata = {
   title: 'How It Works — Prime Path Advisory',
-  description: 'Learn how Prime Path Advisory helps high-income earners reduce their tax burden.',
+  description:
+    'Year-round, done-for-you tax strategy for W-2 professionals earning $1M+. See how Prime Path Advisory bridges the gap your CPA leaves.',
 }
 
 export default function HowItWorks() {
   return (
-    <section aria-label="How it works" className="px-6 py-24">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-4xl font-semibold tracking-tight">How It Works</h1>
-        <p className="mt-4 text-muted-foreground">Coming soon.</p>
-      </div>
-    </section>
+    <>
+      <HowItWorksIntroSection />
+      <HowItWorksStatsSection />
+      <ProcessSection />
+    </>
   )
 }
