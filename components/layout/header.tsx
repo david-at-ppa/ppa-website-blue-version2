@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Dialog } from '@base-ui/react/dialog'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
@@ -40,6 +41,7 @@ type HeaderProps = {
   ctaScrollTarget?: string
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
   navLinks?: readonly NavLink[]
+  hideCtaOnPaths?: readonly string[]
 }
 
 export function Header({
@@ -48,8 +50,11 @@ export function Header({
   ctaScrollTarget = 'assessment',
   ctaVariant = 'heritage',
   navLinks = NAV_LINKS,
+  hideCtaOnPaths = ['/booking-confirmed'],
 }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
+  const showCta = !hideCtaOnPaths.includes(pathname)
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
 
   return (
@@ -68,13 +73,15 @@ export function Header({
               {label}
             </Link>
           ))}
-          <CtaLink
-            href={ctaHref}
-            scrollTargetId={ctaScrollTarget}
-            className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }))}
-          >
-            {SMALL_CTA_LABEL}
-          </CtaLink>
+          {showCta ? (
+            <CtaLink
+              href={ctaHref}
+              scrollTargetId={ctaScrollTarget}
+              className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }))}
+            >
+              {SMALL_CTA_LABEL}
+            </CtaLink>
+          ) : null}
         </nav>
 
         {/* Mobile nav - Base UI Dialog as slide-in drawer */}
@@ -110,14 +117,16 @@ export function Header({
                     {label}
                   </Link>
                 ))}
-                <CtaLink
-                  href={ctaHref}
-                  scrollTargetId={ctaScrollTarget}
-                  onClick={() => setMobileOpen(false)}
-                  className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'mt-4 w-full')}
-                >
-                  {SMALL_CTA_LABEL}
-                </CtaLink>
+                {showCta ? (
+                  <CtaLink
+                    href={ctaHref}
+                    scrollTargetId={ctaScrollTarget}
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'mt-4 w-full')}
+                  >
+                    {SMALL_CTA_LABEL}
+                  </CtaLink>
+                ) : null}
               </nav>
             </Dialog.Popup>
           </Dialog.Portal>
