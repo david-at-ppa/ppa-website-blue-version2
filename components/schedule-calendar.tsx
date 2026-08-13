@@ -27,16 +27,13 @@ export function ScheduleCalendar({
   regionLabel: string
 }) {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col items-center px-6 py-16">
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
       <section aria-label={regionLabel} className="w-full">
-        <h1 className="mb-8 text-center font-heading text-3xl font-semibold tracking-tight md:text-4xl">
-          {title}
-        </h1>
         <iframe
           title={`${title} calendar`}
           src={GHL_CALENDAR_SRC}
           id={GHL_CALENDAR_IFRAME_ID}
-          className="h-[700px] w-full border-0"
+          className="min-h-[720px] w-full border-0"
           scrolling="no"
         />
         <GhlScript />

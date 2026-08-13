@@ -6,6 +6,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
+import { isScheduleRoute } from '@/lib/booking'
 import type { VariantProps } from 'class-variance-authority'
 
 const QUICK_LINKS = [
@@ -41,8 +42,35 @@ export function Footer({
   hideCtaOnPaths = ['/booking-confirmed'],
 }: FooterProps) {
   const pathname = usePathname()
-  const showCta = !hideCtaOnPaths.includes(pathname)
+  const isBookingFocused = isScheduleRoute(pathname)
+  const showCta = !hideCtaOnPaths.includes(pathname) && !isBookingFocused
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
+
+  if (isBookingFocused) {
+    return (
+      <footer className="bg-transparent">
+        <div className="mx-auto max-w-6xl px-6 py-8">
+          <nav
+            aria-label="Legal"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+          >
+            {LEGAL_LINKS.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <p className="mt-4 text-center text-xs text-muted-foreground">
+            © 2026 Prime Path Advisory. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    )
+  }
 
   return (
     <footer className="bg-transparent">
