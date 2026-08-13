@@ -222,9 +222,8 @@ export function LegalPageSkeleton() {
 export function SchedulePageSkeleton() {
   return (
     <LoadingStatus label="Loading schedule page">
-      <div className="mx-auto flex w-full max-w-3xl flex-col items-center px-6 py-16">
-        <Skeleton className="mb-8 h-10 w-full max-w-md" />
-        <Skeleton className="h-[700px] w-full rounded-xl" />
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
+        <Skeleton className="min-h-[720px] w-full rounded-xl" />
       </div>
     </LoadingStatus>
   )

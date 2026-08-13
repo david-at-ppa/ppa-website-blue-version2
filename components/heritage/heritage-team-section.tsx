@@ -17,7 +17,7 @@ const TEAM_MEMBERS = [
     name: 'Marlon Bell',
     title: 'Tax Advisor & Reviewer',
     image: {
-      src: '/images/team/marlon-bell.png',
+      src: '/images/team/marlon-bell-closeup.png',
       alt: 'Marlon Bell, Tax Advisor & Reviewer at Prime Path Advisory',
     },
     body: [
