@@ -29,7 +29,6 @@ type FooterProps = {
   ctaScrollTarget?: string
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
   quickLinks?: readonly FooterLink[]
-  legalAsText?: boolean
   hideCtaOnPaths?: readonly string[]
 }
 
@@ -38,7 +37,6 @@ export function Footer({
   ctaScrollTarget = 'assessment',
   ctaVariant = 'heritage',
   quickLinks = QUICK_LINKS,
-  legalAsText = false,
   hideCtaOnPaths = ['/booking-confirmed'],
 }: FooterProps) {
   const pathname = usePathname()
@@ -118,27 +116,17 @@ export function Footer({
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               Legal
             </p>
-            {legalAsText ? (
-              <ul aria-label="Legal" className="flex list-none flex-col gap-2">
-                {LEGAL_LINKS.map(({ label }) => (
-                  <li key={label} className="text-sm text-muted-foreground">
-                    {label}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <nav aria-label="Legal" className="flex flex-col gap-2">
-                {LEGAL_LINKS.map(({ href, label }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </nav>
-            )}
+            <nav aria-label="Legal" className="flex flex-col gap-2">
+              {LEGAL_LINKS.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
 

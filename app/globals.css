@@ -203,12 +203,14 @@
 }
 
 @layer utilities {
-  html[data-reveal-ready] [data-reveal]:not([data-visible]) {
-    opacity: 0;
-    transform: translateY(24px);
+  html[data-reveal-ready] [data-reveal] {
     transition:
       opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html[data-reveal-ready] [data-reveal]:not([data-visible]) {
+    opacity: 0;
+    transform: translateY(24px);
   }
   html[data-reveal-ready] [data-reveal][data-visible] {
     opacity: 1;
@@ -233,10 +235,12 @@
     transition-delay: 0.6s;
   }
   @media (prefers-reduced-motion: reduce) {
+    html[data-reveal-ready] [data-reveal] {
+      transition: none;
+    }
     html[data-reveal-ready] [data-reveal]:not([data-visible]) {
       opacity: 1;
       transform: none;
-      transition: none;
     }
   }
 

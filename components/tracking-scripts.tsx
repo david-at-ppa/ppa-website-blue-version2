@@ -1,8 +1,24 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Script from 'next/script'
 
+type TrackingConsent = 'pending' | 'granted' | 'withheld'
+
+function hasGlobalPrivacyControl() {
+  if (typeof navigator === 'undefined') return false
+  return (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl === true
+}
+
 export function TrackingScripts() {
+  const [consent, setConsent] = useState<TrackingConsent>('pending')
+
+  useEffect(() => {
+    setConsent(hasGlobalPrivacyControl() ? 'withheld' : 'granted')
+  }, [])
+
+  if (consent !== 'granted') return null
+
   return (
     <>
       <Script id="meta-pixel" strategy="afterInteractive">{`
@@ -17,15 +33,6 @@ export function TrackingScripts() {
         fbq('init', '560364541162966');
         fbq('track', 'PageView');
       `}</Script>
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: 'none' }}
-          src="https://www.facebook.com/tr?id=560364541162966&ev=PageView&noscript=1"
-          alt=""
-        />
-      </noscript>
       <Script
         id="ga4"
         strategy="afterInteractive"
