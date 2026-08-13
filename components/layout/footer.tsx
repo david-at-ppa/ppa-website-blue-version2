@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { buttonVariants } from '@/components/ui/button'
 import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
@@ -26,6 +29,7 @@ type FooterProps = {
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
   quickLinks?: readonly FooterLink[]
   legalAsText?: boolean
+  hideCtaOnPaths?: readonly string[]
 }
 
 export function Footer({
@@ -34,8 +38,12 @@ export function Footer({
   ctaVariant = 'heritage',
   quickLinks = QUICK_LINKS,
   legalAsText = false,
+  hideCtaOnPaths = ['/booking-confirmed'],
 }: FooterProps) {
+  const pathname = usePathname()
+  const showCta = !hideCtaOnPaths.includes(pathname)
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
+
   return (
     <footer className="bg-transparent">
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -48,13 +56,15 @@ export function Footer({
                 Tax strategy for high-income earners.
               </p>
             </div>
-            <CtaLink
-              href={ctaHref}
-              scrollTargetId={ctaScrollTarget}
-              className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'w-fit')}
-            >
-              {SMALL_CTA_LABEL}
-            </CtaLink>
+            {showCta ? (
+              <CtaLink
+                href={ctaHref}
+                scrollTargetId={ctaScrollTarget}
+                className={cn(buttonVariants({ variant: ctaVariant, size: 'sm' }), 'w-fit')}
+              >
+                {SMALL_CTA_LABEL}
+              </CtaLink>
+            ) : null}
           </div>
 
           {/* Quick links */}

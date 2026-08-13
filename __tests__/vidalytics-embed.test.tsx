@@ -37,4 +37,24 @@ describe('VidalyticsEmbed', () => {
 
     appendChildSpy.mockRestore()
   })
+
+  it('disables autoplay via custom settings when autoplay is false', () => {
+    let scriptText = ''
+    const appendChild = document.head.appendChild.bind(document.head)
+    const appendChildSpy = vi.spyOn(document.head, 'appendChild').mockImplementation((node) => {
+      if (node instanceof HTMLScriptElement && node.text.includes('Vidalytics')) {
+        scriptText = node.text
+      }
+      return appendChild(node)
+    })
+
+    render(<VidalyticsEmbed {...props} autoplay={false} />)
+
+    expect(scriptText).toContain('vidalyticsCustomSettings')
+    expect(scriptText).toContain('autoplay:{enabled:false,mobile:false}')
+    expect(scriptText).toContain('t.run(a, vidalyticsCustomSettings)')
+    expect(scriptText).not.toContain('autoplay=false')
+
+    appendChildSpy.mockRestore()
+  })
 })
