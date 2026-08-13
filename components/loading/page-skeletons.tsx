@@ -47,7 +47,7 @@ export function HomePageSkeleton() {
         </div>
       </section>
 
-      <section className="border-y border-border px-6 py-16">
+      <section className="px-6 py-16">
         <div className="mx-auto max-w-4xl space-y-4 text-center">
           <Skeleton className="mx-auto h-3 w-36" />
           <Skeleton className="mx-auto h-9 w-full max-w-2xl" />
@@ -60,7 +60,7 @@ export function HomePageSkeleton() {
         </div>
       </section>
 
-      <section className="border-t border-border px-6 py-20 lg:py-24">
+      <section className="px-6 py-20 lg:py-24">
         <div className="mx-auto max-w-6xl space-y-12">
           <PageHeaderSkeleton bodyLines={0} />
           <Skeleton className="h-4 w-full max-w-4xl" />
@@ -96,7 +96,7 @@ export function AboutPageSkeleton() {
         </div>
       </section>
 
-      <section className="border-t border-border px-6 py-24">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-6xl space-y-12">
           <PageHeaderSkeleton bodyLines={1} />
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -109,7 +109,7 @@ export function AboutPageSkeleton() {
         </div>
       </section>
 
-      <section className="border-t border-border px-6 py-24">
+      <section className="px-6 py-24">
         <div className="mx-auto grid max-w-5xl gap-16 md:grid-cols-2">
           <PageHeaderSkeleton bodyLines={2} />
           <div className="space-y-4">
@@ -135,7 +135,7 @@ export function HowItWorksPageSkeleton() {
         </div>
       </section>
 
-      <section className="border-y border-border px-6 py-12 lg:py-14">
+      <section className="px-6 py-12 lg:py-14">
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
           {Array.from({ length: 3 }).map((_, index) => (
             <div key={index} className="space-y-3 text-center">

@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function HeritageFounderSection() {
   return (
-    <section aria-label="Founder" className="bg-background px-6 py-24">
+    <section aria-label="Founder" className="px-6 py-24">
       <div className="mx-auto grid max-w-5xl gap-16 md:grid-cols-2 md:items-stretch">
         <div data-reveal className="flex flex-col justify-center space-y-6">
           <p className="font-sans text-xs font-medium uppercase tracking-widest text-primary">

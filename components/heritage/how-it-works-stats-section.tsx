@@ -3,7 +3,7 @@ import { HOW_IT_WORKS_STATS } from '@/lib/heritage-content'
 
 export function HowItWorksStatsSection() {
   return (
-    <section aria-label="Firm outcomes" className="border-y border-border bg-card px-6 py-12 lg:py-14">
+    <section aria-label="Firm outcomes" className="px-6 py-12 lg:py-14">
       <ul className="mx-auto grid max-w-5xl list-none gap-10 md:grid-cols-3 md:gap-0">
         {HOW_IT_WORKS_STATS.map(({ figure, label }, index) => (
           <li

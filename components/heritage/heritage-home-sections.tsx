@@ -13,7 +13,7 @@ export function HeritageHomeSections() {
         eyebrow={HERITAGE_CLIENT_LOGOS_INTRO.eyebrow}
         heading={HERITAGE_CLIENT_LOGOS_INTRO.heading}
         subtext={HERITAGE_CLIENT_LOGOS_INTRO.subtext}
-        className="border-t-0 pt-10 pb-16 lg:pt-12"
+        className="pt-10 pb-16 lg:pt-12"
       />
       <HeritageServicesSection />
       <HomeCtaSection

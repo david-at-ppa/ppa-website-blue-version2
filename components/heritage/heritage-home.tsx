@@ -10,7 +10,7 @@ function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative bg-background px-6 py-20 lg:py-28"
+      className="relative px-6 py-20 lg:py-28"
     >
       <div
         className="heritage-hero-grid pointer-events-none absolute inset-0"

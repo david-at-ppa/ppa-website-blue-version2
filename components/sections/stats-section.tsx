@@ -21,7 +21,7 @@ export function StatsSection({ stats = STATS }: StatsSectionProps) {
   const columns = stats.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'
 
   return (
-    <section aria-label="Client outcomes" className="bg-background py-24 px-6">
+    <section aria-label="Client outcomes" className="py-24 px-6">
       <ul className={cn('max-w-5xl mx-auto grid grid-cols-2 gap-10 list-none', columns)}>
         {stats.map(({ figure, label, sub }, index) => (
           <li

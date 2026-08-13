@@ -37,7 +37,7 @@ export function Footer({
 }: FooterProps) {
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
   return (
-    <footer className="border-t border-border/40 bg-background">
+    <footer className="bg-transparent">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand column */}
@@ -104,7 +104,7 @@ export function Footer({
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border/40 pt-6">
+        <div className="mt-12 pt-6">
           <p className="text-xs text-muted-foreground">
             © 2026 Prime Path Advisory. All rights reserved.
           </p>

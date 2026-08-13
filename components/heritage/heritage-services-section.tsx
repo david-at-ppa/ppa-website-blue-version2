@@ -20,7 +20,7 @@ const SERVICE_ICONS: Record<(typeof HERITAGE_SERVICES)[number]['icon'], LucideIc
 
 export function HeritageServicesSection() {
   return (
-    <section aria-labelledby="services-heading" className="border-t border-border bg-background px-6 py-20 lg:py-24">
+    <section aria-labelledby="services-heading" className="px-6 py-20 lg:py-24">
       <div className="mx-auto max-w-6xl space-y-12">
         <div data-reveal className="max-w-5xl space-y-4">
           <h2

@@ -79,7 +79,7 @@ export function ClientLogosSection({
     <section
       data-reveal
       aria-label="Companies our clients work with"
-      className={cn('bg-background border-y border-border py-16', className)}
+      className={cn('py-16', className)}
     >
       <div className="space-y-10">
         {eyebrow && heading ? (
