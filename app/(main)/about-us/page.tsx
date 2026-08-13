@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 import { HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 import { HeritageFounderSection } from '@/components/heritage/heritage-founder-section'
+import { HeritageTeamSection } from '@/components/heritage/heritage-team-section'
 import { WhySection } from '@/components/sections/why-section'
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function AboutUs() {
   return (
     <>
       <HeritageFounderSection />
+      <HeritageTeamSection />
       <WhySection />
       <CtaSection />
     </>

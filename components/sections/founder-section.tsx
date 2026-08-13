@@ -19,7 +19,7 @@ export function FounderSection() {
             <p>
               So I went deep on the tax code. Treated it like an engineering problem: predictable
               inputs, optimizable outputs. The strategies that came out of that work are now deployed
-              across every Prime Path Advisory engagement - and they&apos;ve kept hundreds of millions of dollars
+              across every Prime Path Advisory engagement - and they&apos;ve kept millions of dollars
               in the hands of the people who earned them.
             </p>
           </div>
