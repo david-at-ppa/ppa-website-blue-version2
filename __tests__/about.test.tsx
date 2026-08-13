@@ -17,9 +17,13 @@ describe('About Us page', () => {
     expect(screen.getByRole('heading', { name: /overpaying/i })).toBeInTheDocument()
   })
 
-  it('does not render the team section', () => {
+  it('renders the team section', () => {
     render(<About />)
-    expect(screen.queryByRole('region', { name: /our team/i })).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /every return is reviewed twice before it's filed/i })
+    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /deen cadi/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /marlon bell/i })).toBeInTheDocument()
   })
 
   it('renders at least one CTA that targets the assessment', () => {
