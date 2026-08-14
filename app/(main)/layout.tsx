@@ -7,7 +7,10 @@ import { HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage
 import '@/components/heritage/heritage-overrides.css'
 
 export const metadata: Metadata = {
-  title: 'Prime Path Advisory - Proactive Tax Strategy for High-Income W-2 Earners',
+  title: {
+    template: '%s | Prime Path Advisory',
+    default: 'Tax Strategy for $1M+ Earners',
+  },
   description:
     'Prime Path Advisory is a done-for-you tax optimization firm for W-2 professionals earning $1M+. We uncover the legal strategies that keep more money in your pocket - every single year.',
 }

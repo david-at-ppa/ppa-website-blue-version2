@@ -233,7 +233,7 @@ export function BookingConfirmedPageSkeleton() {
   return (
     <LoadingStatus label="Loading booking confirmation page">
       <div className="flex flex-col items-center px-6 py-20">
-        <div className="w-full max-w-2xl space-y-12 text-center">
+        <div className="w-full max-w-4xl space-y-12 text-center">
           <div className="space-y-4">
             <Skeleton className="mx-auto h-10 w-56" />
             <Skeleton className="mx-auto h-16 w-full max-w-xl" />

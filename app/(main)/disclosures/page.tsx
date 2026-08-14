@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { DisclosuresContent } from './disclosures-content'
 
 export const metadata: Metadata = {
-  title: 'Disclosures | Prime Path Advisory',
+  title: 'Disclosures',
   description:
     'Important disclosures about Prime Path Advisory marketing, educational content, testimonials, and service limits.',
 }
