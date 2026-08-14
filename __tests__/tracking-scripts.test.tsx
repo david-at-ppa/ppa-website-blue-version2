@@ -50,7 +50,14 @@ describe('TrackingScripts', () => {
     expect(hyros).toBeInTheDocument()
   })
 
-  it('renders Meta, GA4, and Hyros tracking scripts', () => {
+  it('renders Retention.com tracking script', () => {
+    const { container } = render(<TrackingScripts />)
+    const scripts = container.querySelectorAll('script')
+    const retention = Array.from(scripts).find((s) => s.textContent?.includes('K97HQJ0Y'))
+    expect(retention).toBeInTheDocument()
+  })
+
+  it('renders Meta, GA4, Hyros, and Retention.com tracking scripts', () => {
     const { container } = render(<TrackingScripts />)
     const allContent = Array.from(container.querySelectorAll('script'))
       .map((s) => (s.src ?? '') + (s.textContent ?? ''))
@@ -58,5 +65,6 @@ describe('TrackingScripts', () => {
     expect(allContent).toContain('560364541162966')
     expect(allContent).toContain('GA4_MEASUREMENT_ID')
     expect(allContent).toContain('hyros.com')
+    expect(allContent).toContain('K97HQJ0Y')
   })
 })

@@ -51,6 +51,10 @@ export function TrackingScripts() {
         script.src = "https://212493.t.hyros.com/v1/lst/universal-script?ph=9d1e5614f8f08d8d750f7ede39d1f8014cf648f5f6ae8e43ca5775eb101eb3d4&tag=!clicked&ref_url=" + encodeURI(document.URL);
         head.appendChild(script);
       `}</Script>
+      <Script id="retention-com" strategy="afterInteractive">{`
+        !function(){var geq=window.geq=window.geq||[];if(geq.initialize) return;if (geq.invoked){if (window.console && console.error) {console.error("GE snippet included twice.");}return;}geq.invoked = true;geq.methods = ["page", "suppress", "track", "doNotTrack", "trackOrder", "identify", "addToCart", "callBack", "event"];geq.factory = function(method){return function(){var args = Array.prototype.slice.call(arguments);args.unshift(method);geq.push(args);return geq;};};for (var i = 0; i < geq.methods.length; i++) {var key = geq.methods[i];geq[key] = geq.factory(key);} geq.load = function(key){var script = document.createElement("script");script.type = "text/javascript";script.async = true; if (location.href.includes("vge=true")) {script.src = "https://s3-us-west-2.amazonaws.com/jsstore/a/" + key + "/ge.js?v=" + Math.random();} else {script.src = "https://s3-us-west-2.amazonaws.com/jsstore/a/" + key + "/ge.js";} var first = document.getElementsByTagName("script")[0];first.parentNode.insertBefore(script, first);};geq.SNIPPET_VERSION = "1.6.1";
+        geq.load("K97HQJ0Y");}();
+      `}</Script>
     </>
   )
 }
