@@ -4,10 +4,17 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { buttonVariants } from '@/components/ui/button'
 import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  YoutubeIcon,
+} from '@/components/social-icons'
 import { cn } from '@/lib/utils'
 import { SMALL_CTA_LABEL } from '@/lib/cta-labels'
 import { isScheduleRoute } from '@/lib/booking'
 import type { VariantProps } from 'class-variance-authority'
+import type { ComponentType, SVGProps } from 'react'
 
 const QUICK_LINKS = [
   { href: '/about-us', label: 'About Us' },
@@ -22,6 +29,33 @@ const LEGAL_LINKS = [
   { href: '/disclosures', label: 'Disclosures' },
 ]
 
+const SOCIAL_LINKS: readonly {
+  href: string
+  label: string
+  icon: ComponentType<SVGProps<SVGSVGElement>>
+}[] = [
+  {
+    href: 'https://web.facebook.com/profile.php?id=61580548472482',
+    label: 'Facebook',
+    icon: FacebookIcon,
+  },
+  {
+    href: 'https://www.instagram.com/david.tran.tax.advisor/',
+    label: 'Instagram',
+    icon: InstagramIcon,
+  },
+  {
+    href: 'https://www.youtube.com/@david-tran-tax-advisor',
+    label: 'YouTube',
+    icon: YoutubeIcon,
+  },
+  {
+    href: 'https://www.linkedin.com/in/davidtran2015/',
+    label: 'LinkedIn',
+    icon: LinkedinIcon,
+  },
+]
+
 type FooterLink = { href: string; label: string }
 
 type FooterProps = {
@@ -30,6 +64,25 @@ type FooterProps = {
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
   quickLinks?: readonly FooterLink[]
   hideCtaOnPaths?: readonly string[]
+}
+
+function SocialLinks({ className }: { className?: string }) {
+  return (
+    <nav aria-label="Social media" className={cn('flex items-center gap-5', className)}>
+      {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
+        <a
+          key={href}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <Icon className="size-5" />
+        </a>
+      ))}
+    </nav>
+  )
 }
 
 export function Footer({
@@ -62,6 +115,7 @@ export function Footer({
               </Link>
             ))}
           </nav>
+          <SocialLinks className="mt-4 justify-center" />
           <p className="mt-4 text-center text-xs text-muted-foreground">
             © 2026 Prime Path Advisory. All rights reserved.
           </p>
@@ -82,6 +136,7 @@ export function Footer({
                 Tax strategy for high-income earners.
               </p>
             </div>
+            <SocialLinks />
             {showCta ? (
               <CtaLink
                 href={ctaHref}
