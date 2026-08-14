@@ -1,12 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-
-// Testing: all schedule routes use JP's personal calendar so test bookings
-// don't disturb closers. Production calendar IDs are in docs/ghl-calendar-widgets.md.
-const GHL_CALENDAR_SRC =
-  'https://api.leadconnectorhq.com/widget/booking/2AHs8LOXnqUN4v40s0ki'
-const GHL_CALENDAR_IFRAME_ID = '2AHs8LOXnqUN4v40s0ki_1780695434810'
+import { GHL_CALENDARS, type GhlCalendarKey } from '@/lib/ghl-calendars'
 
 function GhlScript() {
   useEffect(() => {
@@ -20,19 +15,23 @@ function GhlScript() {
 }
 
 export function ScheduleCalendar({
+  calendar,
   title,
   regionLabel,
 }: {
+  calendar: GhlCalendarKey
   title: string
   regionLabel: string
 }) {
+  const { src, iframeId } = GHL_CALENDARS[calendar]
+
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
       <section aria-label={regionLabel} className="w-full">
         <iframe
           title={`${title} calendar`}
-          src={GHL_CALENDAR_SRC}
-          id={GHL_CALENDAR_IFRAME_ID}
+          src={src}
+          id={iframeId}
           className="min-h-[720px] w-full border-0"
           scrolling="no"
         />

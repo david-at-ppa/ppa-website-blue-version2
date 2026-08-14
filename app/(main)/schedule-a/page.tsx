@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function ScheduleAPage() {
   return (
     <ScheduleCalendar
+      calendar="free-consult"
       title="Free Tax Strategy Consultation"
       regionLabel="free tax strategy consultation"
     />

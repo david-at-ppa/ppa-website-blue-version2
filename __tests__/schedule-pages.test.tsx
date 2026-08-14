@@ -13,6 +13,14 @@ describe('/schedule-a', () => {
     expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument()
   })
 
+  it('uses the free consult GHL calendar embed', () => {
+    const { container } = render(<ScheduleA />)
+    expect(container.querySelector('iframe')).toHaveAttribute(
+      'src',
+      'https://api.leadconnectorhq.com/widget/booking/y0C0fmCrsbf0kJpBIc7B'
+    )
+  })
+
   it('exports a non-empty title', () => {
     expect(typeof metaA.title).toBe('string')
     expect((metaA.title as string).length).toBeGreaterThan(0)
@@ -29,6 +37,14 @@ describe('/schedule-b', () => {
     expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument()
   })
 
+  it('uses the consult GHL calendar embed', () => {
+    const { container } = render(<ScheduleB />)
+    expect(container.querySelector('iframe')).toHaveAttribute(
+      'src',
+      'https://api.leadconnectorhq.com/widget/booking/xzowzy5hi2CKDCENA4CS'
+    )
+  })
+
   it('exports a non-empty title', () => {
     expect(typeof metaB.title).toBe('string')
     expect((metaB.title as string).length).toBeGreaterThan(0)
@@ -43,6 +59,14 @@ describe('/schedule-c', () => {
     ).toBeInTheDocument()
     expect(screen.getByTitle(/^tax strategy consultation calendar$/i)).toBeInTheDocument()
     expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument()
+  })
+
+  it('uses the consult GHL calendar embed', () => {
+    const { container } = render(<ScheduleC />)
+    expect(container.querySelector('iframe')).toHaveAttribute(
+      'src',
+      'https://api.leadconnectorhq.com/widget/booking/xzowzy5hi2CKDCENA4CS'
+    )
   })
 
   it('exports a non-empty title', () => {

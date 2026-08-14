@@ -8,6 +8,10 @@ export const metadata: Metadata = {
 
 export default function ScheduleCPage() {
   return (
-    <ScheduleCalendar title="Tax Strategy Consultation" regionLabel="tax strategy consultation" />
+    <ScheduleCalendar
+      calendar="consult"
+      title="Tax Strategy Consultation"
+      regionLabel="tax strategy consultation"
+    />
   )
 }
