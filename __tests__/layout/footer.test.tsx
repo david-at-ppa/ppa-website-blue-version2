@@ -29,4 +29,24 @@ describe('Footer', () => {
     render(<Footer />)
     expect(screen.getByText(/© 2026 prime path advisory/i)).toBeInTheDocument()
   })
+
+  it('renders social media links', () => {
+    render(<Footer />)
+    expect(screen.getByRole('link', { name: /facebook/i })).toHaveAttribute(
+      'href',
+      'https://web.facebook.com/profile.php?id=61580548472482'
+    )
+    expect(screen.getByRole('link', { name: /instagram/i })).toHaveAttribute(
+      'href',
+      'https://www.instagram.com/david.tran.tax.advisor/'
+    )
+    expect(screen.getByRole('link', { name: /youtube/i })).toHaveAttribute(
+      'href',
+      'https://www.youtube.com/@david-tran-tax-advisor'
+    )
+    expect(screen.getByRole('link', { name: /linkedin/i })).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/davidtran2015/'
+    )
+  })
 })

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Lato } from 'next/font/google'
+import { AttributionCapture } from '@/components/attribution-capture'
 import { TrackingScripts } from '@/components/tracking-scripts'
 import './globals.css'
 
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="heritage" className={`${inter.variable} ${lato.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-transparent">
+        <AttributionCapture />
         <TrackingScripts />
         {children}
       </body>

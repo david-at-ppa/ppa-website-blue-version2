@@ -1,12 +1,11 @@
 'use client'
 
-import { useEffect } from 'react'
-
-// Testing: all schedule routes use JP's personal calendar so test bookings
-// don't disturb closers. Production calendar IDs are in docs/ghl-calendar-widgets.md.
-const GHL_CALENDAR_SRC =
-  'https://api.leadconnectorhq.com/widget/booking/2AHs8LOXnqUN4v40s0ki'
-const GHL_CALENDAR_IFRAME_ID = '2AHs8LOXnqUN4v40s0ki_1780695434810'
+import { Suspense, useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { appendSearchParamsToUrl } from '@/lib/attribution'
+import { GHL_CALENDARS, type GhlCalendarKey } from '@/lib/ghl-calendars'
+import { Skeleton } from '@/components/ui/skeleton'
+import { cn } from '@/lib/utils'
 
 function GhlScript() {
   useEffect(() => {
@@ -19,25 +18,91 @@ function GhlScript() {
   return null
 }
 
-export function ScheduleCalendar({
+function ScheduleCalendarFrame({
+  calendar,
   title,
   regionLabel,
 }: {
+  calendar: GhlCalendarKey
+  title: string
+  regionLabel: string
+}) {
+  const searchParams = useSearchParams()
+  const [isLoaded, setIsLoaded] = useState(false)
+  const { src, iframeId } = GHL_CALENDARS[calendar]
+  const iframeSrc = appendSearchParamsToUrl(src, searchParams.toString())
+
+  useEffect(() => {
+    setIsLoaded(false)
+  }, [iframeSrc])
+
+  return (
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
+      <section aria-label={regionLabel} className="w-full">
+        <div
+          aria-busy={!isLoaded}
+          aria-live="polite"
+          className="relative min-h-[720px] w-full"
+        >
+          {!isLoaded ? (
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 rounded-xl border border-border/50 bg-background px-6 text-center">
+              <span className="sr-only">Loading booking calendar</span>
+              <Skeleton className="absolute inset-0 rounded-xl" />
+              <p className="relative text-sm font-medium text-foreground">
+                Loading available times…
+              </p>
+              <p className="relative text-xs text-muted-foreground">
+                This can take a few seconds while we load the calendar.
+              </p>
+            </div>
+          ) : null}
+          <iframe
+            title={`${title} calendar`}
+            src={iframeSrc}
+            id={iframeId}
+            onLoad={() => setIsLoaded(true)}
+            className={cn(
+              'min-h-[720px] w-full border-0 transition-opacity duration-300',
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            )}
+            scrolling="no"
+          />
+        </div>
+        <GhlScript />
+      </section>
+    </div>
+  )
+}
+
+export function ScheduleCalendar({
+  calendar,
+  title,
+  regionLabel,
+}: {
+  calendar: GhlCalendarKey
   title: string
   regionLabel: string
 }) {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
-      <section aria-label={regionLabel} className="w-full">
-        <iframe
-          title={`${title} calendar`}
-          src={GHL_CALENDAR_SRC}
-          id={GHL_CALENDAR_IFRAME_ID}
-          className="min-h-[720px] w-full border-0"
-          scrolling="no"
-        />
-        <GhlScript />
-      </section>
-    </div>
+    <Suspense
+      fallback={
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
+          <section aria-label={regionLabel} className="w-full">
+            <div
+              aria-busy={true}
+              className="relative flex min-h-[720px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-border/50 bg-background px-6 text-center"
+            >
+              <span className="sr-only">Loading booking calendar</span>
+              <Skeleton className="absolute inset-0 rounded-xl" />
+              <p className="relative text-sm font-medium text-foreground">
+                Loading available times…
+              </p>
+            </div>
+          </section>
+        </div>
+      }
+    >
+      <ScheduleCalendarFrame calendar={calendar} title={title} regionLabel={regionLabel} />
+    </Suspense>
   )
 }
