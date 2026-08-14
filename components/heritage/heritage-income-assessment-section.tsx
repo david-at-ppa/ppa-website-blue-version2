@@ -94,9 +94,6 @@ export function HeritageIncomeAssessmentSection() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-center text-xs text-muted-foreground">
-                Your answer stays confidential.
-              </p>
             </>
           )}
         </div>

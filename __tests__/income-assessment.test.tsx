@@ -25,7 +25,6 @@ describe('Income assessment', () => {
     ).toBeInTheDocument()
     expect(screen.getByText(/selective and confidential - \$1m\+ earners only/i)).toBeInTheDocument()
     expect(screen.getByText(/no obligation, and nothing to prepare/i)).toBeInTheDocument()
-    expect(screen.getByText(/your answer stays confidential\./i)).toBeInTheDocument()
   })
 
   it('renders the income question on load', () => {

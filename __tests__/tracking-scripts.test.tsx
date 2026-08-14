@@ -9,7 +9,24 @@ vi.mock('next/script', () => ({
   ),
 }))
 
+function setGlobalPrivacyControl(value: boolean | undefined) {
+  Object.defineProperty(navigator, 'globalPrivacyControl', {
+    value,
+    configurable: true,
+  })
+}
+
 describe('TrackingScripts', () => {
+  afterEach(() => {
+    setGlobalPrivacyControl(undefined)
+  })
+
+  it('renders no tracking scripts when the browser sends Global Privacy Control', () => {
+    setGlobalPrivacyControl(true)
+    const { container } = render(<TrackingScripts />)
+    expect(container.querySelectorAll('script')).toHaveLength(0)
+  })
+
   it('renders Meta Pixel script with the configured pixel ID', () => {
     const { container } = render(<TrackingScripts />)
     const scripts = container.querySelectorAll('script')
