@@ -2,6 +2,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link'
 import { cn } from '@/lib/utils'
 import { HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
+import { HERO_CTA_LABEL } from '@/lib/cta-labels'
 import { VidalyticsEmbed } from '@/components/vidalytics-embed'
 import { HeritageHomeSections } from '@/components/heritage/heritage-home-sections'
 import { HeritageIncomeAssessmentSection } from '@/components/heritage/heritage-income-assessment-section'
@@ -36,7 +37,7 @@ function HeroSection() {
               scrollTargetId={HERITAGE_ASSESSMENT_ID}
               className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'heritage-hero-cta w-full')}
             >
-              Book your free 30-minute strategy call{' '}
+              {HERO_CTA_LABEL}{' '}
               <span className="heritage-hero-cta-arrow" aria-hidden="true">
                 →
               </span>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ScheduleCalendar } from '@/components/schedule-calendar'
 
 export const metadata: Metadata = {
-  title: 'Tax Strategy Consultation | Prime Path Advisory',
+  title: 'Book a Consultation',
   description: 'Book your tax strategy consultation with Prime Path Advisory.',
 }
 

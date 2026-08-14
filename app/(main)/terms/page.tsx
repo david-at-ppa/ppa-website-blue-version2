@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { TermsContent } from './terms-content'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Prime Path Advisory',
+  title: 'Terms of Service',
   description:
     'Terms governing use of the Prime Path Advisory website, including bookings, communications, and acceptable use.',
 }

@@ -6,7 +6,7 @@ import { LARGE_CTA_LABEL } from '@/lib/cta-labels'
 import { HERITAGE_ASSESSMENT_ID, HERITAGE_ASSESSMENT_LINK } from '@/lib/heritage-content'
 
 export const metadata: Metadata = {
-  title: 'Contact - Prime Path Advisory',
+  title: 'Contact',
   description: 'Get in touch with Prime Path Advisory. Book a strategy call or reach us directly.',
 }
 

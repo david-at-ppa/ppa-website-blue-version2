@@ -26,7 +26,7 @@ describe('Home page', () => {
       })
       .closest('section')!
     const cta = within(hero).getByRole('link', {
-      name: /book your free 30-minute strategy call/i,
+      name: /book your free strategy call/i,
     })
     expect(cta.getAttribute('href')).toMatch(/#assessment$/)
   })

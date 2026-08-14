@@ -13,7 +13,17 @@ describe('BookingConfirmedPage', () => {
 
   it('renders a confirmation heading', () => {
     render(<BookingConfirmedPage />)
-    expect(screen.getByRole('heading', { level: 1, name: 'Your call is confirmed' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Thank you - your consultation is booked' })
+    ).toBeInTheDocument()
+  })
+
+  it('renders the intro copy', () => {
+    render(<BookingConfirmedPage />)
+    expect(
+      screen.getByText(/Your confirmation and calendar invite are in your inbox/i)
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Watch the videos below before we meet/i)).toBeInTheDocument()
   })
 
   it('renders the primary video section', () => {
@@ -32,7 +42,7 @@ describe('BookingConfirmedPage', () => {
     expect(screen.getByRole('heading', { level: 2, name: 'What to bring' })).toBeInTheDocument()
     expect(
       screen.getByText(
-        'The documents and details that help us assess your situation and make the conversation as useful as possible.'
+        'Nothing. No spreadsheets, no prep work. Just show up and we will walk through your situation together.'
       )
     ).toBeInTheDocument()
   })

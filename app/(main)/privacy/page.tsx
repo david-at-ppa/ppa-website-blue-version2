@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { PrivacyContent } from './privacy-content'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Prime Path Advisory',
+  title: 'Privacy Policy',
   description: 'How Prime Path Advisory collects, uses, and shares personal information.',
 }
 

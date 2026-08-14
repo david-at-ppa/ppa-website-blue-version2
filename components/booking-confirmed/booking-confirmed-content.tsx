@@ -21,7 +21,7 @@ const PREP_VIDEOS = [
   {
     title: 'What to bring',
     description:
-      'The documents and details that help us assess your situation and make the conversation as useful as possible.',
+      'Nothing. No spreadsheets, no prep work. Just show up and we will walk through your situation together.',
     embedId: '9ENFo7wy7kIwKj4S',
   },
 ] as const
@@ -46,8 +46,8 @@ const BEFORE_WE_TALK_FAQ = [
 
 export function BookingConfirmedContent() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-20">
-      <section className="w-full max-w-2xl text-center">
+    <div className="flex flex-col items-center px-6 py-16 md:py-20">
+      <section className="w-full max-w-4xl text-center">
         <div
           className="mx-auto mb-4 flex size-10 items-center justify-center rounded-full bg-[var(--heritage-green)] text-[var(--heritage-green-foreground)]"
           aria-hidden="true"
@@ -55,10 +55,12 @@ export function BookingConfirmedContent() {
           <HeritageCheckIcon className="size-5" />
         </div>
 
-        <h1 className="font-heading mb-4 text-3xl font-semibold">Your call is confirmed</h1>
-        <p className="mb-12 text-lg text-muted-foreground">
-          Your confirmation and calendar invite are in your inbox. Watch the short video below so
-          you get the most out of your call.
+        <h1 className="font-heading mb-4 text-3xl font-semibold md:text-4xl">
+          Thank you - your consultation is booked
+        </h1>
+        <p className="mx-auto mb-12 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+          Your confirmation and calendar invite are in your inbox. Watch the videos below before we
+          meet so you get the most out of your call.
         </p>
 
         <div className="mb-12 text-left">
