@@ -23,14 +23,14 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           ctaHref={HERITAGE_ASSESSMENT_LINK}
           ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
           ctaVariant="heritage"
-          hideCtaOnPaths={['/booking-confirmed', '/privacy']}
+          hideCtaOnPaths={['/booking-confirmed']}
         />
         <main className="heritage-page relative z-10 min-w-0 overflow-x-clip">{children}</main>
         <Footer
           ctaHref={HERITAGE_ASSESSMENT_LINK}
           ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
           ctaVariant="heritage"
-          hideCtaOnPaths={['/booking-confirmed', '/privacy']}
+          hideCtaOnPaths={['/booking-confirmed']}
         />
       </div>
     </>
