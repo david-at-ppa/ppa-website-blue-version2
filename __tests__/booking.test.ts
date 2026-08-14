@@ -1,4 +1,9 @@
-import { getBookingOutcome, getScheduleRoute, isScheduleRoute } from '@/lib/booking'
+import {
+  getBookingOutcome,
+  getIncomeValue,
+  getScheduleRoute,
+  isScheduleRoute,
+} from '@/lib/booking'
 
 describe('getBookingOutcome', () => {
   it('answer a → disqualified', () => {
@@ -33,6 +38,24 @@ describe('getScheduleRoute', () => {
 
   it('answer d → /schedule-c', () => {
     expect(getScheduleRoute('d')).toBe('/schedule-c')
+  })
+})
+
+describe('getIncomeValue', () => {
+  it('answer b → $1M - $2M for GHL income prefill', () => {
+    expect(getIncomeValue('b')).toBe('$1M - $2M')
+  })
+
+  it('answer c → $2M - $4M for GHL income prefill', () => {
+    expect(getIncomeValue('c')).toBe('$2M - $4M')
+  })
+
+  it('answer d → $4M+ for GHL income prefill', () => {
+    expect(getIncomeValue('d')).toBe('$4M+')
+  })
+
+  it('answer a → Less than $1M', () => {
+    expect(getIncomeValue('a')).toBe('Less than $1M')
   })
 })
 

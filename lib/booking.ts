@@ -2,6 +2,13 @@ export type BookingAnswer = 'a' | 'b' | 'c' | 'd'
 export type BookingOutcome = 'disqualified' | 'free-consult' | 'consult'
 export type ScheduleRoute = '/schedule-a' | '/schedule-b' | '/schedule-c'
 
+export const INCOME_VALUES: Record<BookingAnswer, string> = {
+  a: 'Less than $1M',
+  b: '$1M - $2M',
+  c: '$2M - $4M',
+  d: '$4M+',
+}
+
 export const SCHEDULE_ROUTES: readonly ScheduleRoute[] = [
   '/schedule-a',
   '/schedule-b',
@@ -16,6 +23,10 @@ export function getBookingOutcome(answer: BookingAnswer): BookingOutcome {
   if (answer === 'a') return 'disqualified'
   if (answer === 'b') return 'free-consult'
   return 'consult'
+}
+
+export function getIncomeValue(answer: BookingAnswer): string {
+  return INCOME_VALUES[answer]
 }
 
 export function getScheduleRoute(answer: BookingAnswer): ScheduleRoute | null {

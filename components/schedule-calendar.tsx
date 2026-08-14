@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { appendSearchParamsToUrl } from '@/lib/attribution'
 import { GHL_CALENDARS, type GhlCalendarKey } from '@/lib/ghl-calendars'
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
@@ -16,7 +18,7 @@ function GhlScript() {
   return null
 }
 
-export function ScheduleCalendar({
+function ScheduleCalendarFrame({
   calendar,
   title,
   regionLabel,
@@ -25,12 +27,14 @@ export function ScheduleCalendar({
   title: string
   regionLabel: string
 }) {
+  const searchParams = useSearchParams()
   const [isLoaded, setIsLoaded] = useState(false)
   const { src, iframeId } = GHL_CALENDARS[calendar]
+  const iframeSrc = appendSearchParamsToUrl(src, searchParams.toString())
 
   useEffect(() => {
     setIsLoaded(false)
-  }, [src])
+  }, [iframeSrc])
 
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
@@ -54,7 +58,7 @@ export function ScheduleCalendar({
           ) : null}
           <iframe
             title={`${title} calendar`}
-            src={src}
+            src={iframeSrc}
             id={iframeId}
             onLoad={() => setIsLoaded(true)}
             className={cn(
@@ -67,5 +71,38 @@ export function ScheduleCalendar({
         <GhlScript />
       </section>
     </div>
+  )
+}
+
+export function ScheduleCalendar({
+  calendar,
+  title,
+  regionLabel,
+}: {
+  calendar: GhlCalendarKey
+  title: string
+  regionLabel: string
+}) {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-10">
+          <section aria-label={regionLabel} className="w-full">
+            <div
+              aria-busy={true}
+              className="relative flex min-h-[720px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-border/50 bg-background px-6 text-center"
+            >
+              <span className="sr-only">Loading booking calendar</span>
+              <Skeleton className="absolute inset-0 rounded-xl" />
+              <p className="relative text-sm font-medium text-foreground">
+                Loading available times…
+              </p>
+            </div>
+          </section>
+        </div>
+      }
+    >
+      <ScheduleCalendarFrame calendar={calendar} title={title} regionLabel={regionLabel} />
+    </Suspense>
   )
 }

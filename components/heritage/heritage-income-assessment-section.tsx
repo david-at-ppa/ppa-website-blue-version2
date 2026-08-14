@@ -4,7 +4,12 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { HeritageCheckIcon, HeritageChevronIcon } from '@/components/heritage/heritage-icons'
 import { HERITAGE_INCOME_OPTIONS } from '@/lib/heritage-content'
-import { getScheduleRoute, type BookingAnswer } from '@/lib/booking'
+import {
+  buildPathWithAttribution,
+  getStoredAttribution,
+  GHL_INCOME_PARAM,
+} from '@/lib/attribution'
+import { getIncomeValue, getScheduleRoute, type BookingAnswer } from '@/lib/booking'
 
 const ASSESSMENT_BULLETS = [
   'Typical savings of $150K-$350K+ per year',
@@ -22,7 +27,11 @@ export function HeritageIncomeAssessmentSection() {
       setDisqualified(true)
       return
     }
-    router.push(route)
+
+    const path = buildPathWithAttribution(route, getStoredAttribution(localStorage), {
+      [GHL_INCOME_PARAM]: getIncomeValue(answer),
+    })
+    router.push(path)
   }
 
   return (

@@ -4,6 +4,8 @@ import ScheduleA from '@/app/(main)/schedule-a/page'
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/schedule-a',
+  useRouter: () => ({ push: vi.fn(), replace: vi.fn() }),
+  useSearchParams: () => new URLSearchParams(),
 }))
 
 describe('Schedule page chrome', () => {
