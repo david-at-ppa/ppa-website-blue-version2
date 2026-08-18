@@ -8,16 +8,19 @@ export function HomeCtaSection({
   ctaHref = '/#assessment',
   ctaScrollTarget = 'assessment',
   ctaVariant = 'heritage',
+  surface = 'default',
 }: {
   ctaHref?: string
   ctaScrollTarget?: string
-  ctaVariant?: 'default' | 'heritage'
+  ctaVariant?: 'default' | 'heritage' | 'heritage-on-dark'
+  surface?: 'default' | 'navy'
 }) {
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
+  const isNavy = surface === 'navy'
   return (
     <section
       aria-labelledby="cta-heading"
-      className="py-20 px-6 text-center lg:py-24"
+      className={cn('py-20 px-6 text-center lg:py-24', isNavy && 'heritage-surface-navy')}
     >
       <div className="max-w-2xl mx-auto space-y-6">
         <div data-reveal className="space-y-6">

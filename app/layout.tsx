@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Lato } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
 import { AttributionCapture } from '@/components/attribution-capture'
 import { TrackingScripts } from '@/components/tracking-scripts'
 import './globals.css'
@@ -9,10 +9,10 @@ const inter = Inter({
   subsets: ['latin'],
 })
 
-const lato = Lato({
-  variable: '--font-lato',
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-theme="heritage" className={`${inter.variable} ${lato.variable} h-full antialiased`}>
+    <html lang="en" data-theme="heritage" className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-transparent">
         <AttributionCapture />
         <TrackingScripts />
