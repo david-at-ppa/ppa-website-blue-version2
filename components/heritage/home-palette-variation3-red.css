@@ -1,0 +1,122 @@
+/* Red / gray / black / white palette — scoped to home variation routes only */
+
+[data-palette='variation3-red'] {
+  --dropbox-blue: #bb262c;
+  --dropbox-blue-hover: #9e1f24;
+  --dropbox-blue-active: #8a1b20;
+  --dropbox-cream: #ffffff;
+  --dropbox-ink: #020a15;
+  --dropbox-stone: #5a5a5a;
+
+  --background: #ffffff;
+  --foreground: #020a15;
+  --card: #ffffff;
+  --card-foreground: #020a15;
+  --popover: #ffffff;
+  --popover-foreground: #020a15;
+  --primary: #bb262c;
+  --primary-foreground: #ffffff;
+  --secondary: #e6e6e6;
+  --secondary-foreground: #020a15;
+  --muted: #e6e6e6;
+  --muted-foreground: #5a5a5a;
+  --accent: #e6e6e6;
+  --accent-foreground: #020a15;
+  --border: rgba(2, 10, 15, 0.12);
+  --input: rgba(2, 10, 15, 0.12);
+  --ring: #bb262c;
+
+  --heritage-green: #bb262c;
+  --heritage-green-dark: #9e1f24;
+  --heritage-green-foreground: #ffffff;
+  --heritage-green-glow: rgba(187, 38, 44, 0.35);
+
+  --heritage-mesh-base: #ffffff;
+  --heritage-mesh-sage: rgba(187, 38, 44, 0.06);
+  --heritage-mesh-sage-soft: rgba(187, 38, 44, 0.03);
+  --heritage-mesh-white: rgba(255, 255, 255, 0.94);
+  --heritage-mesh-beige: rgba(230, 230, 230, 0.5);
+  --heritage-mesh-beige-soft: rgba(230, 230, 230, 0.25);
+
+  background-color: var(--heritage-mesh-base);
+  background-image:
+    radial-gradient(ellipse 85% 72% at 50% 48%, var(--heritage-mesh-white), transparent 68%),
+    radial-gradient(ellipse 72% 58% at 8% 38%, var(--heritage-mesh-sage), transparent 56%),
+    radial-gradient(ellipse 68% 54% at 92% 34%, var(--heritage-mesh-beige), transparent 54%),
+    radial-gradient(ellipse 58% 46% at 22% 12%, var(--heritage-mesh-sage-soft), transparent 58%),
+    radial-gradient(ellipse 54% 44% at 78% 10%, var(--heritage-mesh-beige-soft), transparent 56%);
+  background-attachment: fixed;
+}
+
+[data-palette='variation3-red'] header.heritage-surface-navy {
+  background-color: #020a15;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy {
+  background-color: #020a15;
+  color: #ffffff;
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .text-foreground {
+  color: #ffffff;
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .text-muted-foreground {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .text-primary {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .heritage-surface-light {
+  color: #020a15;
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .heritage-surface-light .text-foreground {
+  color: #020a15;
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .heritage-surface-light .text-muted-foreground {
+  color: #5a5a5a;
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy .heritage-surface-light .text-primary {
+  color: #bb262c;
+}
+
+[data-palette='variation3-red'] .heritage-surface-navy img {
+  filter: brightness(0) invert(1);
+  opacity: 0.82;
+}
+
+[data-palette='variation3-red'] .heritage-page section[aria-labelledby='hero-heading'] {
+  background-color: #e6e6e6;
+}
+
+[data-palette='variation3-red'] .heritage-page :is(section, article):not(.heritage-surface-navy) {
+  background-color: transparent;
+  background-image: none;
+}
+
+[data-palette='variation3-red'] [data-slot='button'].bg-foreground {
+  background: var(--heritage-green);
+  color: var(--heritage-green-foreground);
+  box-shadow: 0 12px 30px -12px var(--heritage-green-glow);
+}
+
+[data-palette='variation3-red'] [data-slot='button'].bg-foreground:hover {
+  background: var(--heritage-green-dark);
+  box-shadow: 0 20px 40px -14px var(--heritage-green-glow);
+}
+
+[data-palette='variation3-red'] .heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment'] {
+  background: var(--heritage-green);
+  color: var(--heritage-green-foreground);
+  box-shadow: 0 12px 30px -12px var(--heritage-green-glow);
+}
+
+[data-palette='variation3-red'] .heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment']:hover {
+  background: var(--heritage-green-dark);
+}

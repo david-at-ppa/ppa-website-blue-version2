@@ -4,7 +4,9 @@ import { HomeCtaSection } from '@/components/sections/home-cta-section'
 import { HERITAGE_CLIENT_LOGOS, HERITAGE_CLIENT_LOGOS_INTRO, HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
 
 /** Heritage homepage sections - guarantee and founder omitted. */
-export function HeritageHomeSections() {
+export function HeritageHomeSections({ assessmentLink }: { assessmentLink?: string }) {
+  const ctaHref = assessmentLink ?? HERITAGE_ASSESSMENT_LINK
+
   return (
     <>
       <ClientLogosSection
@@ -16,10 +18,7 @@ export function HeritageHomeSections() {
         className="pt-10 pb-16 lg:pt-12"
       />
       <HeritageServicesSection />
-      <HomeCtaSection
-        ctaHref={HERITAGE_ASSESSMENT_LINK}
-        ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
-      />
+      <HomeCtaSection ctaHref={ctaHref} ctaScrollTarget={HERITAGE_ASSESSMENT_ID} />
     </>
   )
 }
