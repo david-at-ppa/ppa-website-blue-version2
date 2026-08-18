@@ -42,7 +42,7 @@
   --glow-b: rgba(201,162,75,0.035);
 
   /* Type */
-  --serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --serif: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Layout */
@@ -89,39 +89,38 @@
   --glow-b: rgba(201,162,75,0.05);
 }
 
-/* ============ THEME C - EVERGREEN HERITAGE (Neil-inspired, light) ============ */
+/* ============ THEME C - DROPBOX-INSPIRED (light) ============ */
 :root[data-theme="heritage"] {
-  --bg:        #F7F4ED;
-  --bg-2:      #F1EDE2;
+  --bg:        #F7F5F2;
+  --bg-2:      #FBFAF9;
   --bg-3:      #FFFFFF;
-  --surface:   #FBF9F3;
+  --surface:   #FBFAF9;
   --surface-2: #FFFFFF;
 
-  /* accent role = bronze-gold; buttons use forest green via --btn-bg */
-  --gold:      #9A7B3D;
-  --gold-2:    #7E6330;
-  --gold-deep: #6E5628;
-  --gold-glow: rgba(46,74,50,0.12);
+  --gold:      #1E3A5F;
+  --gold-2:    #173252;
+  --gold-deep: #122A47;
+  --gold-glow: rgba(30, 58, 95, 0.16);
 
-  --line:       rgba(46,74,50,0.18);
-  --line-soft:  rgba(26,36,26,0.10);
-  --line-faint: rgba(26,36,26,0.07);
+  --line:       rgba(166, 145, 113, 0.2);
+  --line-soft:  rgba(30, 25, 25, 0.08);
+  --line-faint: rgba(30, 25, 25, 0.05);
 
-  --text:   #1A241B;
-  --text-2: #495247;
-  --text-3: #7B837A;
+  --text:   #1E1919;
+  --text-2: #524A3E;
+  --text-3: rgba(82, 74, 62, 0.65);
 
-  --btn-bg: linear-gradient(180deg, #35583B, #2C4A32);
-  --btn-text: #F7F4ED;
-  --btn-glow: rgba(44,74,50,0.4);
-  --shadow-1: 0 30px 70px -40px rgba(30,44,30,0.35);
-  --shadow-2: 0 30px 60px -45px rgba(30,44,30,0.30);
-  --header-bg: rgba(247,244,237,0.85);
-  --header-solid: rgba(247,244,237,0.98);
-  --faint-text: rgba(26,36,26,0.38);
-  --track: rgba(26,36,26,0.22);
-  --glow-a: rgba(46,74,50,0.05);
-  --glow-b: rgba(154,123,61,0.05);
+  --btn-bg: #1E3A5F;
+  --btn-text: #FFFFFF;
+  --btn-glow: rgba(30, 58, 95, 0.35);
+  --shadow-1: 0 30px 70px -40px rgba(30, 25, 25, 0.12);
+  --shadow-2: 0 30px 60px -45px rgba(30, 25, 25, 0.1);
+  --header-bg: rgba(247, 245, 242, 0.9);
+  --header-solid: rgba(247, 245, 242, 0.98);
+  --faint-text: rgba(82, 74, 62, 0.45);
+  --track: rgba(30, 25, 25, 0.15);
+  --glow-a: rgba(30, 58, 95, 0.04);
+  --glow-b: rgba(166, 145, 113, 0.04);
 }
 
 /* ---------- Reset ---------- */
@@ -565,12 +564,12 @@ ul.trust-bullets { padding: 0; margin: 0; }
 }
 
 /* ---------- Light-theme (heritage) refinements ---------- */
-[data-theme="heritage"] .pill { background: rgba(26,36,26,0.03); }
-[data-theme="heritage"] .badge { background: rgba(46,74,50,0.07); }
-[data-theme="heritage"] .card:hover { background: #fff; box-shadow: 0 24px 50px -34px rgba(30,44,30,0.25); }
-[data-theme="heritage"] .vsl-inner { background: #0c0c0c; }
-[data-theme="heritage"] .portrait { background: linear-gradient(160deg, #EEE9DC, #FBF9F3); }
-[data-theme="heritage"] .portrait .role-tab { background: linear-gradient(0deg, rgba(20,28,20,0.82), transparent); }
+[data-theme="heritage"] .pill { background: rgba(30, 25, 25, 0.03); }
+[data-theme="heritage"] .badge { background: rgba(30, 58, 95, 0.08); }
+[data-theme="heritage"] .card:hover { background: #fff; box-shadow: 0 24px 50px -34px rgba(30, 25, 25, 0.12); }
+[data-theme="heritage"] .vsl-inner { background: #1e1919; }
+[data-theme="heritage"] .portrait { background: linear-gradient(160deg, #f7f5f2, #fbfaf9); }
+[data-theme="heritage"] .portrait .role-tab { background: linear-gradient(0deg, rgba(30, 25, 25, 0.82), transparent); }
 [data-theme="heritage"] .portrait .role-tab .nm { color: #fff; }
 
 /* ---------- Theme switcher ---------- */

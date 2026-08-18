@@ -38,7 +38,7 @@ export function HeritageIncomeAssessmentSection() {
     <section
       id="assessment"
       aria-labelledby="assessment-heading"
-      className="px-6 pb-16 pt-8 lg:pb-24 lg:pt-12"
+      className="heritage-surface-navy px-6 pb-16 pt-8 lg:pb-24 lg:pt-12"
     >
       <div className="mx-auto grid w-full min-w-0 max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div data-reveal className="min-w-0 space-y-6 text-center lg:text-left">
@@ -62,7 +62,7 @@ export function HeritageIncomeAssessmentSection() {
           <ul className="mx-auto flex max-w-xl flex-col gap-3 text-left lg:mx-0">
             {ASSESSMENT_BULLETS.map((item) => (
               <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                <HeritageCheckIcon className="mt-0.5 size-5 shrink-0 text-[var(--heritage-green)]" />
+                <HeritageCheckIcon className="mt-0.5 size-5 shrink-0 text-primary" />
                 <span>{item}</span>
               </li>
             ))}
@@ -72,7 +72,7 @@ export function HeritageIncomeAssessmentSection() {
         <div
           data-reveal
           data-reveal-delay="1"
-          className="mx-auto w-full min-w-0 max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
+          className="heritage-surface-light mx-auto w-full min-w-0 max-w-lg rounded-[22px] border border-border bg-card p-6 shadow-sm sm:p-8 lg:mx-0 lg:max-w-none"
         >
           {disqualified ? (
             <section aria-label="not qualified">

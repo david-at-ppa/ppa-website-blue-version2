@@ -65,6 +65,7 @@ type ClientLogosSectionProps = {
   heading?: string
   subtext?: string
   className?: string
+  surface?: 'default' | 'navy'
 }
 
 export function ClientLogosSection({
@@ -74,12 +75,14 @@ export function ClientLogosSection({
   heading,
   subtext,
   className,
+  surface = 'default',
 }: ClientLogosSectionProps) {
+  const isNavy = surface === 'navy'
   return (
     <section
       data-reveal
       aria-label="Companies our clients work with"
-      className={cn('py-16', className)}
+      className={cn('py-16', isNavy && 'heritage-surface-navy', className)}
     >
       <div className="space-y-10">
         {eyebrow && heading ? (

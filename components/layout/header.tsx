@@ -21,16 +21,23 @@ const NAV_LINKS = [
 
 type NavLink = { href: string; label: string }
 
-function Logo({ homeHref }: { homeHref: string }) {
+function Logo({ homeHref, onDark = false }: { homeHref: string; onDark?: boolean }) {
   return (
     <Link
       href={homeHref}
       aria-label="Prime Path Advisory home"
-      className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+      className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-sm"
     >
-      <LogoMark className="h-6 w-auto" />
+      <LogoMark
+        className={cn(
+          'h-6 w-auto',
+          onDark && '[&_.text-foreground]:text-white [&_.text-primary]:text-white/80'
+        )}
+      />
       <div className="leading-none">
-        <span className="font-semibold tracking-tight">Prime Path Advisory</span>
+        <span className={cn('font-semibold tracking-tight', onDark && 'text-white')}>
+          Prime Path Advisory
+        </span>
       </div>
     </Link>
   )
@@ -43,6 +50,7 @@ type HeaderProps = {
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
   navLinks?: readonly NavLink[]
   hideCtaOnPaths?: readonly string[]
+  onDark?: boolean
 }
 
 export function Header({
@@ -52,6 +60,7 @@ export function Header({
   ctaVariant = 'heritage',
   navLinks = NAV_LINKS,
   hideCtaOnPaths = ['/booking-confirmed'],
+  onDark = true,
 }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
@@ -61,9 +70,16 @@ export function Header({
   const CtaLink = ctaScrollTarget ? SmoothScrollLink : Link
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/45 backdrop-blur-md">
+    <header
+      className={cn(
+        'sticky top-0 z-40 w-full border-b',
+        onDark
+          ? 'heritage-surface-navy border-white/10'
+          : 'bg-white/45 backdrop-blur-md border-transparent'
+      )}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Logo homeHref={homeHref} />
+        <Logo homeHref={homeHref} onDark={onDark} />
 
         {showNav ? (
           <>
@@ -73,7 +89,12 @@ export function Header({
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className={cn(
+                    'text-sm transition-colors',
+                    onDark
+                      ? 'text-white/70 hover:text-white'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
                 >
                   {label}
                 </Link>
@@ -93,7 +114,12 @@ export function Header({
             <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
               <Dialog.Trigger
                 aria-label="Open menu"
-                className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className={cn(
+                  'md:hidden inline-flex items-center justify-center rounded-md p-2 transition-colors focus-visible:outline-none focus-visible:ring-2',
+                  onDark
+                    ? 'text-white hover:bg-white/10 focus-visible:ring-white/40'
+                    : 'text-foreground hover:bg-muted focus-visible:ring-ring'
+                )}
               >
                 <Menu className="size-5" aria-hidden="true" />
               </Dialog.Trigger>
@@ -102,7 +128,7 @@ export function Header({
                 <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/60 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0 transition-opacity duration-200" />
                 <Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex h-full w-3/4 max-w-sm flex-col bg-background shadow-xl data-[ending-style]:translate-x-full data-[starting-style]:translate-x-full transition-transform duration-200 ease-in-out">
                   <div className="flex items-center justify-between border-b border-border px-6 py-4">
-                    <Logo homeHref={homeHref} />
+                    <Logo homeHref={homeHref} onDark={false} />
                     <Dialog.Close
                       aria-label="Close menu"
                       className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

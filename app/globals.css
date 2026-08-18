@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-inter);
-  --font-heading: var(--font-lato);
+  --font-heading: var(--font-space-grotesk);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -119,37 +119,45 @@
 }
 
 [data-theme="heritage"] {
-  --background: #F7F4ED;
-  --foreground: #1A241B;
+  /* Dropbox palette: blue accent, cream paper, warm ink, stone muted */
+  /* Navy accent palette (replaces bright Dropbox blue) */
+  --dropbox-blue: #1E3A5F;
+  --dropbox-blue-hover: #173252;
+  --dropbox-blue-active: #122A47;
+  --dropbox-cream: #F7F5F2;
+  --dropbox-ink: #1E1919;
+  --dropbox-stone: #524A3E;
+
+  --background: var(--dropbox-cream);
+  --foreground: var(--dropbox-ink);
   --card: #ffffff;
-  --card-foreground: #1A241B;
+  --card-foreground: var(--dropbox-ink);
   --popover: #ffffff;
-  --popover-foreground: #1A241B;
-  --primary: #9A7B3D;
-  --primary-foreground: #F7F4ED;
-  --secondary: #FBF9F3;
-  --secondary-foreground: #1A241B;
-  --muted: #F1EDE2;
-  --muted-foreground: #495247;
-  --accent: #F1EDE2;
-  --accent-foreground: #1A241B;
-  --border: #D8DED2;
-  --input: #D8DED2;
-  --ring: #9A7B3D;
+  --popover-foreground: var(--dropbox-ink);
+  --primary: var(--dropbox-blue);
+  --primary-foreground: #ffffff;
+  --secondary: #fbfaf9;
+  --secondary-foreground: var(--dropbox-ink);
+  --muted: #fbfaf9;
+  --muted-foreground: var(--dropbox-stone);
+  --accent: #fbfaf9;
+  --accent-foreground: var(--dropbox-ink);
+  --border: rgba(166, 145, 113, 0.2);
+  --input: rgba(166, 145, 113, 0.2);
+  --ring: var(--dropbox-blue);
   --radius: 1rem;
-  --sidebar: #F1EDE2;
-  --sidebar-foreground: #1A241B;
-  --sidebar-primary: #9A7B3D;
-  --sidebar-primary-foreground: #F7F4ED;
-  --sidebar-accent: #FBF9F3;
-  --sidebar-accent-foreground: #1A241B;
-  --sidebar-border: #D8DED2;
-  --sidebar-ring: #9A7B3D;
-  /* Forest green - matches primepath-v3-heritage.vercel.app btn-gold */
-  --heritage-green: #35583B;
-  --heritage-green-dark: #2C4A32;
-  --heritage-green-foreground: #F7F4ED;
-  --heritage-green-glow: rgba(44, 74, 50, 0.4);
+  --sidebar: #fbfaf9;
+  --sidebar-foreground: var(--dropbox-ink);
+  --sidebar-primary: var(--dropbox-blue);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fbfaf9;
+  --sidebar-accent-foreground: var(--dropbox-ink);
+  --sidebar-border: rgba(166, 145, 113, 0.2);
+  --sidebar-ring: var(--dropbox-blue);
+  --heritage-green: var(--dropbox-blue);
+  --heritage-green-dark: var(--dropbox-blue-hover);
+  --heritage-green-foreground: #ffffff;
+  --heritage-green-glow: rgba(30, 58, 95, 0.35);
 }
 
 .dark {
@@ -267,10 +275,10 @@
 
   [data-theme="heritage"] .heritage-hero-grid {
     background-image:
-      linear-gradient(rgba(26, 36, 26, 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(26, 36, 26, 0.07) 1px, transparent 1px);
+      linear-gradient(rgba(30, 25, 25, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 25, 25, 0.05) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: radial-gradient(900px 500px at 50% 0%, black 0%, transparent 75%);
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }

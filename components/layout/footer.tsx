@@ -64,9 +64,10 @@ type FooterProps = {
   ctaVariant?: VariantProps<typeof buttonVariants>['variant']
   quickLinks?: readonly FooterLink[]
   hideCtaOnPaths?: readonly string[]
+  onDark?: boolean
 }
 
-function SocialLinks({ className }: { className?: string }) {
+function SocialLinks({ className, onDark = false }: { className?: string; onDark?: boolean }) {
   return (
     <nav aria-label="Social media" className={cn('flex items-center gap-5', className)}>
       {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
@@ -76,7 +77,12 @@ function SocialLinks({ className }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-muted-foreground transition-colors hover:text-foreground"
+          className={cn(
+            'transition-colors',
+            onDark
+              ? 'text-white/70 hover:text-white'
+              : 'text-muted-foreground hover:text-foreground'
+          )}
         >
           <Icon className="size-5" />
         </a>
@@ -91,6 +97,7 @@ export function Footer({
   ctaVariant = 'heritage',
   quickLinks = QUICK_LINKS,
   hideCtaOnPaths = ['/booking-confirmed'],
+  onDark = true,
 }: FooterProps) {
   const pathname = usePathname()
   const isBookingFocused = isScheduleRoute(pathname)
@@ -99,7 +106,7 @@ export function Footer({
 
   if (isBookingFocused) {
     return (
-      <footer className="bg-transparent">
+      <footer className={cn(onDark && 'heritage-surface-navy border-t border-white/10')}>
         <div className="mx-auto max-w-6xl px-6 py-8">
           <nav
             aria-label="Legal"
@@ -109,14 +116,24 @@ export function Footer({
               <Link
                 key={href}
                 href={href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className={cn(
+                  'text-sm transition-colors',
+                  onDark
+                    ? 'text-white/70 hover:text-white'
+                    : 'text-muted-foreground hover:text-foreground'
+                )}
               >
                 {label}
               </Link>
             ))}
           </nav>
-          <SocialLinks className="mt-4 justify-center" />
-          <p className="mt-4 text-center text-xs text-muted-foreground">
+          <SocialLinks className="mt-4 justify-center" onDark={onDark} />
+          <p
+            className={cn(
+              'mt-4 text-center text-xs',
+              onDark ? 'text-white/60' : 'text-muted-foreground'
+            )}
+          >
             © 2026 Prime Path Advisory. All rights reserved.
           </p>
         </div>
@@ -125,18 +142,25 @@ export function Footer({
   }
 
   return (
-    <footer className="bg-transparent">
+    <footer className={cn(onDark && 'heritage-surface-navy border-t border-white/10')}>
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand column */}
           <div className="flex flex-col gap-4">
             <div>
-              <p className="font-semibold tracking-tight">Prime Path Advisory</p>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <p className={cn('font-semibold tracking-tight', onDark && 'text-white')}>
+                Prime Path Advisory
+              </p>
+              <p
+                className={cn(
+                  'mt-1 text-sm',
+                  onDark ? 'text-white/72' : 'text-muted-foreground'
+                )}
+              >
                 Tax strategy for high-income earners.
               </p>
             </div>
-            <SocialLinks />
+            <SocialLinks onDark={onDark} />
             {showCta ? (
               <CtaLink
                 href={ctaHref}
@@ -150,7 +174,12 @@ export function Footer({
 
           {/* Quick links */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <p
+              className={cn(
+                'mb-4 text-xs font-semibold uppercase tracking-widest',
+                onDark ? 'text-white/60' : 'text-muted-foreground'
+              )}
+            >
               Quick Links
             </p>
             <nav aria-label="Quick links" className="flex flex-col gap-2">
@@ -158,7 +187,12 @@ export function Footer({
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className={cn(
+                    'text-sm transition-colors',
+                    onDark
+                      ? 'text-white/70 hover:text-white'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
                 >
                   {label}
                 </Link>
@@ -168,7 +202,12 @@ export function Footer({
 
           {/* Legal links */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <p
+              className={cn(
+                'mb-4 text-xs font-semibold uppercase tracking-widest',
+                onDark ? 'text-white/60' : 'text-muted-foreground'
+              )}
+            >
               Legal
             </p>
             <nav aria-label="Legal" className="flex flex-col gap-2">
@@ -176,7 +215,12 @@ export function Footer({
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className={cn(
+                    'text-sm transition-colors',
+                    onDark
+                      ? 'text-white/70 hover:text-white'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
                 >
                   {label}
                 </Link>
@@ -186,7 +230,7 @@ export function Footer({
         </div>
 
         <div className="mt-12 pt-6">
-          <p className="text-xs text-muted-foreground">
+          <p className={cn('text-xs', onDark ? 'text-white/60' : 'text-muted-foreground')}>
             © 2026 Prime Path Advisory. All rights reserved.
           </p>
         </div>

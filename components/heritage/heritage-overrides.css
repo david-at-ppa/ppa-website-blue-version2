@@ -2,19 +2,19 @@
   scroll-margin-top: 4.25rem;
 }
 
-:root[data-theme='heritage'] {
-  --font-heading: var(--font-lato), sans-serif;
-  --serif: var(--font-lato), sans-serif;
+:root[data-theme="heritage"] {
+  --font-heading: var(--font-space-grotesk), sans-serif;
+  --serif: var(--font-space-grotesk), sans-serif;
   --sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   /* 85% of Tailwind's default 0.25rem spacing unit - tighter section rhythm sitewide */
   --spacing: 0.2125rem;
   scroll-behavior: smooth;
-  --heritage-mesh-base: #f7f4ed;
-  --heritage-mesh-sage: rgba(207, 227, 214, 0.72);
-  --heritage-mesh-sage-soft: rgba(207, 227, 214, 0.38);
+  --heritage-mesh-base: #f7f5f2;
+  --heritage-mesh-sage: rgba(30, 58, 95, 0.08);
+  --heritage-mesh-sage-soft: rgba(30, 58, 95, 0.04);
   --heritage-mesh-white: rgba(255, 255, 255, 0.94);
-  --heritage-mesh-beige: rgba(222, 221, 191, 0.78);
-  --heritage-mesh-beige-soft: rgba(222, 221, 191, 0.42);
+  --heritage-mesh-beige: rgba(166, 145, 113, 0.12);
+  --heritage-mesh-beige-soft: rgba(166, 145, 113, 0.06);
   min-height: 100%;
   background-color: var(--heritage-mesh-base);
   background-image:
@@ -45,10 +45,50 @@ html[data-theme='heritage'] body {
   background: transparent;
 }
 
-/* One page background - sections stay transparent */
-[data-theme='heritage'] .heritage-page :is(section, article) {
+/* One page background - sections stay transparent unless marked navy */
+[data-theme='heritage'] .heritage-page :is(section, article):not(.heritage-surface-navy) {
   background-color: transparent;
   background-image: none;
+}
+
+/* Navy surface band (header, footer, selected sections) */
+[data-theme='heritage'] .heritage-surface-navy {
+  background-color: var(--dropbox-blue);
+  color: #ffffff;
+}
+
+[data-theme='heritage'] .heritage-surface-navy .text-foreground {
+  color: #ffffff;
+}
+
+[data-theme='heritage'] .heritage-surface-navy .text-muted-foreground {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+[data-theme='heritage'] .heritage-surface-navy .text-primary {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Light inset panels on navy sections (e.g. assessment card) */
+[data-theme='heritage'] .heritage-surface-navy .heritage-surface-light {
+  color: var(--dropbox-ink);
+}
+
+[data-theme='heritage'] .heritage-surface-navy .heritage-surface-light .text-foreground {
+  color: var(--dropbox-ink);
+}
+
+[data-theme='heritage'] .heritage-surface-navy .heritage-surface-light .text-muted-foreground {
+  color: var(--dropbox-stone);
+}
+
+[data-theme='heritage'] .heritage-surface-navy .heritage-surface-light .text-primary {
+  color: var(--dropbox-blue);
+}
+
+[data-theme='heritage'] .heritage-surface-navy img {
+  filter: brightness(0) invert(1);
+  opacity: 0.82;
 }
 
 .heritage-page .heritage-hero-grid {
@@ -60,36 +100,30 @@ html[data-theme='heritage'] body {
   color: var(--muted-foreground);
 }
 
-/* Default CTAs on heritage pages use forest green, not main-site black */
+/* Default CTAs on heritage pages use Dropbox blue */
 [data-theme='heritage'] [data-slot='button'].bg-foreground {
-  background: linear-gradient(180deg, var(--heritage-green), var(--heritage-green-dark));
+  background: var(--heritage-green);
   color: var(--heritage-green-foreground);
   border-radius: 9999px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 12px 30px -12px var(--heritage-green-glow);
+  box-shadow: 0 12px 30px -12px var(--heritage-green-glow);
 }
 
 [data-theme='heritage'] [data-slot='button'].bg-foreground:hover {
   transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    0 20px 40px -14px var(--heritage-green-glow);
+  background: var(--heritage-green-dark);
+  box-shadow: 0 20px 40px -14px var(--heritage-green-glow);
 }
 
 .heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment'] {
-  background: linear-gradient(180deg, var(--heritage-green), var(--heritage-green-dark));
+  background: var(--heritage-green);
   color: var(--heritage-green-foreground);
   border-radius: 9999px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 12px 30px -12px var(--heritage-green-glow);
+  box-shadow: 0 12px 30px -12px var(--heritage-green-glow);
 }
 
 .heritage-page section[aria-labelledby='cta-heading'] a[href*='assessment']:hover {
   transform: translateY(-2px);
-  filter: brightness(1.05);
+  background: var(--heritage-green-dark);
 }
 
 .heritage-hero-cta-arrow {
