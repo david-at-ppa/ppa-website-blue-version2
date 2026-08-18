@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
 import { ScrollRevealInit } from '@/components/scroll-reveal'
 import { HeritageAssessmentHashScroll } from '@/components/heritage/heritage-assessment-hash-scroll'
-import { HERITAGE_ASSESSMENT_LINK, HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
+import { MainChrome } from '@/components/layout/main-chrome'
 import '@/components/heritage/heritage-overrides.css'
+import '@/components/heritage/home-palette-variation3-red.css'
 
 export const metadata: Metadata = {
   title: {
@@ -20,22 +19,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <>
       <ScrollRevealInit />
       <HeritageAssessmentHashScroll />
-      <div className="heritage-ambient relative flex min-h-full flex-1 flex-col">
-        <Header
-          homeHref="/"
-          ctaHref={HERITAGE_ASSESSMENT_LINK}
-          ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
-          ctaVariant="heritage-on-dark"
-          hideCtaOnPaths={['/booking-confirmed']}
-        />
-        <main className="heritage-page relative z-10 min-w-0 overflow-x-clip">{children}</main>
-        <Footer
-          ctaHref={HERITAGE_ASSESSMENT_LINK}
-          ctaScrollTarget={HERITAGE_ASSESSMENT_ID}
-          ctaVariant="heritage-on-dark"
-          hideCtaOnPaths={['/booking-confirmed']}
-        />
-      </div>
+      <MainChrome>{children}</MainChrome>
     </>
   )
 }

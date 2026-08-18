@@ -7,7 +7,8 @@ import { VidalyticsEmbed } from '@/components/vidalytics-embed'
 import { HeritageHomeSections } from '@/components/heritage/heritage-home-sections'
 import { HeritageIncomeAssessmentSection } from '@/components/heritage/heritage-income-assessment-section'
 
-function HeroSection() {
+function HeroSection({ assessmentLink }: { assessmentLink?: string }) {
+  const ctaHref = assessmentLink ?? HERITAGE_ASSESSMENT_LINK
   return (
     <section
       aria-labelledby="hero-heading"
@@ -33,7 +34,7 @@ function HeroSection() {
           </p>
           <div className="flex w-full flex-col items-center gap-3 pt-2 lg:items-stretch">
             <SmoothScrollLink
-              href={HERITAGE_ASSESSMENT_LINK}
+              href={ctaHref}
               scrollTargetId={HERITAGE_ASSESSMENT_ID}
               className={cn(buttonVariants({ variant: 'heritage', size: 'lg' }), 'heritage-hero-cta w-full')}
             >
@@ -67,12 +68,16 @@ function HeroSection() {
   )
 }
 
-export function HeritageHome() {
+type HeritageHomeProps = {
+  assessmentLink?: string
+}
+
+export function HeritageHome({ assessmentLink }: HeritageHomeProps) {
   return (
     <>
-      <HeroSection />
+      <HeroSection assessmentLink={assessmentLink} />
       <HeritageIncomeAssessmentSection />
-      <HeritageHomeSections />
+      <HeritageHomeSections assessmentLink={assessmentLink} />
     </>
   )
 }

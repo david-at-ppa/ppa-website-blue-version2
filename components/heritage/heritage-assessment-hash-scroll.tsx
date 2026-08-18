@@ -3,12 +3,13 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { HERITAGE_ASSESSMENT_ID } from '@/lib/heritage-content'
+import { isHomeVariationPath } from '@/lib/home-variations'
 
 export function HeritageAssessmentHashScroll() {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (pathname !== '/') return
+    if (pathname !== '/' && !isHomeVariationPath(pathname)) return
     if (window.location.hash !== `#${HERITAGE_ASSESSMENT_ID}`) return
 
     const target = document.getElementById(HERITAGE_ASSESSMENT_ID)

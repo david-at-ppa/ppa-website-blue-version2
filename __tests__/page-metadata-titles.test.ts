@@ -12,6 +12,7 @@ import { metadata as scheduleCMetadata } from '@/app/(main)/schedule-c/page'
 import { metadata as privacyMetadata } from '@/app/(main)/privacy/page'
 import { metadata as termsMetadata } from '@/app/(main)/terms/page'
 import { metadata as disclosuresMetadata } from '@/app/(main)/disclosures/page'
+import { metadata as homeVariation3RedMetadata } from '@/app/(main)/home-variation3-red/page'
 import { resolveDocumentTitle } from '@/lib/resolve-document-title'
 
 const BRAND_SUFFIX = 'Prime Path Advisory'
@@ -37,6 +38,11 @@ describe('page metadata titles', () => {
     ['privacy', privacyMetadata, 'Privacy Policy'],
     ['terms', termsMetadata, 'Terms of Service'],
     ['disclosures', disclosuresMetadata, 'Disclosures'],
+    [
+      'home-variation3-red',
+      homeVariation3RedMetadata,
+      'Tax Strategy for $1M+ Earners (Red Theme Preview)',
+    ],
   ] as const)(
     '%s exports a page-specific title segment',
     (_route, metadata, expectedSegment) => {
@@ -57,6 +63,11 @@ describe('page metadata titles', () => {
     ['privacy', privacyMetadata, 'Privacy Policy | Prime Path Advisory'],
     ['terms', termsMetadata, 'Terms of Service | Prime Path Advisory'],
     ['disclosures', disclosuresMetadata, 'Disclosures | Prime Path Advisory'],
+    [
+      'home-variation3-red',
+      homeVariation3RedMetadata,
+      'Tax Strategy for $1M+ Earners (Red Theme Preview) | Prime Path Advisory',
+    ],
   ] as const)(
     '%s resolves to the expected browser tab title',
     (_route, metadata, expectedTabTitle) => {
